@@ -1,0 +1,18 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+cwd     = os.path.join(str(Dir('#')), 'services')
+src = Split("""
+cJSON.c
+JSON_config.c
+
+""")
+
+
+CPPPATH = [cwd, str(Dir('#'))]
+
+
+group = DefineGroup('services', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

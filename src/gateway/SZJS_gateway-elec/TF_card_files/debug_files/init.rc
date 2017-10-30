@@ -1,0 +1,2 @@
+printf("Hello world!\n");
+copy("/SD/fw_boot.bin","/fw/fw_boot.bin");

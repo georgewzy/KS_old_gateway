@@ -1,0 +1,25 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+cwd     = os.path.join(str(Dir('#')), 'misc')
+src = Split("""
+						memlog.c
+						cpuusage.c
+						CRC16.c
+						
+
+""")
+
+if GetDepend('RT_USING_RYM') == True:
+	src += ['tofile.c']
+
+if GetDepend('RT_USING_INIT_RC') == True:
+	src += ['init_rc.c']
+	
+CPPPATH = [cwd, str(Dir('#'))]
+
+
+group = DefineGroup('misc', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

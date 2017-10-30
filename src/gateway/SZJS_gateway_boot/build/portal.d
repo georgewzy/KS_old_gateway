@@ -1,0 +1,15 @@
+.\build\portal.o: ..\..\RTT_2_1_0\components\drivers\src\portal.c
+.\build\portal.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\portal.o: .\rtconfig.h
+.\build\portal.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\portal.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\portal.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\portal.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\portal.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\portal.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\portal.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h
+.\build\portal.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/spi.h
+.\build\portal.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\portal.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/serial.h
+.\build\portal.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/pin.h
+.\build\portal.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h

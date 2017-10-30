@@ -1,0 +1,5 @@
+printf(" Hello world !\n"); 
+reboot_if_0(sys_cfg); 
+//ISP_unreadprot();
+//ISP_flash("/fw/firmware.bin",0);
+//ISP_readprot();

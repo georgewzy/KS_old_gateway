@@ -1,0 +1,16 @@
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\components\drivers\src\ringbuffer.c
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\ringbuffer.o: .\rtconfig.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\ringbuffer.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/spi.h
+.\build\ringbuffer.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/serial.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/pin.h
+.\build\ringbuffer.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h
+.\build\ringbuffer.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

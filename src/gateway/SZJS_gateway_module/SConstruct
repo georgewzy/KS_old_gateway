@@ -1,0 +1,87 @@
+import os
+import sys
+import SCons.cpp
+import rtconfig
+
+# You must define the system include path here.
+SYS__ROOT = os.path.normpath(os.getcwd() + '/../SZJS_gateway')
+
+# Song: added.    
+# Define the system include path here.
+SYS_INC_PATH = 'D:/Keil_v5/ARM/ARMCC/include'    
+
+if os.getenv('RTT_ROOT'):
+    RTT_ROOT = os.getenv('RTT_ROOT')
+else:
+    RTT_ROOT = os.path.normpath(os.getcwd() + '/../..')
+    
+# Song: use the old version RTT tools
+sys.path = sys.path + [os.path.join('E:/kingsum/project/rtt_src', 'tools')]
+
+# song: modified
+from building import *
+
+Export('RTT_ROOT')
+
+# add target option
+AddOption('--app',
+  dest='app',
+  nargs=1, type='string',
+  action='store',
+  metavar='DIR',
+  help='installation prefix')
+
+# add target option
+AddOption('--type',
+  dest='type',
+  nargs=1, type='string',
+  action='store',
+  metavar='DIR',
+  help='installation prefix')
+
+app = GetOption('app')
+
+if GetOption('type') == 'ext':
+    linkflags = rtconfig.LFLAGS + ' -e 0'
+else:
+    linkflags = rtconfig.LFLAGS + ' -e main'
+
+env = Environment(tools = ['mingw'],
+	AS = rtconfig.AS, ASFLAGS = rtconfig.AFLAGS,
+	CC = rtconfig.CC, CCFLAGS = rtconfig.CFLAGS,
+	CXX = rtconfig.CXX,
+	AR = rtconfig.AR, ARFLAGS = '-rc',
+	LINK = rtconfig.LINK, LINKFLAGS = linkflags,
+	CPPPATH = [
+		SYS__ROOT + "/.",
+		SYS__ROOT + "/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F2xx",
+		SYS__ROOT + "/Libraries/STM32F2xx_StdPeriph_Driver/inc",
+		SYS__ROOT + "/applications",
+		SYS__ROOT + "/config",
+		SYS__ROOT + "/drivers",
+		SYS__ROOT + "/misc",
+		SYS__ROOT + "/services",
+		RTT_ROOT + '/components/CMSIS/Include',
+		RTT_ROOT + "/components/dfs/filesystems/elmfat",
+		RTT_ROOT + "/components/dfs/filesystems/romfs",
+		RTT_ROOT + "/components/dfs/include",
+		RTT_ROOT + "/components/drivers/include",
+		RTT_ROOT + "/components/drivers/spi",
+		RTT_ROOT + "/components/finsh",
+		RTT_ROOT + "/components/libdl",
+		RTT_ROOT + "/components/utilities/logtrace",
+		RTT_ROOT + "/components/utilities/ymodem",
+		RTT_ROOT + "/include",
+		RTT_ROOT + "/libcpu/arm/common",
+		RTT_ROOT + "/libcpu/arm/cortex-m3",
+		])
+env.PrependENVPath('PATH', rtconfig.EXEC_PATH)
+
+PrepareModuleBuilding(env, RTT_ROOT)
+
+dir = app + '/build/' + rtconfig.BSP
+objs = SConscript(app + '/Sconscript', variant_dir=dir, duplicate=0)
+TARGET = dir + '/' + app + '.' + rtconfig.TARGET_EXT
+
+# build program 
+env.Program(TARGET, objs)

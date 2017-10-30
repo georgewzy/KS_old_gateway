@@ -1,0 +1,5 @@
+1, make a app module
+   scons --app=appname
+2, make a lib module
+   scons --app=libname --type=ext
+   

@@ -1,0 +1,10 @@
+.\build\object.o: ..\..\RTT_2_1_0\src\object.c
+.\build\object.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\object.o: .\rtconfig.h
+.\build\object.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\object.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\object.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\object.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\object.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\object.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\object.o: ..\..\RTT_2_1_0\include\rthw.h

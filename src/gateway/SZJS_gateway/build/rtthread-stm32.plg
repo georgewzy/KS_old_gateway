@@ -1,0 +1,1756 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\SZJS\gateway\SZJS_gateway\project.uvproj
+Project File Date:  06/29/2017
+
+<h2>Output:</h2>
+Rebuild target 'RT-Thread STM32'
+compiling application.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+applications\UITD_WIFI.h(34): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include\arch/cc.h(85): warning:  #47-D: incompatible redefinition of macro "PACK_STRUCT_STRUCT" (declared at line 44 of "config\sys_def.h")
+applications\application.c(100): warning:  #223-D: function "mkfs" declared implicitly
+applications\application.c(103): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(103): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\application.c(121): warning:  #223-D: function "mkfs" declared implicitly
+applications\application.c(124): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(124): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\application.c(232): warning:  #223-D: function "rm" declared implicitly
+applications\application.c(239): warning:  #223-D: function "mkfs" declared implicitly
+applications\application.c(241): warning:  #223-D: function "json_cfg_create" declared implicitly
+applications\application.c(242): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\application.c(244): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\application.c(251): warning:  #223-D: function "json_cfg_create" declared implicitly
+applications\application.c(252): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\application.c(263): warning:  #223-D: function "rm" declared implicitly
+applications\application.c(269): warning:  #223-D: function "mkfs" declared implicitly
+applications\application.c(271): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\application.c(278): warning:  #223-D: function "json_cfg_create" declared implicitly
+applications\application.c(279): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\application.c(285): warning:  #223-D: function "json_cfg_create" declared implicitly
+applications\application.c(286): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\application.c(297): warning:  #223-D: function "json_cfg_create_mode" declared implicitly
+applications\application.c(308): warning:  #223-D: function "json_cfg_create_transparent" declared implicitly
+applications\application.c(319): warning:  #223-D: function "json_cfg_create_PRO_UITD" declared implicitly
+applications\application.c(330): warning:  #223-D: function "json_cfg_create_PRO_CTRL" declared implicitly
+applications\application.c(341): warning:  #223-D: function "json_cfg_create_AP01" declared implicitly
+applications\application.c(363): warning:  #223-D: function "json_cfg_create_FA" declared implicitly
+applications\application.c(374): warning:  #223-D: function "json_cfg_create_eth" declared implicitly
+applications\application.c(385): warning:  #223-D: function "json_cfg_create_WIFI" declared implicitly
+applications\application.c(397): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\application.c(410): warning:  #223-D: function "rm" declared implicitly
+applications\application.c(418): warning:  #940-D: missing return statement at end of non-void function "file_zero_clean_up"
+applications\application.c(426): warning:  #223-D: function "rm" declared implicitly
+applications\application.c(422): warning:  #177-D: variable "fd" was declared but never referenced
+applications\application.c(423): warning:  #177-D: variable "stat" was declared but never referenced
+applications\application.c(437): warning:  #223-D: function "rm" declared implicitly
+applications\application.c(533): warning:  #223-D: function "ADC_mother_board_check" declared implicitly
+applications\application.c(536): warning:  #223-D: function "ADC_ext_board_module_check" declared implicitly
+applications\application.c(542): warning:  #223-D: function "ADC_power_battery_init" declared implicitly
+applications\application.c(581): warning:  #223-D: function "finsh_system_init" declared implicitly
+applications\application.c(606): warning:  #223-D: function "finsh_system_init" declared implicitly
+applications\application.c(636): warning:  #223-D: function "log_trace_init" declared implicitly
+applications\application.c(649): warning:  #223-D: function "rt_hw_i2c_init" declared implicitly
+applications\application.c(664): warning:  #223-D: function "VK32xx_init" declared implicitly
+applications\application.c(678): warning:  #223-D: function "mkfs" declared implicitly
+applications\application.c(679): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(679): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\application.c(691): warning:  #223-D: function "mkfs" declared implicitly
+applications\application.c(694): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(694): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\application.c(720): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(720): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\application.c(749): warning:  #223-D: function "touch" declared implicitly
+applications\application.c(750): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\application.c(763): warning:  #223-D: function "json_cfg_load" declared implicitly
+applications\application.c(764): warning:  #223-D: function "json_cfg_wr_sys_cfg" declared implicitly
+applications\application.c(770): warning:  #223-D: function "json_cfg_load_WIFI" declared implicitly
+applications\application.c(781): warning:  #223-D: function "disk_free" declared implicitly
+applications\application.c(784): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\application.c(786): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(786): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\application.c(794): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\application.c(796): warning:  #223-D: function "log_trace_set_file" declared implicitly
+applications\application.c(798): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(799): warning:  #223-D: function "log_trace_list_date" declared implicitly
+applications\application.c(804): warning:  #223-D: function "cpu_usage_init" declared implicitly
+applications\application.c(808): warning:  #223-D: function "do_init" declared implicitly
+applications\application.c(813): warning:  #223-D: function "log_trace" declared implicitly
+applications\application.c(813): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\application.c(814): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\application.c(1201): warning:  #223-D: function "lwip_system_init" declared implicitly
+applications\application.c(1203): warning:  #223-D: function "mco_config" declared implicitly
+applications\application.c(1204): warning:  #223-D: function "json_cfg_load_eth" declared implicitly
+applications\application.c(1419): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\application.c(1420): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\application.c(1432): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\application.c(1433): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\application.c(1439): warning:  #223-D: function "json_cfg_load_mode" declared implicitly
+applications\application.c(1519): warning:  #177-D: variable "tid" was declared but never referenced
+compiling selftest.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+applications\selftest.c(14): warning:  #223-D: function "rt_time" declared implicitly
+applications\selftest.c(17): warning:  #223-D: function "touch" declared implicitly
+applications\selftest.c(22): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(22): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(26): warning:  #223-D: function "sys_get_mother_board_string" declared implicitly
+applications\selftest.c(26): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(26): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\selftest.c(29): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(29): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(36): warning:  #223-D: function "sys_get_ext_dev_module_string" declared implicitly
+applications\selftest.c(36): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(36): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\selftest.c(39): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(39): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(46): warning:  #223-D: function "ctime" declared implicitly
+applications\selftest.c(46): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(46): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\selftest.c(49): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(49): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(70): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(73): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(73): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(82): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(85): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(85): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(92): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(95): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(95): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(104): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(107): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(107): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(114): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(117): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(117): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(139): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(142): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(142): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(149): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(152): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(152): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(159): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(162): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(162): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(172): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(175): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(175): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(182): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\selftest.c(185): warning:  #223-D: function "log_trace" declared implicitly
+applications\selftest.c(185): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\selftest.c(244): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(245): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(247): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(258): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(259): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(261): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(288): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(289): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(291): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(302): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(303): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(305): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(330): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(331): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(333): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(344): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(345): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(347): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(372): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(373): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(375): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(386): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(387): warning:  #223-D: function "json_cfg_wr_sys_mode" declared implicitly
+applications\selftest.c(389): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(403): warning:  #223-D: function "cat" declared implicitly
+applications\selftest.c(413): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(417): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(421): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(428): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(432): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(436): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(450): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(454): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(458): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(465): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(469): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(473): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(488): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(492): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(496): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(504): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(508): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(512): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(527): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(531): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(535): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(543): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(547): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(551): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\selftest.c(561): warning:  #940-D: missing return statement at end of non-void function "testing_status_check"
+compiling UITD_main.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+applications\UITD_main.c(243): warning:  #223-D: function "GPRS_srv_write" declared implicitly
+applications\UITD_main.c(253): warning:  #188-D: enumerated type mixed with another type
+applications\UITD_main.c(266): warning:  #223-D: function "GPRS_listen" declared implicitly
+applications\UITD_main.c(273): warning:  #940-D: missing return statement at end of non-void function "UITD_listen_disconnected"
+applications\UITD_main.c(278): warning:  #940-D: missing return statement at end of non-void function "UITD_listen_received"
+applications\UITD_main.c(284): warning:  #940-D: missing return statement at end of non-void function "UITD_listen_accepted"
+applications\UITD_main.c(290): warning:  #940-D: missing return statement at end of non-void function "UITD_listen_report_IP"
+applications\UITD_main.c(308): warning:  #188-D: enumerated type mixed with another type
+applications\UITD_main.c(323): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD_main.c(323): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD_main.c(328): warning:  #223-D: function "GPRS_connect" declared implicitly
+applications\UITD_main.c(352): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(352): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(343): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_main.c(363): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(363): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(373): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(373): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(386): warning:  #223-D: function "GPRS_srv_write" declared implicitly
+applications\UITD_main.c(401): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(401): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(404): warning:  #940-D: missing return statement at end of non-void function "UITD_GPRS_received"
+applications\UITD_main.c(416): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(416): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(424): warning:  #940-D: missing return statement at end of non-void function "UITD_GPRS_report_IP"
+applications\UITD_main.c(438): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(438): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(479): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(479): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(509): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(509): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(543): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_main.c(556): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(556): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(572): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_main.c(577): warning:  #223-D: function "UITD_service_handler" declared implicitly
+applications\UITD_main.c(585): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_main.c(587): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\UITD_main.c(627): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(627): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(657): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(657): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(692): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(692): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(708): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_main.c(713): warning:  #223-D: function "UITD_service_handler" declared implicitly
+applications\UITD_main.c(745): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_main.c(767): warning:  #223-D: function "UITD_firmware_upgrade" declared implicitly
+applications\UITD_main.c(774): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(774): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(779): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(779): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(786): warning:  #223-D: function "UITD_download_file" declared implicitly
+applications\UITD_main.c(794): warning:  #223-D: function "UITD_get_time" declared implicitly
+applications\UITD_main.c(802): warning:  #223-D: function "UITD_file_upload_file_info" declared implicitly
+applications\UITD_main.c(811): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(811): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(815): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(815): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(817): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(817): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(827): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(827): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(828): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(828): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(833): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(833): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(834): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(834): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(835): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(835): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(840): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(840): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(847): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(847): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(851): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(851): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(853): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(853): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(863): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(863): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(864): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(864): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(869): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(869): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(870): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(870): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(871): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(871): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(876): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_main.c(876): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_main.c(58): warning:  #177-D: variable "test_hello" was declared but never referenced
+applications\UITD_main.c(60): warning:  #177-D: variable "COM_pkt_01" was declared but never referenced
+applications\UITD_main.c(70): warning:  #177-D: variable "COM_pkt_02" was declared but never referenced
+applications\UITD_main.c(80): warning:  #177-D: variable "COM_pkt_03" was declared but never referenced
+applications\UITD_main.c(90): warning:  #177-D: variable "COM_pkt_04" was declared but never referenced
+applications\UITD_main.c(99): warning:  #177-D: variable "COM_pkt_05" was declared but never referenced
+compiling UITD_eth.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include\arch/cc.h(85): warning:  #47-D: incompatible redefinition of macro "PACK_STRUCT_STRUCT" (declared at line 44 of "config\sys_def.h")
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+applications\UITD_eth.c(114): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD_eth.c(125): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(125): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(165): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(165): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(92): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_eth.c(95): warning:  #177-D: variable "to" was declared but never referenced
+applications\UITD_eth.c(97): warning:  #177-D: variable "netif" was declared but never referenced
+applications\UITD_eth.c(233): warning:  #188-D: enumerated type mixed with another type
+applications\UITD_eth.c(248): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD_eth.c(248): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD_eth.c(257): warning:  #167-D: argument of type "pFun_srv_disconnected" is incompatible with parameter of type "pFun_eth_disconnected"
+applications\UITD_eth.c(258): warning:  #167-D: argument of type "pFun_srv_received" is incompatible with parameter of type "pFun_eth_received"
+applications\UITD_eth.c(261): warning:  #167-D: argument of type "pFun_srv_report_IP" is incompatible with parameter of type "pFun_eth_report_IP"
+applications\UITD_eth.c(275): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(275): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(280): warning:  #223-D: function "UITD_sensor_handler_init" declared implicitly
+applications\UITD_eth.c(282): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(282): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(272): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_eth.c(291): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(291): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(308): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(308): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(323): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(323): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(326): warning:  #940-D: missing return statement at end of non-void function "UITD_eth_received"
+applications\UITD_eth.c(338): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(338): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(355): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(355): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(360): warning:  #223-D: function "UITD_sensor_handler_2_init" declared implicitly
+applications\UITD_eth.c(362): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(362): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(352): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_eth.c(402): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(402): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(422): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(422): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(454): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(454): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(467): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_eth.c(471): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_eth.c(536): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_eth.c(554): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(554): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(578): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_eth.c(583): warning:  #223-D: function "UITD_service_handler" declared implicitly
+applications\UITD_eth.c(589): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_eth.c(591): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\UITD_eth.c(372): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD_eth.c(602): warning:  #177-D: variable "e" was declared but never referenced
+applications\UITD_eth.c(603): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_eth.c(667): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(667): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(687): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(687): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(722): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(722): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(786): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(786): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(815): warning:  #223-D: function "UITD_service_handler" declared implicitly
+applications\UITD_eth.c(821): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_eth.c(823): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\UITD_eth.c(645): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD_eth.c(834): warning:  #177-D: variable "e" was declared but never referenced
+applications\UITD_eth.c(835): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_eth.c(875): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_eth.c(947): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(947): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(951): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(951): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(953): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(953): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(963): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(963): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(964): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(964): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(969): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(969): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(970): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(970): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(971): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(971): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(976): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(976): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(977): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(977): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(983): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(983): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(987): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(987): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(989): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(989): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(999): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(999): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(1000): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(1000): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(1005): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(1005): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(1006): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(1006): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(1007): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(1007): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(1012): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(1012): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(1013): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_eth.c(1013): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_eth.c(52): warning:  #177-D: variable "eth_SZJS_cfg_IP" was declared but never referenced
+applications\UITD_eth.c(76): warning:  #177-D: variable "test_hello" was declared but never referenced
+compiling startup.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+compiling sys_misc.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+applications\sys_misc.c(272): warning:  #188-D: enumerated type mixed with another type
+applications\sys_misc.c(348): warning:  #177-D: variable "temp_u16" was declared but never referenced
+applications\sys_misc.c(500): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\sys_misc.c(558): warning:  #223-D: function "rm" declared implicitly
+applications\sys_misc.c(632): warning:  #223-D: function "log_trace_close" declared implicitly
+applications\sys_misc.c(633): warning:  #223-D: function "rm" declared implicitly
+applications\sys_misc.c(721): warning:  #223-D: function "Crc16" declared implicitly
+applications\sys_misc.c(725): warning:  #223-D: function "Crc16" declared implicitly
+applications\sys_misc.c(741): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\sys_misc.c(737): warning:  #177-D: variable "p_device" was declared but never referenced
+applications\sys_misc.c(798): warning:  #1-D: last line of file ends without a newline
+compiling UITD.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+applications\UITD.c(32): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(51): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(63): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(80): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(92): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(111): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(123): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(135): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(214): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(214): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(220): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(220): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(227): warning:  #940-D: missing return statement at end of non-void function "UITD_net_send_data"
+applications\UITD.c(239): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(243): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(248): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(303): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(303): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(439): warning:  #513-D: a value of type "int (*)(int, const void *, size_t)" cannot be assigned to an entity of type "pFun_file_write"
+applications\UITD.c(404): warning:  #177-D: variable "p" was declared but never referenced
+applications\UITD.c(487): warning:  #223-D: function "UITD_service_init" declared implicitly
+applications\UITD.c(496): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(497): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\UITD.c(498): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\UITD.c(499): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\UITD.c(500): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\UITD.c(516): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(518): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(518): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(521): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(521): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(561): warning:  #940-D: missing return statement at end of non-void function "UITD_disconnect"
+applications\UITD.c(611): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(742): warning:  #111-D: statement is unreachable
+applications\UITD.c(821): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(821): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(823): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(823): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(824): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(824): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(826): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(826): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(833): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(833): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(841): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(841): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(849): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(849): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(851): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(851): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(853): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(853): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(865): warning:  #223-D: function "rt_time" declared implicitly
+applications\UITD.c(914): warning:  #223-D: function "mktime" declared implicitly
+applications\UITD.c(916): warning:  #223-D: function "set_time_date" declared implicitly
+applications\UITD.c(1066): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1066): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1075): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1075): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1153): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1178): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1178): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1183): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1183): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1221): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1242): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1264): warning:  #223-D: function "UITD_file_req_pkt" declared implicitly
+applications\UITD.c(1289): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(1289): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(1292): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(1294): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1294): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1304): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(1310): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(1314): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1314): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1317): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(1321): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1321): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1325): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(1329): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1329): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1333): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1333): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1342): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1342): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1354): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1354): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1273): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD.c(1383): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(1361): warning:  #177-D: variable "s" was declared but never referenced
+applications\UITD.c(1437): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(1469): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1487): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1513): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(1513): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(1508): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1531): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(1531): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(1532): warning:  #223-D: function "file_get_length" declared implicitly
+applications\UITD.c(1535): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1535): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1539): warning:  #223-D: function "file_get_CRC16" declared implicitly
+applications\UITD.c(1542): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1542): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1526): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1559): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1582): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1613): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1613): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1621): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1645): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1666): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1728): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1748): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1790): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1861): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1861): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1922): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1922): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1827): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(1973): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(1973): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1958): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(2001): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2001): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(1994): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(2025): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2025): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2035): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2035): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2020): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(2061): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2061): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2057): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(2101): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2101): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2086): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD.c(2194): warning:  #177-D: variable "status" was declared but never referenced
+applications\UITD.c(2222): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2222): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2225): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2225): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2231): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2231): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2234): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2234): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2239): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2239): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2242): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2242): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2254): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2254): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2259): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2259): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2285): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2285): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2290): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2290): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2304): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2304): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2305): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2305): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2306): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2306): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2307): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2307): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2308): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2308): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2320): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2320): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2331): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2331): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2332): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2332): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2333): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2333): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2334): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2334): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2335): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2335): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2352): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2352): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2353): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2353): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2354): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2354): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2364): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2364): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2381): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2381): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2386): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2386): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2401): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2401): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2423): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2423): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2428): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2428): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2464): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2464): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2481): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2481): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2547): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2547): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2557): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2557): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2562): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2562): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2563): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2563): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2564): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2564): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2565): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2565): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2574): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2574): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2603): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(2603): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(2625): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2625): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2645): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2645): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2663): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2663): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2664): warning:  #223-D: function "script_exec" declared implicitly
+applications\UITD.c(2810): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2810): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(2811): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(2811): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3114): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3114): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3117): warning:  #940-D: missing return statement at end of non-void function "UITD_deal"
+applications\UITD.c(2213): warning:  #177-D: variable "file_data_rec" was declared but never referenced
+applications\UITD.c(3141): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+applications\UITD.c(3144): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3144): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3177): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3177): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3182): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3182): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3194): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3194): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3202): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3202): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3221): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3221): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3227): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3227): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3234): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3234): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3251): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3251): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3288): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3288): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3303): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3303): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3313): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3313): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3323): warning:  #940-D: missing return statement at end of non-void function "UITD_send_handler"
+applications\UITD.c(3328): warning:  #177-D: variable "p" was declared but never referenced
+applications\UITD.c(3353): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3353): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3362): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3362): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3392): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3392): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3393): warning:  #223-D: function "touch" declared implicitly
+applications\UITD.c(3369): warning:  #177-D: variable "fw" was declared but never referenced
+applications\UITD.c(3370): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD.c(3412): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3412): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3413): warning:  #223-D: function "UITD_download_firmware" declared implicitly
+applications\UITD.c(3423): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(3423): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+applications\UITD.c(3427): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD.c(3427): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+applications\UITD.c(3430): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(3430): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(3448): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(3450): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(3450): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(3468): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(3468): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(3473): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(3473): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(3493): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(3495): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\UITD.c(3495): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(3520): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+applications\UITD.c(3520): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\UITD.c(3520): warning:  #181-D: argument is incompatible with corresponding format string conversion
+applications\UITD.c(3557): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\UITD.c(3604): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3604): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3638): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3638): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3670): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3670): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3696): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3696): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3728): warning:  #223-D: function "rm" declared implicitly
+applications\UITD.c(3732): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3732): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3743): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(3743): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(3542): warning:  #177-D: variable "temp_pkt" was declared but never referenced
+applications\UITD.c(3986): warning:  #188-D: enumerated type mixed with another type
+applications\UITD.c(3986): warning:  #68-D: integer conversion resulted in a change of sign
+applications\UITD.c(4048): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD.c(4048): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD.c(4065): warning:  #940-D: missing return statement at end of non-void function "UITD_server"
+applications\UITD.c(170): warning:  #177-D: variable "file_data_request" was declared but never referenced
+applications\UITD.c(174): warning:  #177-D: variable "p_IO_input_cfg" was declared but never referenced
+applications\UITD.c(175): warning:  #177-D: variable "IO_input_cfg_report_temp" was declared but never referenced
+compiling sys_status.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+applications\sys_status.c(13): warning:  #188-D: enumerated type mixed with another type
+applications\sys_status.c(744): warning:  #223-D: function "ADC_power_battery_sample" declared implicitly
+applications\sys_status.c(857): warning:  #177-D: variable "res" was declared but never referenced
+compiling sensor_sample.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+applications\sensor_sample.c(65): warning:  #223-D: function "json_cfg_load_AP01" declared implicitly
+applications\sensor_sample.c(75): warning:  #223-D: function "log_trace" declared implicitly
+applications\sensor_sample.c(75): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\sensor_sample.c(82): warning:  #223-D: function "log_trace" declared implicitly
+applications\sensor_sample.c(82): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\sensor_sample.c(89): warning:  #167-D: argument of type "void (*)(void *)" is incompatible with parameter of type "pFun_sensor_init"
+applications\sensor_sample.c(33): warning:  #177-D: variable "res" was declared but never referenced
+compiling fire_alarm.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+applications\fire_alarm.c(2020): warning:  #223-D: function "strcmp" declared implicitly
+applications\fire_alarm.c(2025): warning:  #940-D: missing return statement at end of non-void function "com_bus_rx_ind"
+applications\fire_alarm.c(2033): warning:  #940-D: missing return statement at end of non-void function "com_bus_tx_complete"
+applications\fire_alarm.c(2089): warning:  #111-D: statement is unreachable
+applications\fire_alarm.c(2167): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2167): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2189): warning:  #111-D: statement is unreachable
+applications\fire_alarm.c(2210): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2210): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2304): warning:  #111-D: statement is unreachable
+applications\fire_alarm.c(2484): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2484): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2511): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2511): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2532): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2532): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2633): warning:  #188-D: enumerated type mixed with another type
+applications\fire_alarm.c(2651): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2651): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2660): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2660): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2667): warning:  #513-D: a value of type "int (*)(s_com_bus_cb *)" cannot be assigned to an entity of type "pFun_FAC_rx_parser"
+applications\fire_alarm.c(2668): warning:  #513-D: a value of type "int (*)(s_com_bus_cb *)" cannot be assigned to an entity of type "pFun_FAC_rx_handler"
+applications\fire_alarm.c(2669): warning:  #513-D: a value of type "int (*)(s_com_bus_cb *)" cannot be assigned to an entity of type "pFun_FAC_server"
+applications\fire_alarm.c(2682): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\fire_alarm.c(2683): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2683): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2695): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\fire_alarm.c(2705): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2705): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2710): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2710): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2715): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2715): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2720): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2720): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2723): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2723): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2733): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2733): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2761): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+applications\fire_alarm.c(2762): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2762): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2764): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\fire_alarm.c(2770): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2770): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2783): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2783): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2790): warning:  #513-D: a value of type "int (*)(s_com_bus_cb *)" cannot be assigned to an entity of type "pFun_FAC_rx_parser"
+applications\fire_alarm.c(2791): warning:  #513-D: a value of type "int (*)(s_com_bus_cb *)" cannot be assigned to an entity of type "pFun_FAC_rx_handler"
+applications\fire_alarm.c(2792): warning:  #513-D: a value of type "int (*)(s_com_bus_cb *)" cannot be assigned to an entity of type "pFun_FAC_server"
+applications\fire_alarm.c(2621): warning:  #177-D: variable "index" was declared but never referenced
+applications\fire_alarm.c(2892): warning:  #223-D: function "json_cfg_load_FA" declared implicitly
+applications\fire_alarm.c(2898): warning:  #188-D: enumerated type mixed with another type
+applications\fire_alarm.c(2905): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\fire_alarm.c(2908): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2908): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2923): warning:  #223-D: function "log_trace" declared implicitly
+applications\fire_alarm.c(2923): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\fire_alarm.c(2928): warning:  #513-D: a value of type "volatile s_com_bus_cb *" cannot be assigned to an entity of type "s_com_bus_cb *"
+applications\fire_alarm.c(2933): warning:  #167-D: argument of type "volatile s_com_bus_cb *" is incompatible with parameter of type "s_com_bus_cb *"
+applications\fire_alarm.c(2937): warning:  #167-D: argument of type "volatile s_com_bus_cb *" is incompatible with parameter of type "s_com_bus_cb *"
+applications\fire_alarm.c(2969): warning:  #167-D: argument of type "volatile s_com_bus_cb *" is incompatible with parameter of type "s_com_bus_cb *"
+applications\fire_alarm.c(2973): warning:  #167-D: argument of type "volatile s_com_bus_cb *" is incompatible with parameter of type "s_com_bus_cb *"
+applications\fire_alarm.c(2985): warning:  #167-D: argument of type "volatile s_com_bus_R_power_off *" is incompatible with parameter of type "void *"
+applications\fire_alarm.c(2986): warning:  #167-D: argument of type "volatile s_com_bus_R_power_off *" is incompatible with parameter of type "void *"
+applications\fire_alarm.c(2802): warning:  #177-D: variable "res" was declared but never referenced
+applications\fire_alarm.c(2803): warning:  #177-D: variable "data_temp" was declared but never referenced
+applications\fire_alarm.c(2804): warning:  #177-D: variable "pin_state" was declared but never referenced
+applications\fire_alarm.c(2805): warning:  #177-D: variable "pin_state_last" was declared but never referenced
+applications\fire_alarm.c(3029): warning:  #167-D: argument of type "volatile s_com_bus_cb *" is incompatible with parameter of type "s_com_bus_cb *"
+applications\fire_alarm.c(3034): warning:  #167-D: argument of type "volatile s_com_bus_cb *" is incompatible with parameter of type "void *"
+applications\fire_alarm.c(3036): warning:  #167-D: argument of type "volatile s_com_bus_cb *" is incompatible with parameter of type "void *"
+applications\fire_alarm.c(3061): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+compiling controller.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+applications\controller.c(54): warning:  #223-D: function "log_trace" declared implicitly
+applications\controller.c(54): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\controller.c(58): warning:  #167-D: argument of type "volatile s_IO_input_cb *" is incompatible with parameter of type "s_IO_input_cb *"
+applications\controller.c(72): warning:  #167-D: argument of type "volatile s_IO_input_cb *" is incompatible with parameter of type "s_IO_input_cb *"
+applications\controller.c(33): warning:  #177-D: variable "res" was declared but never referenced
+applications\controller.c(101): warning:  #223-D: function "log_trace" declared implicitly
+applications\controller.c(101): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\controller.c(81): warning:  #177-D: variable "res" was declared but never referenced
+compiling sntp.c...
+config\sys_config.h(12): warning:  #47-D: incompatible redefinition of macro "SYS_DEBUG" (declared at line 1996 of "..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\include\lwip/opt.h")
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+config\sys_def.h(44): warning:  #47-D: incompatible redefinition of macro "PACK_STRUCT_STRUCT" (declared at line 85 of "..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include\arch/cc.h")
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+applications\sntp.c(114): warning:  #223-D: function "set_time_date" declared implicitly
+applications\sntp.c(189): warning:  #223-D: function "log_trace" declared implicitly
+applications\sntp.c(189): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\sntp.c(190): warning:  #223-D: function "list_date" declared implicitly
+compiling UITD_BLE.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+applications\UITD_BLE.c(35): warning:  #940-D: missing return statement at end of non-void function "module_BLE_rx_ind"
+applications\UITD_BLE.c(41): warning:  #940-D: missing return statement at end of non-void function "module_BLE_tx_complete"
+applications\UITD_BLE.c(61): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\UITD_BLE.c(64): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_BLE.c(64): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_BLE.c(95): warning:  #177-D: variable "srv_handler" was declared but never referenced
+applications\UITD_BLE.c(96): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_BLE.c(121): warning:  #167-D: argument of type "pFun_srv_disconnected" is incompatible with parameter of type "pFun_BLE_disconnected"
+applications\UITD_BLE.c(122): warning:  #167-D: argument of type "pFun_srv_received" is incompatible with parameter of type "pFun_BLE_received"
+applications\UITD_BLE.c(125): warning:  #167-D: argument of type "pFun_srv_report_IP" is incompatible with parameter of type "pFun_BLE_report_IP"
+applications\UITD_BLE.c(185): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_BLE.c(185): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_BLE.c(226): warning:  #223-D: function "UITD_sensor_handler_init" declared implicitly
+applications\UITD_BLE.c(227): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_BLE.c(237): warning:  #223-D: function "UITD_service_handler" declared implicitly
+applications\UITD_BLE.c(196): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_BLE.c(197): warning:  #177-D: variable "i" was declared but never referenced
+applications\UITD_BLE.c(248): warning:  #177-D: variable "e" was declared but never referenced
+applications\UITD_BLE.c(302): warning:  #1-D: last line of file ends without a newline
+applications\UITD_BLE.c(289): warning:  #177-D: variable "res" was declared but never referenced
+compiling UITD_WIFI.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+applications\UITD_WIFI.h(34): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+applications\UITD_WIFI.c(54): warning:  #223-D: function "WIFI_srv_write" declared implicitly
+applications\UITD_WIFI.c(65): warning:  #940-D: missing return statement at end of non-void function "UITD_WIFI_listen_listen"
+applications\UITD_WIFI.c(71): warning:  #940-D: missing return statement at end of non-void function "UITD_WIFI_listen_disconnected"
+applications\UITD_WIFI.c(76): warning:  #940-D: missing return statement at end of non-void function "UITD_WIFI_listen_received"
+applications\UITD_WIFI.c(82): warning:  #940-D: missing return statement at end of non-void function "UITD_WIFI_listen_accepted"
+applications\UITD_WIFI.c(88): warning:  #940-D: missing return statement at end of non-void function "UITD_WIFI_listen_report_IP"
+applications\UITD_WIFI.c(101): warning:  #188-D: enumerated type mixed with another type
+applications\UITD_WIFI.c(120): warning:  #223-D: function "WIFI_connect" declared implicitly
+applications\UITD_WIFI.c(142): warning:  #223-D: function "UITD_sensor_handler_init" declared implicitly
+applications\UITD_WIFI.c(144): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(144): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(135): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_WIFI.c(153): warning:  #223-D: function "WIFI_disconnect" declared implicitly
+applications\UITD_WIFI.c(155): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(155): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(165): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(165): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(178): warning:  #223-D: function "WIFI_srv_write" declared implicitly
+applications\UITD_WIFI.c(193): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(193): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(196): warning:  #940-D: missing return statement at end of non-void function "UITD_WIFI_received"
+applications\UITD_WIFI.c(208): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(208): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(216): warning:  #940-D: missing return statement at end of non-void function "UITD_WIFI_report_IP"
+applications\UITD_WIFI.c(227): warning:  #223-D: function "UITD_sensor_handler_2_init" declared implicitly
+applications\UITD_WIFI.c(230): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(230): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(269): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(269): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(291): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(291): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(302): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_WIFI.c(306): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_WIFI.c(325): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_WIFI.c(334): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(334): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(354): warning:  #223-D: function "UITD_service_handler" declared implicitly
+applications\UITD_WIFI.c(363): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_WIFI.c(365): warning:  #223-D: function "sys_reboot" declared implicitly
+applications\UITD_WIFI.c(402): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(402): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(425): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(425): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(450): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_WIFI.c(459): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(459): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(475): warning:  #223-D: function "sys_status_set" declared implicitly
+applications\UITD_WIFI.c(480): warning:  #223-D: function "UITD_service_handler" declared implicitly
+applications\UITD_WIFI.c(494): warning:  #177-D: variable "res" was declared but never referenced
+applications\UITD_WIFI.c(520): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(520): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(524): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(524): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(526): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(526): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(536): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(536): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(537): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(537): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(542): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(542): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(543): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(543): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(544): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(544): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(549): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(549): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(556): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(556): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(560): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(560): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(562): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(562): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(572): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(572): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(573): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(573): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(578): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(578): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(579): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(579): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(580): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(580): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\UITD_WIFI.c(585): warning:  #223-D: function "log_trace" declared implicitly
+applications\UITD_WIFI.c(585): warning:  #223-D: function "log_trace_flush" declared implicitly
+compiling transparent.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+applications\transparent.c(26): warning:  #940-D: missing return statement at end of non-void function "transparent_rx_ind"
+applications\transparent.c(32): warning:  #940-D: missing return statement at end of non-void function "transparent_tx_complete"
+applications\transparent.c(63): warning:  #223-D: function "strlen" declared implicitly
+applications\transparent.c(83): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+applications\transparent.c(86): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(86): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(102): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(102): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(110): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(110): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(160): warning:  #223-D: function "UITD_trans_time" declared implicitly
+applications\transparent.c(181): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(181): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(189): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(189): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(199): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(199): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(238): warning:  #940-D: missing return statement at end of non-void function "transparent_server"
+applications\transparent.c(210): warning:  #177-D: variable "res" was declared but never referenced
+applications\transparent.c(258): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(258): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(271): warning:  #223-D: function "rt_time" declared implicitly
+applications\transparent.c(282): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(282): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(306): warning:  #223-D: function "log_trace" declared implicitly
+applications\transparent.c(306): warning:  #223-D: function "log_trace_flush" declared implicitly
+applications\transparent.c(310): warning:  #223-D: function "json_cfg_load_transparent" declared implicitly
+applications\transparent.c(312): warning:  #167-D: argument of type "volatile s_transparent_cb *" is incompatible with parameter of type "s_transparent_cb *"
+applications\transparent.c(318): warning:  #167-D: argument of type "volatile s_transparent_cb *" is incompatible with parameter of type "s_transparent_cb *"
+applications\transparent.c(340): warning:  #167-D: argument of type "volatile s_transparent_cb *" is incompatible with parameter of type "s_transparent_cb *"
+applications\transparent.c(329): warning:  #177-D: variable "res" was declared but never referenced
+compiling board.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+drivers\board.c(54): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(146): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(147): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(148): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(149): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(150): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(151): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(152): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(153): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(154): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(161): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(162): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(163): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(164): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(165): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(166): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(167): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(168): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(169): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(170): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(171): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(172): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(173): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(174): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(177): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(178): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(179): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(181): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(182): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(183): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(184): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(185): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(186): warning:  #188-D: enumerated type mixed with another type
+drivers\board.c(502): warning:  #223-D: function "sys_reboot" declared implicitly
+drivers\board.c(484): warning:  #177-D: variable "iwdg_cnt" was declared but never referenced
+drivers\board.c(718): warning:  #940-D: missing return statement at end of non-void function "sys_get_mother_board_string"
+drivers\board.c(738): warning:  #940-D: missing return statement at end of non-void function "sys_get_ext_dev_module_string"
+compiling stm32f2xx_it.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+compiling usart.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\usart.c(650): warning:  #177-D: variable "config" was declared but never referenced
+drivers\usart.c(777): warning:  #177-D: variable "config" was declared but never referenced
+compiling rtc.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\rtc.c(254): warning:  #940-D: missing return statement at end of non-void function "RTC_alarm_cfg"
+drivers\rtc.c(463): warning:  #177-D: variable "now" was declared but never referenced
+compiling platform.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\platform.c(627): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\platform.c(627): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\platform.c(662): warning:  #223-D: function "stm32_hw_usart_assign" declared implicitly
+drivers\platform.c(672): warning:  #223-D: function "list_date" declared implicitly
+compiling GSM_MG301.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\GSM_MG301.c(124): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(124): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(128): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(129): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(129): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(132): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(132): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(182): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(182): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(203): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(203): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(205): warning:  #223-D: function "sys_reboot" declared implicitly
+drivers\GSM_MG301.c(219): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(219): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(349): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(360): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(371): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(381): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(395): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(402): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(429): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(437): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(464): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(472): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(495): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(491): warning:  #177-D: variable "res" was declared but never referenced
+drivers\GSM_MG301.c(505): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(518): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(514): warning:  #177-D: variable "res" was declared but never referenced
+drivers\GSM_MG301.c(533): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(527): warning:  #177-D: variable "res" was declared but never referenced
+drivers\GSM_MG301.c(543): warning:  #940-D: missing return statement at end of non-void function "GSM_srv_power_on"
+drivers\GSM_MG301.c(549): warning:  #940-D: missing return statement at end of non-void function "GSM_srv_shutdown"
+drivers\GSM_MG301.c(555): warning:  #940-D: missing return statement at end of non-void function "GSM_srv_gprs_down"
+drivers\GSM_MG301.c(566): warning:  #223-D: function "GPRS_srv_release" declared implicitly
+drivers\GSM_MG301.c(571): warning:  #940-D: missing return statement at end of non-void function "GSM_srv_gprs_down_force"
+drivers\GSM_MG301.c(580): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(584): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(590): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(590): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(593): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(597): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(602): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(602): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(605): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(605): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(605): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(608): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(608): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(611): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(611): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(618): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(622): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(626): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(626): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(629): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(629): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(631): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(643): warning:  #223-D: function "rt_mktime" declared implicitly
+drivers\GSM_MG301.c(647): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(647): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(651): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(673): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(673): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(697): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(698): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(700): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(700): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(703): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(703): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(706): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(706): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(709): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(709): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(712): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(712): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(715): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(715): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(720): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(721): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(722): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(723): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(724): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(725): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(749): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(757): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(757): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(761): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\GSM_MG301.c(761): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\GSM_MG301.c(762): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(762): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(764): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(764): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\GSM_MG301.c(577): warning:  #177-D: variable "temp_1" was declared but never referenced
+drivers\GSM_MG301.c(577): warning:  #177-D: variable "temp_2" was declared but never referenced
+drivers\GSM_MG301.c(577): warning:  #177-D: variable "temp_3" was declared but never referenced
+drivers\GSM_MG301.c(577): warning:  #177-D: variable "temp_4" was declared but never referenced
+drivers\GSM_MG301.c(788): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(788): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(783): warning:  #177-D: variable "p" was declared but never referenced
+drivers\GSM_MG301.c(1102): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(1102): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(1104): warning:  #223-D: function "set_time_date" declared implicitly
+drivers\GSM_MG301.c(1105): warning:  #223-D: function "list_date" declared implicitly
+drivers\GSM_MG301.c(1112): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(1112): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(1117): warning:  #940-D: missing return statement at end of non-void function "GSM_srv_report_deal"
+drivers\GSM_MG301.c(1280): warning:  #223-D: function "GPRS_server_handler" declared implicitly
+drivers\GSM_MG301.c(1341): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(1341): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(1121): warning:  #177-D: variable "test_char" was declared but never referenced
+drivers\GSM_MG301.c(1474): warning:  #940-D: missing return statement at end of non-void function "GPRS_disconnect"
+drivers\GSM_MG301.c(1640): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(1640): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(1641): warning:  #223-D: function "sys_reboot" declared implicitly
+drivers\GSM_MG301.c(1666): warning:  #940-D: missing return statement at end of non-void function "GPRS_server_rec_handler"
+drivers\GSM_MG301.c(1757): warning:  #940-D: missing return statement at end of non-void function "GPRS_server_handler"
+drivers\GSM_MG301.c(1772): warning:  #940-D: missing return statement at end of non-void function "GSM_MG301_rx_ind"
+drivers\GSM_MG301.c(1779): warning:  #940-D: missing return statement at end of non-void function "GSM_MG301_tx_complete"
+drivers\GSM_MG301.c(1784): warning:  #177-D: variable "c" was declared but never referenced
+drivers\GSM_MG301.c(1806): warning:  #177-D: variable "e" was declared but never referenced
+drivers\GSM_MG301.c(1807): warning:  #177-D: variable "res" was declared but never referenced
+drivers\GSM_MG301.c(1871): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(1871): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(1885): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(1885): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(1977): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(1978): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(1985): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(1987): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(1991): warning:  #223-D: function "log_trace" declared implicitly
+drivers\GSM_MG301.c(1991): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\GSM_MG301.c(2032): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(2034): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\GSM_MG301.c(2059): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\GSM_MG301.c(2061): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+compiling WIFI_ESP_07.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\WIFI_ESP_07.c(66): warning:  #940-D: missing return statement at end of non-void function "WIFI_rx_ind"
+drivers\WIFI_ESP_07.c(73): warning:  #940-D: missing return statement at end of non-void function "WIFI_tx_complete"
+drivers\WIFI_ESP_07.c(80): warning:  #940-D: missing return statement at end of non-void function "ESP_srv_power_on"
+drivers\WIFI_ESP_07.c(86): warning:  #940-D: missing return statement at end of non-void function "ESP_srv_shutdown"
+drivers\WIFI_ESP_07.c(122): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(122): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\WIFI_ESP_07.c(126): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+drivers\WIFI_ESP_07.c(126): warning:  #181-D: argument is incompatible with corresponding format string conversion
+drivers\WIFI_ESP_07.c(128): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(128): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\WIFI_ESP_07.c(131): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(131): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\WIFI_ESP_07.c(183): warning:  #223-D: function "ESP_srv_rec_handler" declared implicitly
+drivers\WIFI_ESP_07.c(176): warning:  #177-D: variable "c" was declared but never referenced
+drivers\WIFI_ESP_07.c(206): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(206): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(224): warning:  #167-D: argument of type "uint32_t *" is incompatible with parameter of type "rt_uint32_t *"
+drivers\WIFI_ESP_07.c(229): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(229): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(241): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(241): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(243): warning:  #223-D: function "sys_reboot" declared implicitly
+drivers\WIFI_ESP_07.c(200): warning:  #550-D: variable "counter" was set but never used
+drivers\WIFI_ESP_07.c(314): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\WIFI_ESP_07.c(308): warning:  #177-D: variable "res" was declared but never referenced
+drivers\WIFI_ESP_07.c(384): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\WIFI_ESP_07.c(414): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\WIFI_ESP_07.c(422): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\WIFI_ESP_07.c(443): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\WIFI_ESP_07.c(458): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(466): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(485): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(503): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(503): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\WIFI_ESP_07.c(507): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(511): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+drivers\WIFI_ESP_07.c(511): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+drivers\WIFI_ESP_07.c(454): warning:  #550-D: variable "p" was set but never used
+drivers\WIFI_ESP_07.c(455): warning:  #177-D: variable "temp_1" was declared but never referenced
+drivers\WIFI_ESP_07.c(455): warning:  #177-D: variable "temp_2" was declared but never referenced
+drivers\WIFI_ESP_07.c(455): warning:  #177-D: variable "temp_3" was declared but never referenced
+drivers\WIFI_ESP_07.c(455): warning:  #177-D: variable "temp_4" was declared but never referenced
+drivers\WIFI_ESP_07.c(456): warning:  #177-D: variable "temp_int" was declared but never referenced
+drivers\WIFI_ESP_07.c(548): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(548): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(649): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(649): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(655): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(655): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(687): warning:  #223-D: function "WIFI_server_rec_handler" declared implicitly
+drivers\WIFI_ESP_07.c(543): warning:  #177-D: variable "p" was declared but never referenced
+drivers\WIFI_ESP_07.c(544): warning:  #177-D: variable "i" was declared but never referenced
+drivers\WIFI_ESP_07.c(751): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(751): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(1090): warning:  #940-D: missing return statement at end of non-void function "WIFI_disconnect"
+drivers\WIFI_ESP_07.c(1242): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(1242): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(1262): warning:  #177-D: variable "e" was declared but never referenced
+drivers\WIFI_ESP_07.c(1263): warning:  #177-D: variable "res" was declared but never referenced
+drivers\WIFI_ESP_07.c(1324): warning:  #223-D: function "log_trace" declared implicitly
+drivers\WIFI_ESP_07.c(1324): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\WIFI_ESP_07.c(1384): warning:  #940-D: missing return statement at end of non-void function "WIFI_init"
+drivers\WIFI_ESP_07.c(1414): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+drivers\WIFI_ESP_07.c(1416): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+compiling spi_flash_w25qxx.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\spi_flash_w25qxx.c(247): warning:  #177-D: variable "GPIO_InitStructure" was declared but never referenced
+compiling timer.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\timer.c(27): warning:  #177-D: variable "i" was declared but never referenced
+drivers\timer.c(28): warning:  #177-D: variable "temp_uint8" was declared but never referenced
+drivers\timer.c(29): warning:  #177-D: variable "Temp_uint32" was declared but never referenced
+compiling ADC.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+drivers\ADC.c(166): warning:  #223-D: function "log_trace" declared implicitly
+drivers\ADC.c(166): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\ADC.c(171): warning:  #167-D: argument of type "volatile uint16_t *" is incompatible with parameter of type "void *"
+drivers\ADC.c(177): warning:  #223-D: function "log_trace" declared implicitly
+drivers\ADC.c(177): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\ADC.c(182): warning:  #167-D: argument of type "volatile uint16_t *" is incompatible with parameter of type "void *"
+drivers\ADC.c(303): warning:  #223-D: function "log_trace" declared implicitly
+drivers\ADC.c(303): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\ADC.c(308): warning:  #167-D: argument of type "volatile uint16_t *" is incompatible with parameter of type "void *"
+drivers\ADC.c(314): warning:  #223-D: function "log_trace" declared implicitly
+drivers\ADC.c(314): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\ADC.c(319): warning:  #167-D: argument of type "volatile uint16_t *" is incompatible with parameter of type "void *"
+drivers\ADC.c(574): warning:  #223-D: function "sys_get_mother_board_string" declared implicitly
+drivers\ADC.c(612): warning:  #223-D: function "sys_get_mother_board_type" declared implicitly
+drivers\ADC.c(612): warning:  #188-D: enumerated type mixed with another type
+drivers\ADC.c(615): warning:  #223-D: function "sys_get_mother_board_string" declared implicitly
+drivers\ADC.c(468): warning:  #177-D: variable "DMA_InitStructure" was declared but never referenced
+drivers\ADC.c(713): warning:  #223-D: function "sys_get_ext_dev_module_string" declared implicitly
+drivers\ADC.c(743): warning:  #223-D: function "sys_get_ext_module_type" declared implicitly
+drivers\ADC.c(743): warning:  #188-D: enumerated type mixed with another type
+drivers\ADC.c(898): warning:  #223-D: function "log_trace" declared implicitly
+drivers\ADC.c(898): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\ADC.c(769): warning:  #177-D: variable "DMA_InitStructure" was declared but never referenced
+compiling msd.c...
+compiling VK3266.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\VK3266.c(24): warning:  #144-D: a value of type "int (*)(s_VK_serial *, struct serial_configure *)" cannot be used to initialize an entity of type "rt_err_t (*)(s_VK_serial *, struct serial_configure *)"
+drivers\VK3266.c(25): warning:  #144-D: a value of type "int (*)(s_VK_serial *, int, void *)" cannot be used to initialize an entity of type "rt_err_t (*)(s_VK_serial *, int, void *)"
+drivers\VK3266.c(45): warning:  #167-D: argument of type "volatile struct rt_semaphore *" is incompatible with parameter of type "rt_sem_t"
+drivers\VK3266.c(93): warning:  #167-D: argument of type "volatile struct rt_mutex *" is incompatible with parameter of type "rt_mutex_t"
+drivers\VK3266.c(106): warning:  #167-D: argument of type "volatile struct rt_mutex *" is incompatible with parameter of type "rt_mutex_t"
+drivers\VK3266.c(128): warning:  #167-D: argument of type "volatile struct rt_mutex *" is incompatible with parameter of type "rt_mutex_t"
+drivers\VK3266.c(137): warning:  #167-D: argument of type "volatile struct rt_mutex *" is incompatible with parameter of type "rt_mutex_t"
+drivers\VK3266.c(145): warning:  #177-D: variable "temp_reg" was declared but never referenced
+drivers\VK3266.c(146): warning:  #550-D: variable "uart" was set but never used
+drivers\VK3266.c(158): warning:  #177-D: variable "temp_reg" was declared but never referenced
+drivers\VK3266.c(159): warning:  #177-D: variable "VK_R_rec" was declared but never referenced
+drivers\VK3266.c(160): warning:  #177-D: variable "VK_W_rec" was declared but never referenced
+drivers\VK3266.c(168): warning:  #177-D: variable "temp_reg" was declared but never referenced
+drivers\VK3266.c(169): warning:  #177-D: variable "VK_R_rec" was declared but never referenced
+drivers\VK3266.c(170): warning:  #177-D: variable "VK_W_rec" was declared but never referenced
+drivers\VK3266.c(178): warning:  #177-D: variable "temp_reg" was declared but never referenced
+drivers\VK3266.c(179): warning:  #177-D: variable "VK_R_rec" was declared but never referenced
+drivers\VK3266.c(180): warning:  #177-D: variable "VK_W_rec" was declared but never referenced
+drivers\VK3266.c(195): warning:  #177-D: variable "i" was declared but never referenced
+drivers\VK3266.c(196): warning:  #177-D: variable "len" was declared but never referenced
+drivers\VK3266.c(204): warning:  #177-D: variable "i" was declared but never referenced
+drivers\VK3266.c(311): warning:  #223-D: function "rt_hw_interrupt_disable" declared implicitly
+drivers\VK3266.c(321): warning:  #223-D: function "rt_hw_interrupt_enable" declared implicitly
+drivers\VK3266.c(326): warning:  #223-D: function "rt_hw_interrupt_enable" declared implicitly
+drivers\VK3266.c(381): warning:  #177-D: variable "serial" was declared but never referenced
+drivers\VK3266.c(382): warning:  #177-D: variable "uart" was declared but never referenced
+drivers\VK3266.c(391): warning:  #177-D: variable "serial" was declared but never referenced
+drivers\VK3266.c(405): warning:  #940-D: missing return statement at end of non-void function "VK_serial_read"
+drivers\VK3266.c(413): warning:  #177-D: variable "serial" was declared but never referenced
+drivers\VK3266.c(424): warning:  #550-D: variable "serial" was set but never used
+drivers\VK3266.c(457): warning:  #513-D: a value of type "rt_err_t (*)(struct rt_device *, rt_off_t, void *, rt_size_t)" cannot be assigned to an entity of type "rt_size_t (*)(rt_device_t, rt_off_t, void *, rt_size_t)"
+drivers\VK3266.c(458): warning:  #513-D: a value of type "rt_err_t (*)(struct rt_device *, rt_off_t, void *, rt_size_t)" cannot be assigned to an entity of type "rt_size_t (*)(rt_device_t, rt_off_t, const void *, rt_size_t)"
+drivers\VK3266.c(495): warning:  #167-D: argument of type "volatile struct rt_mutex *" is incompatible with parameter of type "rt_mutex_t"
+drivers\VK3266.c(590): warning:  #167-D: argument of type "volatile struct rt_semaphore *" is incompatible with parameter of type "rt_sem_t"
+drivers\VK3266.c(595): warning:  #167-D: argument of type "volatile struct rt_semaphore *" is incompatible with parameter of type "rt_sem_t"
+drivers\VK3266.c(581): warning:  #177-D: variable "j" was declared but never referenced
+drivers\VK3266.c(582): warning:  #177-D: variable "rx_fifo" was declared but never referenced
+drivers\VK3266.c(16): warning:  #177-D: variable "temp_FIFO_num" was declared but never referenced
+drivers\VK3266.c(17): warning:  #177-D: variable "temp_SIER" was declared but never referenced
+drivers\VK3266.c(293): warning:  #177-D: function "_VK_serial_fifo_rx" was declared but never referenced
+drivers\VK3266.c(336): warning:  #177-D: function "_VK_serial_fifo_tx" was declared but never referenced
+compiling MCP23X17.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+drivers\MCP23X17.c(7): warning:  #177-D: variable "settings" was declared but never referenced
+compiling stm32f2xx_eth_LAN8720A.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include\arch/cc.h(85): warning:  #47-D: incompatible redefinition of macro "PACK_STRUCT_STRUCT" (declared at line 44 of "config\sys_def.h")
+drivers\stm32f2xx_eth_LAN8720A.c(3897): warning:  #223-D: function "log_trace" declared implicitly
+drivers\stm32f2xx_eth_LAN8720A.c(3897): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\stm32f2xx_eth_LAN8720A.c(3945): warning:  #223-D: function "log_trace" declared implicitly
+drivers\stm32f2xx_eth_LAN8720A.c(3945): warning:  #223-D: function "log_trace_flush" declared implicitly
+drivers\stm32f2xx_eth_LAN8720A.c(3977): warning:  #223-D: function "log_trace" declared implicitly
+drivers\stm32f2xx_eth_LAN8720A.c(3977): warning:  #223-D: function "log_trace_flush" declared implicitly
+compiling gpio.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+compiling stm32f20x_40x_spi.c...
+compiling stm32_i2c.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+compiling system_stm32f2xx.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+compiling misc.c...
+compiling stm32f2xx_adc.c...
+compiling stm32f2xx_can.c...
+compiling stm32f2xx_crc.c...
+compiling stm32f2xx_cryp.c...
+compiling stm32f2xx_cryp_aes.c...
+compiling stm32f2xx_cryp_des.c...
+compiling stm32f2xx_cryp_tdes.c...
+compiling stm32f2xx_dac.c...
+compiling stm32f2xx_dbgmcu.c...
+compiling stm32f2xx_dcmi.c...
+compiling stm32f2xx_dma.c...
+compiling stm32f2xx_exti.c...
+compiling stm32f2xx_flash.c...
+compiling stm32f2xx_fsmc.c...
+compiling stm32f2xx_gpio.c...
+compiling stm32f2xx_hash.c...
+compiling stm32f2xx_hash_md5.c...
+compiling stm32f2xx_hash_sha1.c...
+compiling stm32f2xx_i2c.c...
+compiling stm32f2xx_iwdg.c...
+compiling stm32f2xx_pwr.c...
+compiling stm32f2xx_rcc.c...
+compiling stm32f2xx_rng.c...
+compiling stm32f2xx_rtc.c...
+compiling stm32f2xx_sdio.c...
+compiling stm32f2xx_spi.c...
+compiling stm32f2xx_syscfg.c...
+compiling stm32f2xx_tim.c...
+compiling stm32f2xx_usart.c...
+compiling stm32f2xx_wwdg.c...
+assembling startup_stm32f2xx.s...
+compiling memlog.c...
+compiling cpuusage.c...
+compiling CRC16.c...
+compiling tofile.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+misc\tofile.c(110): warning:  #223-D: function "rm" declared implicitly
+misc\tofile.c(117): warning:  #223-D: function "copy" declared implicitly
+misc\tofile.c(118): warning:  #223-D: function "rm" declared implicitly
+compiling init_rc.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+compiling cJSON.c...
+services\cJSON.c(48): warning:  #144-D: a value of type "void *(*)(rt_size_t)" cannot be used to initialize an entity of type "void *(*)(size_t)"
+services\cJSON.c(57): warning:  #1293-D: assignment in condition
+services\cJSON.c(65): warning:  #513-D: a value of type "void *(*)(rt_size_t)" cannot be assigned to an entity of type "void *(*)(size_t)"
+services\cJSON.c(222): warning:  #1293-D: assignment in condition
+services\cJSON.c(339): warning:  #1293-D: assignment in condition
+services\cJSON.c(429): warning:  #1293-D: assignment in condition
+services\cJSON.c(598): warning:  #1-D: last line of file ends without a newline
+compiling JSON_config.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+services\JSON_config.c(80): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(86): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(147): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(153): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(229): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(235): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(315): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(316): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(317): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(318): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(291): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(297): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(381): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(356): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(362): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(423): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(429): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(556): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(557): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(533): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(539): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(685): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(691): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(697): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(703): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(709): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(661): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(667): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(787): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(788): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(792): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(793): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(799): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(756): warning:  #177-D: variable "res" was declared but never referenced
+services\JSON_config.c(762): warning:  #177-D: variable "state" was declared but never referenced
+services\JSON_config.c(862): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(854): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(926): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(918): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1044): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1036): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1090): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1082): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1148): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1140): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1203): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1195): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1318): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1323): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(1324): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1332): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(1333): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1338): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(1339): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1343): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(1344): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1348): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(1349): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1306): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1405): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1397): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1474): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1484): warning:  #188-D: enumerated type mixed with another type
+services\JSON_config.c(1465): warning:  #177-D: variable "value" was declared but never referenced
+services\JSON_config.c(1583): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1715): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(1746): warning:  #223-D: function "rm" declared implicitly
+services\JSON_config.c(2040): warning:  #177-D: variable "i" was declared but never referenced
+services\JSON_config.c(2148): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(2150): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+services\JSON_config.c(2153): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(2155): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+services\JSON_config.c(2156): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2158): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(2160): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+services\JSON_config.c(2163): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(2165): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+services\JSON_config.c(2168): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+services\JSON_config.c(2170): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+services\JSON_config.c(2205): warning:  #177-D: variable "i" was declared but never referenced
+services\JSON_config.c(2365): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2369): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2402): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2454): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2474): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2478): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2482): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+services\JSON_config.c(2560): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(2553): warning:  #177-D: variable "new_cfg" was declared but never referenced
+services\JSON_config.c(2554): warning:  #177-D: variable "i" was declared but never referenced
+services\JSON_config.c(2599): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+services\JSON_config.c(2592): warning:  #177-D: variable "new_cfg" was declared but never referenced
+compiling COM_if.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+services\COM_if.c(30): warning:  #188-D: enumerated type mixed with another type
+services\COM_if.c(284): warning:  #111-D: statement is unreachable
+services\COM_if.c(329): warning:  #223-D: function "memcpy" declared implicitly
+services\COM_if.c(464): warning:  #940-D: missing return statement at end of non-void function "COM_deal"
+services\COM_if.c(405): warning:  #177-D: variable "res" was declared but never referenced
+services\COM_if.c(406): warning:  #177-D: variable "node" was declared but never referenced
+services\COM_if.c(624): warning:  #940-D: missing return statement at end of non-void function "COM_if_rec_handler"
+compiling GPRS_server.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+compiling sw_crc.c...
+compiling clock.c...
+compiling device.c...
+compiling idle.c...
+compiling ipc.c...
+compiling irq.c...
+compiling kservice.c...
+compiling mem.c...
+compiling mempool.c...
+compiling module.c...
+compiling object.c...
+compiling scheduler.c...
+compiling thread.c...
+compiling src_timer.c...
+compiling cpuport.c...
+assembling context_rvds.S...
+compiling backtrace.c...
+compiling div0.c...
+compiling showmem.c...
+compiling dfs.c...
+compiling dfs_file.c...
+compiling dfs_fs.c...
+compiling dfs_posix.c...
+compiling dfs_elm.c...
+compiling ff.c...
+..\..\RTT_2_1_0\components\dfs\filesystems\elmfat\ff.c(1649): warning:  #111-D: statement is unreachable
+compiling ccsbcs.c...
+compiling dfs_romfs.c...
+compiling romfs.c...
+compiling i2c_core.c...
+compiling i2c_dev.c...
+compiling pin.c...
+compiling serial.c...
+compiling spi_core.c...
+compiling spi_dev.c...
+compiling completion.c...
+compiling dataqueue.c...
+compiling pipe.c...
+compiling portal.c...
+compiling ringbuffer.c...
+compiling workqueue.c...
+compiling shell.c...
+compiling symbol.c...
+compiling cmd.c...
+compiling finsh_compiler.c...
+compiling finsh_error.c...
+compiling finsh_heap.c...
+compiling finsh_init.c...
+compiling finsh_node.c...
+compiling finsh_ops.c...
+compiling finsh_parser.c...
+compiling finsh_var.c...
+compiling finsh_vm.c...
+compiling finsh_token.c...
+compiling dlclose.c...
+compiling dlerror.c...
+compiling dlopen.c...
+compiling dlsym.c...
+compiling api_lib.c...
+compiling api_msg.c...
+compiling err.c...
+compiling netbuf.c...
+compiling netdb.c...
+compiling netifapi.c...
+compiling sockets.c...
+compiling tcpip.c...
+compiling sys_arch.c...
+compiling def.c...
+compiling dhcp.c...
+compiling dns.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include\arch/cc.h(85): warning:  #47-D: incompatible redefinition of macro "PACK_STRUCT_STRUCT" (declared at line 44 of "config\sys_def.h")
+compiling init.c...
+compiling memp.c...
+compiling netif.c...
+compiling pbuf.c...
+compiling raw.c...
+compiling stats.c...
+compiling sys.c...
+compiling tcp.c...
+compiling tcp_in.c...
+compiling tcp_out.c...
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\core\tcp_out.c(845): warning:  #550-D: variable "tcphdr" was set but never used
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\core\tcp_out.c(1367): warning:  #550-D: variable "tcphdr" was set but never used
+compiling timers.c...
+compiling udp.c...
+compiling autoip.c...
+compiling icmp.c...
+compiling igmp.c...
+compiling inet.c...
+compiling inet_chksum.c...
+compiling ip.c...
+compiling ip_addr.c...
+compiling ip_frag.c...
+compiling etharp.c...
+compiling ethernetif.c...
+config\sys_config.h(60): warning:  #9-D: nested comment is not allowed
+config\sys_config.h(66): warning:  #9-D: nested comment is not allowed
+drivers\board.h(684): warning:  #1-D: last line of file ends without a newline
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include\arch/cc.h(85): warning:  #47-D: incompatible redefinition of macro "PACK_STRUCT_STRUCT" (declared at line 44 of "config\sys_def.h")
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(247): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(247): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(247): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(247): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(247): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(249): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(249): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(249): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(249): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(249): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(251): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(251): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(251): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(251): warning:  #181-D: argument is incompatible with corresponding format string conversion
+..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c(251): warning:  #181-D: argument is incompatible with corresponding format string conversion
+compiling slipif.c...
+compiling log_file.c...
+..\..\RTT_2_1_0\components\utilities\logtrace\log_file.c(115): warning:  #68-D: integer conversion resulted in a change of sign
+..\..\RTT_2_1_0\components\utilities\logtrace\log_file.c(126): warning:  #68-D: integer conversion resulted in a change of sign
+..\..\RTT_2_1_0\components\utilities\logtrace\log_file.c(157): warning:  #513-D: a value of type "rt_size_t (*)(rt_device_t, rt_uint8_t, void *)" cannot be assigned to an entity of type "rt_err_t (*)(rt_device_t, rt_uint8_t, void *)"
+compiling log_trace.c...
+..\..\RTT_2_1_0\components\utilities\logtrace\log_trace.c(437): warning:  #223-D: function "rt_time" declared implicitly
+..\..\RTT_2_1_0\components\utilities\logtrace\log_trace.c(438): warning:  #223-D: function "ctime" declared implicitly
+compiling ymodem.c...
+..\..\RTT_2_1_0\components\utilities\ymodem\ymodem.c(75): warning:  #188-D: enumerated type mixed with another type
+..\..\RTT_2_1_0\components\utilities\ymodem\ymodem.c(88): warning:  #188-D: enumerated type mixed with another type
+linking...
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol prio_PRO_CTRL (referred from application.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol prio_PRO_UITD (referred from application.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol rt_thread_entry_PRO_CTRL (referred from application.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol rt_thread_entry_PRO_UITD (referred from application.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol thread_PRO_CTRL (referred from application.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol thread_PRO_UITD (referred from application.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol p_IO_input_cb (referred from uitd_main.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol p_output_ctrl_cb (referred from uitd_main.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol p_sensor_cb (referred from uitd_main.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol mq_IO_input (referred from uitd.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol mq_output_ctrl (referred from uitd.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol mq_sensor_send (referred from uitd.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol mt_IO_input (referred from uitd.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol mt_output (referred from uitd.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol mt_sensor (referred from uitd.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol mb_sensor_ADC (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol output_ctrl_init (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol output_ctrl_server (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol output_ctrl_server_testing (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol output_write_pin (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol output_write_port (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol sensor_sample_handler (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol sensor_sample_handler_testing (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol sensor_sample_init (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol sensor_sample_server (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol sensor_sample_server_testing (referred from sensor_sample.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol IO_input_init (referred from controller.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol IO_input_pin_read (referred from controller.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol IO_input_server (referred from controller.o).
+.\build\rtthread-stm32.axf: Error: L6218E: Undefined symbol rt_i2c_bit_add_bus (referred from stm32_i2c.o).
+".\build\rtthread-stm32.axf" - 30 Errors, 1544 Warning(s).
+Target not created

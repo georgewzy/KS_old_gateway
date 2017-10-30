@@ -1,0 +1,193 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.17.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: lei song, sorry, LIC=IC9X7-E1NJT-23XM4-FA2PH-Y6SJ0-8KQNI
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.17
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.17
+Dialog DLL:      DCM.DLL V1.13.4.0
+Target DLL:      Segger\JL2CM3.dll V2.99.16.0
+Dialog DLL:      TCM.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+E:\workroom\my STM32\SZJS_gateway_tool\project.uvprojx
+Project File Date:  01/11/2017
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'RT-Thread STM32'
+Before Build - User command #1: build_before.bat
+E:\workroom\my STM32\SZJS_gateway_tool>cd RTT_2_1_0\components\dfs\filesystems\romfs 
+E:\workroom\my STM32\SZJS_gateway_tool\RTT_2_1_0\components\dfs\filesystems\romfs>mkromfs.py romfs romfs.c 
+compiling application.c...
+config\sys_config.h(36): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+config\sys_config.h(42): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+applications\application.c(97): warning:  #940-D: missing return statement at end of non-void function "com_bus_rx_ind"
+  }
+applications\application.c(103): warning:  #940-D: missing return statement at end of non-void function "com_bus_tx_complete"
+  }    
+applications\application.c(130): warning:  #223-D: function "mkfs" declared implicitly
+              mkfs("elm","flash0");
+applications\application.c(152): warning:  #223-D: function "mkfs" declared implicitly
+              mkfs("elm","flash0");
+applications\application.c(173): warning:  #223-D: function "mkfs" declared implicitly
+              mkfs("elm","flash0");
+applications\application.c(242): warning:  #223-D: function "rm" declared implicitly
+                  rm(SYS_CFG_FILE_PATH);
+applications\application.c(243): warning:  #223-D: function "json_cfg_create" declared implicitly
+                  json_cfg_create(SYS_CFG_FILE_PATH, &sys_cfg_init_data);
+applications\application.c(254): warning:  #223-D: function "rm" declared implicitly
+              rm(SYS_CFG_FILE_PATH);
+applications\application.c(255): warning:  #223-D: function "json_cfg_create" declared implicitly
+              json_cfg_create(SYS_CFG_FILE_PATH, &sys_cfg_init_data);
+applications\application.c(261): warning:  #223-D: function "json_cfg_create" declared implicitly
+          json_cfg_create(SYS_CFG_FILE_PATH, &sys_cfg_init_data);
+applications\application.c(348): warning:  #223-D: function "mkfs" declared implicitly
+              mkfs("elm","flash0");
+applications\application.c(401): warning:  #223-D: function "json_cfg_load" declared implicitly
+      json_cfg_load();
+applications\application.c(402): warning:  #223-D: function "json_cfg_wr_sys_cfg" declared implicitly
+      json_cfg_wr_sys_cfg(1);
+applications\application.c(406): warning:  #223-D: function "memlog_init" declared implicitly
+      memlog_init();
+applications\application.c(413): warning:  #223-D: function "do_init" declared implicitly
+      do_init();
+applications\application.c(417): warning:  #223-D: function "copy" declared implicitly
+      copy(SYS_ISP_SD_BOOT_FW_FILE, SYS_ISP_BOOT_FW_FILE);
+applications\application.c(430): warning:  #223-D: function "touch" declared implicitly
+      touch(test_mode_file, 1);
+applications\application.c(432): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      fd = open(test_mode_file, 
+_RDWR, 0);
+applications\application.c(443): warning:  #223-D: function "ISP_flash" declared implicitly
+      ret = ISP_flash(test_mode_file, 0, address, 0); 
+applications\application.c(467): warning:  #223-D: function "touch" declared implicitly
+      touch(ID_file_1, 1);
+applications\application.c(471): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      fd = open(ID_file_1, 
+_RDWR, 0);
+applications\application.c(482): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      fd = open(ID_file_2, 
+_RDWR, 0);
+applications\application.c(493): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      fd = open(ID_lock_file, 
+_RDWR, 0);
+applications\application.c(505): warning:  #223-D: function "ISP_flash" declared implicitly
+      ret = ISP_flash(ID_file_1, 0, SYS_ID_ADDRESS, 0); 
+applications\application.c(548): warning:  #223-D: function "sys_status_set" declared implicitly
+                  sys_status_set(&sys_ctrl, SYS_state_read_ID);
+applications\application.c(580): warning:  #223-D: function "ISP_unreadprot" declared implicitly
+                      ret = ISP_unreadprot();
+applications\application.c(597): warning:  #223-D: function "ISP_flash" declared implicitly
+                      ret = ISP_flash(SYS_ISP_BOOT_FW_FILE, 0, 0, 0);
+applications\application.c(605): warning:  #223-D: function "ISP_readprot" declared implicitly
+                      ISP_readprot();
+applications\application.c(646): warning:  #223-D: function "ISP_unreadprot" declared implicitly
+                  ret = ISP_unreadprot();
+applications\application.c(649): warning:  #223-D: function "ISP_flash" declared implicitly
+                  ret = ISP_flash(SYS_ISP_BOOT_FW_FILE, 0, 0, 0);
+applications\application.c(661): warning:  #223-D: function "ISP_readprot" declared implicitly
+                  ISP_readprot();
+applications\application.c(769): warning:  #223-D: function "sys_status_set" declared implicitly
+                      sys_status_set(&sys_ctrl, SYS_state_IAP_programing);
+applications\application.c(801): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+applications\application.c: 35 warnings, 0 errors
+compiling board.c...
+config\sys_config.h(36): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+config\sys_config.h(42): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+drivers\board.c(343): warning:  #177-D: function "mco_config" was declared but never referenced
+  static void mco_config(void)
+drivers\board.c: 3 warnings, 0 errors
+compiling sys_misc.c...
+config\sys_config.h(36): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+config\sys_config.h(42): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+applications\sys_misc.c(178): warning:  #177-D: variable "temp_u16" was declared but never referenced
+  	uint16_t temp_u16;
+applications\sys_misc.c(366): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      int pw_len = strlen(pw);
+applications\sys_misc.c(424): warning:  #223-D: function "rm" declared implicitly
+          rm(filename);
+applications\sys_misc.c(498): warning:  #1-D: last line of file ends without a newline
+  #endif // RT_USING_FINSH
+applications\sys_misc.c: 6 warnings, 0 errors
+compiling platform.c...
+drivers\platform.c(275): warning:  #223-D: function "sscanf" declared implicitly
+      sscanf(SW_VER, "%d.%d", &sys_main_version, &sys_sub_version);
+drivers\platform.c: 1 warning, 0 errors
+compiling stm32f2xx_it.c...
+config\sys_config.h(36): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+config\sys_config.h(42): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+drivers\stm32f2xx_it.c: 2 warnings, 0 errors
+compiling JSON_config.c...
+config\sys_config.h(36): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+config\sys_config.h(42): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+services\JSON_config.c(106): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "svr_if_name", p_cfg->svr_if_name);
+services\JSON_config.c(107): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "svr_if_ip", p_cfg->svr_if_ip);
+services\JSON_config.c(77): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(83): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(168): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(160): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(280): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(346): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(377): warning:  #223-D: function "rm" declared implicitly
+              rm(SYS_CFG_FILE_PATH);
+services\JSON_config.c(553): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(546): warning:  #177-D: variable "new_cfg" was declared but never referenced
+      char *new_cfg;
+services\JSON_config.c(547): warning:  #177-D: variable "i" was declared but never referenced
+      int i;
+services\JSON_config.c(592): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(585): warning:  #177-D: variable "new_cfg" was declared but never referenced
+      char *new_cfg;
+services\JSON_config.c: 16 warnings, 0 errors
+linking...
+Program Size: Code=138176 RO-data=20184 RW-data=1380 ZI-data=14268  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin .\build\SZJS_gateway.axf --output rtthread.bin
+After Build - User command #2: BIN_encode -e rtthread.bin firmware.bin 87181
+Encode success ! 
+".\build\SZJS_gateway.axf" - 0 Error(s), 63 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  E:\workroom\my STM32\SZJS_gateway_tool\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:08
+</pre>
+</body>
+</html>

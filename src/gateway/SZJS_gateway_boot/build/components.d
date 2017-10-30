@@ -1,0 +1,10 @@
+.\build\components.o: ..\..\RTT_2_1_0\src\components.c
+.\build\components.o: ..\..\RTT_2_1_0\include\rthw.h
+.\build\components.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\components.o: .\rtconfig.h
+.\build\components.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\components.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\components.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\components.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\components.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\components.o: ..\..\RTT_2_1_0\include\rtthread.h

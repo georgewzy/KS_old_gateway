@@ -1,0 +1,16 @@
+.\build\serial.o: ..\..\RTT_2_1_0\components\drivers\serial\serial.c
+.\build\serial.o: ..\..\RTT_2_1_0\include\rthw.h
+.\build\serial.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\serial.o: .\rtconfig.h
+.\build\serial.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\serial.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\serial.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\serial.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\serial.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\serial.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h
+.\build\serial.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/spi.h
+.\build\serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\serial.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/serial.h
+.\build\serial.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/pin.h
+.\build\serial.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h

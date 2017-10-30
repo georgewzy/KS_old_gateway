@@ -1,0 +1,16 @@
+.\build\memlog.o: misc\memlog.c
+.\build\memlog.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\memlog.o: .\rtconfig.h
+.\build\memlog.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\memlog.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\memlog.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\memlog.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\memlog.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\memlog.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\memlog.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h
+.\build\memlog.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/spi.h
+.\build\memlog.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\memlog.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/serial.h
+.\build\memlog.o: ..\..\RTT_2_1_0\components\drivers\include\drivers/pin.h
+.\build\memlog.o: ..\..\RTT_2_1_0\components\drivers\include\rtdevice.h
+.\build\memlog.o: ..\..\RTT_2_1_0\components\utilities\logtrace\log_trace.h

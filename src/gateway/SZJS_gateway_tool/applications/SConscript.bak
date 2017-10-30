@@ -1,0 +1,27 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+cwd     = os.path.join(str(Dir('#')), 'applications')
+
+# add the general APPs.
+src = Split("""
+application.c
+startup.c
+sys_misc.c
+sys_status.c
+STM32_IAP.c
+
+""")
+
+# add Ethernet APPs.
+if GetDepend('RT_USING_LWIP'):
+    src += ['http.c']
+    src += ['resource_download.c']
+
+
+CPPPATH = [cwd, str(Dir('#'))]
+
+group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

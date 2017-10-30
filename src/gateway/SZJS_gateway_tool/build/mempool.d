@@ -1,0 +1,10 @@
+.\build\mempool.o: ..\..\RTT_2_1_0\src\mempool.c
+.\build\mempool.o: ..\..\RTT_2_1_0\include\rthw.h
+.\build\mempool.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\mempool.o: .\rtconfig.h
+.\build\mempool.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\mempool.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\mempool.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\mempool.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\mempool.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\mempool.o: ..\..\RTT_2_1_0\include\rtthread.h

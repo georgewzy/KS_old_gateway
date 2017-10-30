@@ -1,0 +1,17 @@
+.\build\cjson.o: services\cJSON.c
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\build\cjson.o: services\cJSON.h
+.\build\cjson.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\cjson.o: .\rtconfig.h
+.\build\cjson.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\cjson.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\cjson.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\cjson.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\cjson.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\cjson.o: ..\..\RTT_2_1_0\include\rtthread.h

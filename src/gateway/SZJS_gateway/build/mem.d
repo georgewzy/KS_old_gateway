@@ -1,0 +1,14 @@
+.\build\mem.o: ..\..\RTT_2_1_0\src\mem.c
+.\build\mem.o: ..\..\RTT_2_1_0\include\rthw.h
+.\build\mem.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\mem.o: .\rtconfig.h
+.\build\mem.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\mem.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\mem.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\mem.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\mem.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\mem.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\mem.o: ..\..\RTT_2_1_0\components\finsh\finsh.h
+.\build\mem.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\build\mem.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\mem.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

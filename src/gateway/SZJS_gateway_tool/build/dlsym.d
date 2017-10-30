@@ -1,0 +1,9 @@
+.\build\dlsym.o: ..\..\RTT_2_1_0\components\libdl\dlsym.c
+.\build\dlsym.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\dlsym.o: .\rtconfig.h
+.\build\dlsym.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\dlsym.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\dlsym.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\dlsym.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\dlsym.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\dlsym.o: ..\..\RTT_2_1_0\include\rtthread.h

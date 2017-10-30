@@ -1,0 +1,2 @@
+printf(" Hello world !\n"); 
+reboot_if_0(sys_cfg); 
