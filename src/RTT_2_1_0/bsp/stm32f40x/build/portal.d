@@ -1,0 +1,13 @@
+.\build\portal.o: ..\..\components\drivers\src\portal.c
+.\build\portal.o: ..\..\include\rtthread.h
+.\build\portal.o: .\rtconfig.h
+.\build\portal.o: ..\..\include\rtdebug.h
+.\build\portal.o: ..\..\include\rtdef.h
+.\build\portal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\portal.o: ..\..\include\rtservice.h
+.\build\portal.o: ..\..\include\rtm.h
+.\build\portal.o: ..\..\include\rtthread.h
+.\build\portal.o: ..\..\components\drivers\include\rtdevice.h
+.\build\portal.o: ..\..\components\drivers\include\drivers/serial.h
+.\build\portal.o: ..\..\components\drivers\include\drivers/pin.h
+.\build\portal.o: ..\..\components\drivers\include\rtdevice.h
