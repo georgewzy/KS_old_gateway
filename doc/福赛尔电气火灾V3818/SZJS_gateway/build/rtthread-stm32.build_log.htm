@@ -1,0 +1,294 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.17.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: gg gg, gg, LIC=UB4Y8-3FAKY-21RPS-L3K9W-6MJ3Q-9F90H
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.17
+Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.17
+Dialog DLL:      DCM.DLL V1.13.4.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+E:\kingsum\project\gateway\SZJS_gateway\project.uvprojx
+Project File Date:  08/16/2017
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'd:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'RT-Thread STM32'
+compiling JSON_config.c...
+config\sys_config.h(61): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+config\sys_config.h(67): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+drivers\board.h(685): warning:  #1-D: last line of file ends without a newline
+  // <<< end of configuration section >>>
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+   
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+   
+services\JSON_config.c(90): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(96): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(158): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(164): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(240): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(246): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(326): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject(pJSON, "IP" , p_cfg->IP);
+services\JSON_config.c(327): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject(pJSON, "GW" , p_cfg->GW);
+services\JSON_config.c(328): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject(pJSON, "MASK" , p_cfg->MASK);
+services\JSON_config.c(329): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject(pJSON, "DNS" , p_cfg->DNS);
+services\JSON_config.c(302): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(308): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(392): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject(pJSON, "uart" , p_cfg->uart);
+services\JSON_config.c(367): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(373): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(434): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(440): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(567): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject(pJSON, "SSID" , p_cfg->SSID);
+services\JSON_config.c(568): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject(pJSON, "PW" , p_cfg->PW);
+services\JSON_config.c(544): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(550): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(633): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "FA_name_uart0" ,   p_cfg->FA_name_uart0);
+services\JSON_config.c(639): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "FA_name_uart1" ,   p_cfg->FA_name_uart1);
+services\JSON_config.c(645): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "FA_name_uart2" ,   p_cfg->FA_name_uart2);
+services\JSON_config.c(651): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "FA_name_uart3" ,   p_cfg->FA_name_uart3);
+services\JSON_config.c(657): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "FA_name_uart4" ,   p_cfg->FA_name_uart4);
+services\JSON_config.c(609): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(615): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(703): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(709): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(798): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "svr_if_name", p_cfg->svr_if_name);
+services\JSON_config.c(799): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "svr_if_ip", p_cfg->svr_if_ip);
+services\JSON_config.c(803): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "svr_2_if_name", p_cfg->svr_2_if_name);
+services\JSON_config.c(804): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "svr_2_if_ip", p_cfg->svr_2_if_ip);
+services\JSON_config.c(810): warning:  #167-D: argument of type "const uint8_t *" is incompatible with parameter of type "const char *"
+          
+JSON_AddStringToObject( pJSON, "log_file_path", p_cfg->log_file_path);
+services\JSON_config.c(770): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+services\JSON_config.c(776): warning:  #177-D: variable "state" was declared but never referenced
+      struct stat *state = NULL;
+services\JSON_config.c(862): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(854): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(926): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(918): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1044): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1036): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1092): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1084): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1152): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1144): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1208): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1200): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1263): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1268): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+              sprintf(json_buf, "FA_en_uart%d", i);
+services\JSON_config.c(1269): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+              JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1277): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                  sprintf(json_buf, "FA_name_uart%d", i);
+services\JSON_config.c(1278): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+                  JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1283): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                  sprintf(json_buf, "FA_type_uart%d", i);
+services\JSON_config.c(1284): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+                  JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1288): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                  sprintf(json_buf, "FA_baud_uart%d", i);
+services\JSON_config.c(1289): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+                  JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1293): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                  sprintf(json_buf, "FA_listen_uart%d", i);
+services\JSON_config.c(1294): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+                  JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1249): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1253): warning:  #177-D: variable "d" was declared but never referenced
+  	uint8_t d = 0;
+services\JSON_config.c(1355): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1393): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				sprintf(json_buf, "sys_addr_%d", k);
+services\JSON_config.c(1394): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1398): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				sprintf(json_buf, "addr_area_%d_%d", k, i);
+services\JSON_config.c(1399): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1411): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				sprintf(json_buf, "addr_line_%d_%d_%d", k, i, j);
+services\JSON_config.c(1412): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
+services\JSON_config.c(1446): warning:  #111-D: statement is unreachable
+          json_cfg_close(res);
+services\JSON_config.c(1485): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1477): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1554): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1564): warning:  #188-D: enumerated type mixed with another type
+                  sys_config.sys_mode = JSON_item->valueint;
+services\JSON_config.c(1545): warning:  #177-D: variable "value" was declared but never referenced
+      int value = 0;
+services\JSON_config.c(1674): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1740): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(1771): warning:  #223-D: function "rm" declared implicitly
+              rm(cfg_file);
+services\JSON_config.c(2004): warning:  #177-D: variable "i" was declared but never referenced
+      int i = 0;
+services\JSON_config.c(2112): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      sprintf(json_buf, "FA_en_uart%d", FA_index);
+services\JSON_config.c(2114): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(json_value[0].name, json_buf);
+services\JSON_config.c(2117): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      sprintf(json_buf, "FA_name_uart%d", FA_index);
+services\JSON_config.c(2119): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(json_value[1].name, json_buf);
+services\JSON_config.c(2120): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[1].string = FA_name;
+services\JSON_config.c(2122): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      sprintf(json_buf, "FA_type_uart%d", FA_index);
+services\JSON_config.c(2124): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(json_value[2].name, json_buf);
+services\JSON_config.c(2127): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      sprintf(json_buf, "FA_baud_uart%d", FA_index);
+services\JSON_config.c(2129): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(json_value[3].name, json_buf);
+services\JSON_config.c(2132): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      sprintf(json_buf, "FA_listen_uart%d", FA_index);
+services\JSON_config.c(2134): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(json_value[4].name, json_buf);
+services\JSON_config.c(2175): warning:  #177-D: variable "i" was declared but never referenced
+      int i = 0;
+services\JSON_config.c(2302): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[0].string = SSID;
+services\JSON_config.c(2306): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[1].string = PW;
+services\JSON_config.c(2339): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[2].string = uart;
+services\JSON_config.c(2391): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[0].string = DNS;
+services\JSON_config.c(2411): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[0].string = IP;
+services\JSON_config.c(2415): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[1].string = GW;
+services\JSON_config.c(2419): warning:  #513-D: a value of type "uint8_t *" cannot be assigned to an entity of type "char *"
+      json_value[2].string = MASK;
+services\JSON_config.c(2474): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(2467): warning:  #177-D: variable "new_cfg" was declared but never referenced
+      char *new_cfg;
+services\JSON_config.c(2468): warning:  #177-D: variable "i" was declared but never referenced
+      int i;
+services\JSON_config.c(2513): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          pJSON = cJSON_Parse(cfg);
+services\JSON_config.c(2506): warning:  #177-D: variable "new_cfg" was declared but never referenced
+      char *new_cfg;
+services\JSON_config.c(21): warning:  #177-D: variable "elec_buff" was declared but never referenced
+  static elec_buf_t elec_buff; 
+services\JSON_config.c(23): warning:  #177-D: variable "elec_sync" was declared but never referenced
+  const static uint8_t elec_sync[10] = {0x66, 0xF0, 0x00, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFD};
+services\JSON_config.c: 110 warnings, 0 errors
+linking...
+Program Size: Code=322296 RO-data=42692 RW-data=3388 ZI-data=27612  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin .\build\rtthread-stm32.axf --output rtthread.bin
+".\build\rtthread-stm32.axf" - 0 Error(s), 110 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.1.0.pack
+                ARM::CMSIS:CORE:5.0.2
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.2
+
+<h2>Collection of Component include folders:</h2>
+  E:\kingsum\project\gateway\SZJS_gateway\RTE
+  d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include
+  d:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.2
+Build Time Elapsed:  00:00:04
+</pre>
+</body>
+</html>

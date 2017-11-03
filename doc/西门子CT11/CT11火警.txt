@@ -1,0 +1,118 @@
+
+
+
+
+W D A1 A2 Q 05 00 	Alarm 	Local alarm  	-
+W D A1 A2 Q 06 00 	Alarm 	General alarm 	Reset
+
+W D A1 A2 Q 01 00 	Alarm 	Alarm			-
+W D A1 A2 N	01 85 	Normal	alarm			Reset 
+
+W D A1 A2 U/Q 01 01 Alarm 	Alarm			-
+W D A1 A2 N 01 85 	Alarm 	Alarm			Reset
+
+W D A1 A2 U/Q 01 01 Alarm 	Alarm			Autom detector
+W D A1 A2 N	01 85 	Normal 	Alarm			Reset
+
+
+W D A1 A2 U/Q 01 02 Alarm 	Alarm			Man detector
+W D A1 A2 N	01 85	Normal 	Alarm			Reset
+
+
+W D A1 A2 U/Q 01 02 Alarm 	Alarm			Autom detector
+W D A1 A2 N	01 85	Normal	Alarm			Reset
+W D A1 A2 U/Q 0E 02	Alarm	Isolated Alarm	Autom detector
+W D A1 A2 N 0E 85	Normal	Isolated Alarm	Reset 	
+
+
+W D A1 A2 U/Q 0C 00 Alarm 	Sabotage		-
+W D A1 A2 N 0C 85	Alarm	Sabotage		Reset
+
+
+ 
+ 
+
+
+
+
+ 
+
+
+
+W D A1 A2 Q 74 3A 	FAULT	Fault			-
+
+W D A1 A2 U/Q 32 46	FAULT	Remote			Faulty
+W D A1 A2 U/Q 32 5D FAULT	Remote			Disable	
+
+W D A1 A2 U/Q 64 3F FAULT	Zone			Faulty
+W D A1 A2 U/Q 64 46	FAULT	Zoen			Faulty
+
+P D A1 A2 U/Q 62 46	FAULT	Control zone	Faulty
+
+WL D A1 A2 U/Q 67 46 FAULT	Detection device Faulty
+	
+W D A1 A2 U/Q 67 46	FAULT	Detection device Faulty	
+W D A1 A2 U/Q 67 5F FAULT	Detection device Not ready
+
+P D A1 A2 U/Q 68 46 FAULT 	Control device	Faulty
+P D A1 A2 U/Q 68 2A	FAULT	Control device	Active? No feedback
+P D A1 A2 U/Q 68 2B	FAULT	Control	device	Inactive? feedback active
+
+
+W D A1 A2 U/Q 7A 46	FAULT	Internal horn 	Faulty
+W D A1 A2 U/Q 73 46 FAULT	Extemal horn 	Faulty
+W D A1 A2 U/Q 09 46 FAULT	Remote t A		Fault
+
+
+Z D A1 A2 U/Q 3B 46	FAULT	FAULT remote	Faulty
+Z D A1 A2 U/Q 34 46	FAULT	Function unit	Faulty
+
+
+Z D A1 A2 U/Q 3C 3D FAULT	Power supply	Emergency power operation
+Z D A1 A2 U/Q 3C 46	FAULT	Power supply	Faulty
+
+
+W D A1 A2 U/Q 34 28	FAULT	Function unit	FSK key missing
+	
+Z D A1 A2 U/Q 30 45	FAULT	Field device	Impaired
+Z D A1 A2 U/Q 30 46	FAULT	Field device	Faulty
+
+Z D A1 A2 U/Q 33 46	FAULT	Control unit	Faulty
+
+Z D A1 A2 U/Q 36 46	FAULT	Printer			Fault
+Z D A1 A2 U/Q 38 46 FAULT	Data network	Faulty
+
+
+
+
+
+
+01 54 31 02 57 31 31 31 30 33 37 45 4e 32 46 33 43 03 4f
+
+
+
+01 54 31 02 57 31 31 31 30 33 37 45 4e 05 00 34 36 03 4f
+
+//火警
+01 54 31 02 57 31 31 31 30 33 37 45 4e 05 00 30 30 03 4f
+
+巡检
+01 4C 30 02 03 7D
+
+
+01 54 31 02 57 31 31 31 41 31 43 44 51 30 35 30 30 03 21 04
+
+//反馈
+01 54 31 02 57 31 31 31 41 31 43 44 51 30 35 34 46 03 21
+
+
+//屏蔽
+01 54 31 02 57 31 31 31 41 31 43 44 51 30 35 35 36 03 21
+
+
+
+
+
+
+
+

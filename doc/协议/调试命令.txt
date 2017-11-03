@@ -1,0 +1,79 @@
+cd /opt/platform-collector-1.0-bin/logs
+tail -f collector.log |grep '102165100644'
+tail -f -n 2000 collector.log |grep '102165100600'
+
+cd /opt/platform-collector-1.0-bin/logs/raw
+
+
+cd /opt/platform-collector-1.0-bin/logs
+tail -f collector.log |grep '102165100678'
+
+
+scons --app=FAC --type=ext
+
+
+
+[40 40 
+AC 00 
+01 14 
+01 32 02 01 01 E2 
+86 B8 83 C9 17 00 
+00 00 00 00 00 00 
+30 00 
+02 上传建筑消防设施部件的运行状态 //命令字
+02 类型标志
+01 信息对象数目
+01 系统类型标志
+01 系统地址
+28 部件类型
+01 00 01 00 部件地址
+02 00 部件状态
+FF FF FF FF 01 00 00 00 01 00 
+00 00 01 00 00 00 00 00 00 00 
+FF FF FF FF 00 00 00 00 00 00 
+00 
+01 32 02 01 01 E2 //时间标签
+F2 
+23 23]
+
+40 40 
+01 01 
+01 14 
+36 14 0F 0A 08 11 
+64 B8 83 C9 17 00 
+00 00 00 00 00 00 
+30 00 02 02 01 01 00 10 
+00 00 
+00 00 
+01 00 
+FF FF FF FF 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 FF FF FF FF 
+00 00 
+00 
+00 00 00 00 36 14 0F 0A 08 11 CE 23 23
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

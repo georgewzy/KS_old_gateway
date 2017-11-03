@@ -1,0 +1,25 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+cwd = GetCurrentDir()
+src = Split("""
+ISP_main.c
+dev_table.c
+init.c
+port.c
+serial_common.c
+serial_platform.c
+stm32.c
+utils.c
+
+""")
+CPPPATH = [cwd]
+
+src += ['parsers/binary.c']
+src += ['parsers/hex.c']
+
+
+group = DefineGroup('stm32flash', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

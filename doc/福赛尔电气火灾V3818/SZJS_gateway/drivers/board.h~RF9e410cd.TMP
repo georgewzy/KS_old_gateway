@@ -1,0 +1,685 @@
+/*
+ * File      : board.h
+ * This file is part of RT-Thread RTOS
+ * COPYRIGHT (C) 2009, RT-Thread Development Team
+ *
+ * The license and distribution terms for this file may be
+ * found in the file LICENSE in this distribution or at
+ * http://www.rt-thread.org/license/LICENSE
+ *
+ * Change Logs:
+ * Date           Author       Notes
+ * 2009-09-22     Bernard      add board.h to this bsp
+ */
+
+// <<< Use Configuration Wizard in Context Menu >>>
+#ifndef __BOARD_H__
+#define __BOARD_H__
+
+#include <stm32f2xx.h>
+#include "rtthread.h"
+#include "sys_def.h"
+
+// <o> System IAP mode enable : <0=> Normal mode <1=> IAP mode 
+// 	<i>Default: IAP mode
+#define SYS_IAP_MODE_EN                 0
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Song: No use these define again, system will detect the mother board type. 2016-12-21 9:45:15
+/*// <o> Board version : <12=> V1.2 <13=> V1.3 */
+/*// 	<i>Default: V1.2 */
+/*#define BOARD_VERSION           12 */
+
+
+//#define BOARD_VERSION           12
+//#define BOARD_VERSION           13
+
+// Song: Debug mode. default is 0.
+// <o> Debug mode enable : <0=> Disable <1=> Enable
+// 	<i>Default: Disable
+#define DEBUG_SYS_TEST_EN       0
+
+// Song: WIFI debug mode. default is 0.
+// <o> WIFI debug mode enable : <0=> Disable <1=> Enable
+// 	<i>Default: Disable
+#define SYS_DEBUG_WIFI_TEST_EN  0
+
+// <o> Assign mother board type : <0=> Not assign, auto detect <1=> GPRS_1_2 <2=> GPRS <3=> ETH <4=> GPRS+ETH <5=> IOT_PRO <6=> EC_AP <7=> EC_TERM
+// 	<i>Default: Not assign, auto detect
+#define ASSIGN_MOTHER_BOARD_TYPE    0
+
+// <o> Assign board ID : <0=> Not assign, read from chip <1=> Assign a ID for debugging.
+// 	<i>Default: 0 Not assign, read from chip
+#define ASSIGN_BOARD_ID     0
+
+
+// Song: Disable the console, not output information. IAP mode not output, Normal mode output.
+#if SYS_IAP_MODE_EN
+
+// Song: for dubug and test , enable the console output right now, for future offical product, disable it.
+////#define SYS_CONSOLE_OUTPUT_DISABLE     0
+#define SYS_CONSOLE_OUTPUT_DISABLE     0  //// default 1,
+#else
+#define SYS_CONSOLE_OUTPUT_DISABLE     0
+#endif // SYS_IAP_MODE_EN
+
+
+// Watch dog enable, when you debug the program, disable it.
+#if SYS_IAP_MODE_EN
+#define SYS_WDG_EN              1  
+#else
+#define SYS_WDG_EN              0
+#endif // SYS_IAP_MODE_EN
+
+// Song: Patch firmware upgrade fail to create "/fw/upgrade.flg" bug. Right now ,set it as 1, default is 0.
+// <o> Patch firmware upgrade bug : <0=> Disable <1=> Enable
+// 	<i>Default: Disable
+#define PATCH_FW_UPGRADE_FLAG   1
+
+
+// Song: No use these define again, system will detect the mother board type, if type is GPRS_1_2, auto-use these patchs. 2016-12-21 9:45:15
+//#if BOARD_VERSION == 12
+//    // If use the GSM power chip's ctrl pin , default is 1. No need right now ,2016-12-21 9:41:04
+//    #define USE_GSM_PWR_SHUT        0
+//    // Just for patch the DCDC chip's fault temporarily, board need to be redesigned.  default is 0.
+//    #define PATCH_GSM_DCDC_EN       1
+//    // Just for patch GSM unusual reboot bug temporarily, board need to be redesigned.  default is 0.
+//    #define PATCH_GSM_SISW_EN       1
+//#elif BOARD_VERSION == 13
+//    // If use the GSM power chip's ctrl pin , default is 1. No need right now ,2016-12-21 9:41:04
+//    #define USE_GSM_PWR_SHUT        1
+//    // Just for patch the DCDC chip's fault temporarily, board need to be redesigned.  default is 0.
+//    #define PATCH_GSM_DCDC_EN       0
+//    // Just for patch GSM unusual reboot bug temporarily, board need to be redesigned.  default is 0.
+//    #define PATCH_GSM_SISW_EN       0
+//#endif // BOARD_VERSION
+
+
+//// Just for patch the ^SISW:0,32,32 without OK received. Once the DCDC chip's ctrl pin used, not need it. default is 0.
+//// <o> Patch GSM SISW  : <0=> Disable <1=> Enable 
+//// 	<i>Default: Enable
+//#define PATCH_GSM_SISW_EN       1
+
+///*// Just for patch the ^SISW:0,32,32 without OK received. Once the DCDC chip's ctrl pin used, not need it. default is 0.
+//// //// Patch GSM SISW  : /// Disable /// Enable 
+//// 	///Default: Enable  */
+//#if PATCH_GSM_DCDC_EN
+//    #define PATCH_GSM_SISW_EN       1
+//#else
+//    #define PATCH_GSM_SISW_EN       0
+//#endif  // PATCH_GSM_DCDC_EN
+
+
+// Just for patch the UITD connection disconnect. Check if alive packet affirmed. default is 1.
+// <o> Patch UITD alive : <0=> Disable <1=> Enable 
+// 	<i>Default: Enable
+#define PATCH_UITD_ALIVE_EN     1
+
+#if PATCH_UITD_ALIVE_EN
+#define PATCH_ALIVE_TIMEOUT     10 // unit: min  default : 10
+#endif // PATCH_UITD_ALIVE_EN
+
+
+// Song: system log store to file enable. default is 0.
+// <o> system log store to file enable : <0=> Disable <1=> Enable
+// 	<i>Default: Disable
+#define SYS_LOG_FILE_EN         0
+
+// <o> SNTP update time enable : <0=> Disable <1=> Enable
+// 	<i>Default: Disable
+#define USE_SNTP_TIME           0
+
+// Song: system log file path. default is 0.
+// <s.64> system log file path
+// 	<i>Default: "/"
+#define SYS_LOG_FILE_PATH       "/"
+
+
+// Song: system login password
+// <s.64> system login password
+// 	<i>Default: "szjs"
+#define SYS_LOGIN_PW            "szjs"
+
+
+/* board configuration */
+// <o> SDCard Driver <1=>SDIO sdcard <0=>SPI MMC card
+// 	<i>Default: 1
+#define STM32_USE_SDIO			0
+
+
+#if SYS_IAP_MODE_EN
+#define VECTTAB_START   0x20000
+#else
+#define VECTTAB_START   0x0
+#endif  // SYS_IAP_MODE_EN
+
+/* whether use board external SRAM memory */
+// <e>Use external SRAM memory on the board
+// 	<i>Enable External SRAM memory
+#define STM32_EXT_SRAM          0
+//	<o>Begin Address of External SRAM
+//		<i>Default: 0x68000000
+#define STM32_EXT_SRAM_BEGIN    0x68000000 /* the begining address of external SRAM */
+//	<o>End Address of External SRAM
+//		<i>Default: 0x68080000
+#define STM32_EXT_SRAM_END      0x68080000 /* the end address of external SRAM */
+// </e>
+
+//#define STM32_NOINIT_ADDR       0x20000000
+//#define STM32_NOINIT_SIZE       0x100
+
+
+// <o> Internal SRAM memory size[Kbytes] <8-64>
+//	<i>Default: 64
+#ifdef __ICCARM__
+// Use *.icf ram symbal, to avoid hardcode.
+extern char __ICFEDIT_region_RAM_end__;
+#define STM32_SRAM_END          &__ICFEDIT_region_RAM_end__
+#else
+#define STM32_SRAM_SIZE         128
+#define STM32_SRAM_END          (0x20000000 + STM32_SRAM_SIZE * 1024 )
+#endif
+
+// <o> Console on USART: <0=> no console <1=>USART 1 <2=>USART 2 <3=> USART 3
+// 	<i>Default: 1
+#define STM32_CONSOLE_USART		1
+
+void rt_hw_board_init(void);
+
+#if STM32_CONSOLE_USART == 0
+#define CONSOLE_DEVICE "no"
+#elif STM32_CONSOLE_USART == 1
+#define CONSOLE_DEVICE "uart1"
+#elif STM32_CONSOLE_USART == 2
+#define CONSOLE_DEVICE "uart2"
+#elif STM32_CONSOLE_USART == 3
+#define CONSOLE_DEVICE "uart3"
+#endif
+
+#define FINSH_DEVICE_NAME   CONSOLE_DEVICE
+
+#define DNS_SERVER_DEFAULT      "114.114.114.114"
+
+#define ETH_IP_DEFAULT          "192.168.1.199"
+#define ETH_GW_DEFAULT          "192.168.1.1"
+#define ETH_MASK_DEFAULT        "255.255.255.0"
+
+
+
+
+#define STM32_OTP_ADDRESS       0x1FFF7800
+#define STM32_OTP_LOCK_ADDRESS  0x1FFF7A00
+
+#define SYS_ID_OTP_ADDR         0x88  // The ID position in the OTP area.
+#define SYS_ID_OTP_LOCK_ADDR    ((SYS_ID_OTP_ADDR/32)/4)
+#define SYS_ID_ADDRESS          (STM32_OTP_ADDRESS + SYS_ID_OTP_ADDR)
+#define SYS_ID_LOCK_ADDRESS     (STM32_OTP_LOCK_ADDRESS + SYS_ID_OTP_LOCK_ADDR*4)
+
+//#define SYS_ID_ADDRESS  0x807FE00
+
+
+#define SYS_PASSWORD        "SZJSWLWWG"
+
+
+//#if STM32_USE_SDIO
+///**
+//  * @brief  SD FLASH SDIO Interface
+//  */
+////#define SD_DETECT_PIN                    GPIO_Pin_0                 /* PB.0 */
+////#define SD_DETECT_GPIO_PORT              GPIOB                       /* GPIOB */
+////#define SD_DETECT_GPIO_CLK               RCC_AHB1Periph_GPIOB
+//   
+//#define SDIO_FIFO_ADDRESS                ((uint32_t)0x40012C80)
+///** 
+//  * @brief  SDIO Intialization Frequency (400KHz max)
+//  */
+//#define SDIO_INIT_CLK_DIV                ((uint8_t)0x76)
+///** 
+//  * @brief  SDIO Data Transfer Frequency (25MHz max) 
+//  */
+//#define SDIO_TRANSFER_CLK_DIV            ((uint8_t)0x0) 
+
+//#define SD_SDIO_DMA                   DMA2
+//#define SD_SDIO_DMA_CLK               RCC_AHB1Periph_DMA2
+// 
+//#define SD_SDIO_DMA_STREAM3	          3
+////#define SD_SDIO_DMA_STREAM6           6
+
+//#ifdef SD_SDIO_DMA_STREAM3
+// #define SD_SDIO_DMA_STREAM            DMA2_Stream3
+// #define SD_SDIO_DMA_CHANNEL           DMA_Channel_4
+// #define SD_SDIO_DMA_FLAG_FEIF         DMA_FLAG_FEIF3
+// #define SD_SDIO_DMA_FLAG_DMEIF        DMA_FLAG_DMEIF3
+// #define SD_SDIO_DMA_FLAG_TEIF         DMA_FLAG_TEIF3
+// #define SD_SDIO_DMA_FLAG_HTIF         DMA_FLAG_HTIF3
+// #define SD_SDIO_DMA_FLAG_TCIF         DMA_FLAG_TCIF3 
+//#elif defined SD_SDIO_DMA_STREAM6
+// #define SD_SDIO_DMA_STREAM            DMA2_Stream6
+// #define SD_SDIO_DMA_CHANNEL           DMA_Channel_4
+// #define SD_SDIO_DMA_FLAG_FEIF         DMA_FLAG_FEIF6
+// #define SD_SDIO_DMA_FLAG_DMEIF        DMA_FLAG_DMEIF6
+// #define SD_SDIO_DMA_FLAG_TEIF         DMA_FLAG_TEIF6
+// #define SD_SDIO_DMA_FLAG_HTIF         DMA_FLAG_HTIF6
+// #define SD_SDIO_DMA_FLAG_TCIF         DMA_FLAG_TCIF6 
+//#endif /* SD_SDIO_DMA_STREAM3 */
+
+
+//void SD_LowLevel_DeInit(void);
+//void SD_LowLevel_Init(void); 
+//void SD_LowLevel_DMA_TxConfig(uint32_t *BufferSRC, uint32_t BufferSize);
+//void SD_LowLevel_DMA_RxConfig(uint32_t *BufferDST, uint32_t BufferSize);
+
+//#endif
+
+
+#define COM_TEST_BAUDRATE   19200
+
+#define SYS_TESTING_MODE_ADDR   0x20000000
+#define SYS_TESTING_MODE_CODE   0xA55A55AA
+
+#define AD_SAMPLE_RATE      10
+
+// Pin define .
+#define PIN_GSM_RING        0
+#define PIN_GSM_PWR_SHUT    1
+#define PIN_GSM_ON_OFF      2
+#define PIN_GSM_RST         3
+#define PIN_GSM_STATE_LED   4
+#define PIN_IO_IN           5
+#define PIN_IO_OUT          6
+#define PIN_GPIO_1          7
+#define PIN_LED_PWR         8
+#define PIN_LED_STATUS      9
+#define PIN_EXT_RST         10
+#define PIN_ID_DETECT       11
+#define PIN_TIM3_OUT        12
+#define PIN_INPUT_01        13
+#define PIN_INPUT_02        14
+#define PIN_INPUT_03        15
+#define PIN_INPUT_04        16
+#define PIN_OUTPUT_01       17
+#define PIN_OUTPUT_02       18
+#define PIN_OUTPUT_03       19
+#define PIN_OUTPUT_04       20
+#define PIN_OUTPUT_05       21
+#define PIN_TIM4_OUT        22
+#define PIN_TIM9_OUT        23
+#define PIN_WIFI_SHUT       24
+#define PIN_WIFI_RESET      25
+#define PIN_BLE_RESET       26
+#define PIN_VK32XX_RST      27
+#define PIN_BAT_CTRL        28
+#define PIN_MCP23017_RST    29
+#define PIN_MCP23017_INTA   30
+#define PIN_MCP23017_INTB   31
+#define PIN_VK32XX_IRQ      32
+
+#define SENSOR_CHANNEL_MAX      8
+#define INPUT_CHANNEL_MAX       16
+#define OUTPUT_CHANNEL_MAX      16
+
+
+#define GSM_PIN_PWR_PUSH     PIN_LOW
+#define GSM_PIN_PWR_POP      PIN_HIGH  
+
+#define PWR_CTRL_EN         PIN_LOW
+#define PWR_CTRL_DIS        PIN_HIGH
+
+#define GSM_PWR_ON          PIN_HIGH
+#define GSM_PWR_OFF         PIN_LOW
+
+#define GSM_RST_EN          PIN_LOW
+#define GSM_RST_DIS         PIN_HIGH
+
+#define UITD_UART_WIFI      "uart6"
+#define UITD_UART_GSM       "uart2"
+#define UITD_UART_COM_BUS   "uart3"
+////#define UITD_UART_COM_BUS   "VK_uart1"
+
+#define UITD_UART_VK_1      "VK_uart1"
+#define UITD_UART_VK_2      "VK_uart2"
+#define UITD_UART_VK_3      "VK_uart3"
+#define UITD_UART_VK_4      "VK_uart4"
+
+#define UITD_UART_TRANSPARENT   "uart3"
+
+
+
+
+#define MOTHER_TYPE_UNKNOWN         0
+#define MOTHER_TYPE_GPRS_1_2        1   // ID = 1
+#define MOTHER_TYPE_GPRS            2   // ID = 1 *2
+#define MOTHER_TYPE_ETH             3   // ID = 2 *2
+#define MOTHER_TYPE_GPRS_ETH        4   // ID = 3 *2
+#define MOTHER_TYPE_IOT_PRO         5   // ID = 4 *2
+#define MOTHER_TYPE_EC_AP           6   // ID = 10
+#define MOTHER_TYPE_EC_TERM         7   // ID = 11
+#define MOTHER_TYPE_PWR_DET         8   // ID = 9
+
+
+// extern board ID is all even number.
+// extern module and mode ID is all odd number.
+#define DEV_TYPE_UNKNOWN            0   
+#define DEV_TYPE_SAMPLE_CTRL        2   
+#define DEV_TYPE_SIMPLE_UITD        3   
+#define DEV_TYPE_CONTROLLER         4   
+#define DEV_TYPE_WIRE_EXTEND_BAT    5   
+#define DEV_TYPE_UITD_BAT           6   
+#define DEV_TYPE_SAMPLE_CTRL_BAT    7   
+#define DEV_TYPE_CONTROLLER_BAT     8   
+#define DEV_TYPE_FULL_FUNC_BAT      9   
+#define DEV_TYPE_UITD_3UART_BAT     10
+#define DEV_TYPE_IOT_PRO_UITD       11
+#define DEV_TYPE_IOT_PRO_CTRL       12
+#define DEV_TYPE_EC_SENSOR_01       13
+#define DEV_TYPE_PWR_DET            14
+
+
+#define DEV_TYPE_MODULE_BLE         51  
+#define DEV_TYPE_MODULE_WIFI        52  
+#define DEV_TYPE_MODULE_WIFI_BLE    53  
+
+#define DEV_TYPE_MODE_RESET         81  
+#define DEV_TYPE_MODE_FORMAT        82  
+#define DEV_TYPE_MODE_TEST          83  
+#define DEV_TYPE_MODE_RECONFIG      84  
+#define DEV_TYPE_MODE_BOOT          85
+#define DEV_TYPE_MODE_DEBUG         86
+
+//#define DEV_TYPE_MODULE_WIFI        10
+
+//#define DEV_TYPE_FUN_FORMAT_FS      20
+//#define DEV_TYPE_FUN_INIT_CFG       21
+
+
+//#define MODULE_TYPE_UNKNOWN         0  // ID_1 = 0, ID_2 = 0.
+//#define MODULE_TYPE_BLE             1  // ID_1 = 3, ID_2 = 3.
+//#define MODULE_TYPE_WIFI            2  // ID_1 = 3, ID_2 = 4.
+//#define MODULE_TYPE_WIFI_BLE        3  // ID_1 = 3, ID_2 = 5.
+//#define MODULE_TYPE_MODE_RESET      4  // ID_1 = 5, ID_2 = 3.
+//#define MODULE_TYPE_MODE_FORMATE    5  // ID_1 = 5, ID_2 = 4.
+//#define MODULE_TYPE_MODE_TEST       6  // ID_1 = 5, ID_2 = 5.
+
+
+
+typedef enum
+{
+    dev_type_unknown = DEV_TYPE_UNKNOWN,
+    dev_type_sample_ctrl = DEV_TYPE_SAMPLE_CTRL,
+    dev_type_simple_UITD = DEV_TYPE_SIMPLE_UITD,
+    dev_type_controller = DEV_TYPE_CONTROLLER,
+    dev_type_wire_extend = DEV_TYPE_WIRE_EXTEND_BAT,
+    dev_type_full_func = DEV_TYPE_FULL_FUNC_BAT,
+    dev_type_UITD_3uart = DEV_TYPE_UITD_3UART_BAT,
+    dev_type_IOT_PRO_UITD = DEV_TYPE_IOT_PRO_UITD,
+    dev_type_IOT_PRO_CTRL = DEV_TYPE_IOT_PRO_CTRL,
+    
+    dev_type_module_BLE = DEV_TYPE_MODULE_BLE,
+    dev_type_module_WIFI = DEV_TYPE_MODULE_WIFI,
+    dev_type_module_WIFI_BLE = DEV_TYPE_MODULE_WIFI_BLE,
+    
+    dev_type_mode_reset = DEV_TYPE_MODE_RESET,
+    dev_type_mode_format = DEV_TYPE_MODE_FORMAT,
+    dev_type_mode_test = DEV_TYPE_MODE_TEST,
+    dev_type_mode_reconfig = DEV_TYPE_MODE_RECONFIG,
+    dev_type_mode_debug = DEV_TYPE_MODE_DEBUG,
+    
+//    dev_type_module_wifi = DEV_TYPE_MODULE_WIFI,
+//    dev_type_fun_format_FS = DEV_TYPE_FUN_FORMAT_FS,
+//    dev_type_fun_init_CFG = DEV_TYPE_FUN_INIT_CFG,
+} e_dev_type;
+
+
+typedef enum
+{
+    mother_type_unknown = MOTHER_TYPE_UNKNOWN,
+    mother_type_GPRS_1_2 = MOTHER_TYPE_GPRS_1_2,
+    mother_type_GPRS = MOTHER_TYPE_GPRS,
+    mother_type_ETH = MOTHER_TYPE_ETH,
+    mother_type_GPRS_ETH = MOTHER_TYPE_GPRS_ETH,
+    mother_type_IOT_PRO = MOTHER_TYPE_IOT_PRO,
+    mother_type_EC_AP = MOTHER_TYPE_EC_AP,
+    mother_type_EC_TERM = MOTHER_TYPE_EC_TERM,
+} e_mother_type;
+
+//typedef enum
+//{
+//    module_type_unknown = MODULE_TYPE_UNKNOWN,
+//    module_type_BLE = MODULE_TYPE_BLE,
+//    module_type_WIFI = MODULE_TYPE_WIFI,
+//    module_type_WIFI_BLE = MODULE_TYPE_WIFI_BLE,
+//    module_type_mode_reset = MODULE_TYPE_MODE_RESET,
+//    module_type_mode_formate = MODULE_TYPE_MODE_FORMATE,
+//    module_type_mode_test = MODULE_TYPE_MODE_TEST,
+//} e_module_type;
+
+typedef struct
+{
+    uint8_t     svr_use_name;
+    uint8_t     svr_if_name[SVR_IF_NAME_LEN];
+    uint8_t     svr_if_ip[15+1];
+    uint16_t    svr_if_port;
+    uint8_t     if_UITD;
+    
+} s_sys_server_cfg;
+
+typedef struct
+{
+    e_dev_type  dev_type;
+    int32_t     ID_1;
+    int32_t     ID_2;
+    uint8_t     type_name[32];
+} s_dev_ID;
+
+typedef struct
+{
+    e_mother_type  mother_type;
+    int32_t     ID;
+    uint8_t     type_name[32];
+} s_mother_ID;
+
+typedef struct
+{
+    uint8_t     TF;
+    uint8_t     GSM;
+    uint8_t     ethernet;
+    uint8_t     WIFI;
+    uint8_t     RS232;
+    uint8_t     RS485;
+    uint8_t     input;
+    uint8_t     output;
+    uint8_t     sensor_4_20mA;
+    uint8_t     sensor_5V;
+    uint8_t     sensor_Hz;
+    
+    uint32_t    counter;
+    int         fd;
+} s_test_flag;
+
+
+typedef enum
+{
+    power_ext = 0,
+    power_batt_full,
+    power_batt_half,
+    power_batt_low,
+    power_batt_very_low,
+    power_batt_shutting,
+    power_batt_shut,
+    power_unknown,
+    
+} e_power_status;
+
+typedef enum
+{
+    power_state_extern = 0,
+    power_state_extern_resume,
+    power_state_battery_relay,
+    power_state_battery,
+    power_state_shutting,
+    power_state_shut,
+    power_state_shut_down,
+    power_state_charging,
+    power_state_charge_full,
+   
+} e_power_state;
+
+typedef struct
+{
+    e_power_state   state;
+    e_power_status  status;
+    e_power_status  status_last;
+    uint8_t         if_charging;
+    uint8_t         check_period; // unit S.
+    
+} s_power_status;
+
+
+
+typedef struct
+{
+    uint8_t             server_num;
+	uint8_t 			server_elec_fire;
+    s_sys_server_cfg    server_SZJS;
+    s_sys_server_cfg    server_XFZD;
+    
+    uint8_t             sys_inited_flag;
+    uint8_t             eth_inited_flag;
+    e_sys_mode          sys_mode;
+
+    s_test_flag         test_flag;
+    
+    uint8_t             board_type_checked;
+    uint8_t             server_main_connected;
+    uint8_t             server_main_inited;
+    uint8_t             server_eth_connected;
+    uint8_t             server_eth_inited;
+    uint8_t             eth_link_up;
+    uint8_t             server_WIFI_connected;
+    uint8_t             server_WIFI_inited;
+    
+    uint8_t             debug_level;
+    uint8_t             log_file_en;
+    uint8_t             log_file_path[FILE_PATH_LEN_MAX];
+    e_dev_type          dev_type;
+    e_mother_type       mother_type;
+    e_dev_type          module_type;
+    
+    uint8_t             server_1_connected;
+    uint8_t             server_1_inited;
+    uint8_t             server_2_connected;
+    uint8_t             server_2_inited;
+    
+    uint8_t             battery_check; // battery_check
+    
+} s_sys_cfg;
+
+
+typedef struct
+{
+	uint8_t	sec;
+	uint8_t	min;
+	uint8_t	hour;
+	uint8_t	day;
+	uint8_t	month;
+	uint8_t	year;
+} PACK_STRUCT_STRUCT	t_GB_ctrl_timestamp;
+
+typedef enum
+{
+    IO_input_status_idle = 0,
+    IO_input_status_init,
+    IO_input_status_inited,
+    IO_input_status_working,
+    IO_input_status_stop,
+    IO_input_status_error
+} e_IO_input_status;
+
+typedef enum
+{
+    IO_input_state_low = 0,
+    IO_input_state_high = 1,
+} e_IO_input_state;
+
+
+typedef enum
+{
+    IO_input_trig_none = 0,
+    IO_input_trig_rise = 1,
+    IO_input_trig_fall = 2,
+    IO_input_trig_edge = 3,
+    IO_input_trig_period = 4,
+} e_IO_input_trig;
+
+
+typedef struct
+{
+    uint8_t             ID;
+    e_IO_input_state    state;
+    t_GB_ctrl_timestamp timestamp;
+} PACK_STRUCT_STRUCT s_IO_input_report;
+
+typedef struct
+{
+    uint8_t             ID;
+    e_IO_input_trig     trig;
+    uint32_t            period;
+} PACK_STRUCT_STRUCT s_IO_input_cfg_report;
+
+
+extern e_dev_type   sys_dev_type;
+extern e_mother_type   sys_mother_type;
+extern uint8_t board_type_checked;
+
+//extern uint32_t sys_testing_mode;
+
+extern uint32_t sys_cfg;
+
+extern uint8_t sys_board_ID[2];
+
+extern uint8_t sys_main_version;
+extern uint8_t sys_sub_version;
+
+extern s_sys_cfg   sys_config;
+extern s_eth_cfg    eth_cfg;
+extern s_WIFI_cfg   WIFI_cfg;
+extern s_mode_cfg   mode_cfg;
+
+extern int32_t svr_use_name;
+extern uint8_t svr_if_name[];
+extern uint8_t svr_if_ip[15+1];
+extern uint16_t svr_if_port;
+
+extern uint8_t sys_fw_update_reboot;
+extern uint8_t sys_inited_flag;
+
+extern uint32_t g_sensor_period[SENSOR_CHANNEL_MAX];
+
+//extern uint32_t g_sensor_period_1;
+//extern uint32_t g_sensor_period_2;
+//extern uint32_t g_sensor_period_3;
+//extern uint32_t g_sensor_period_4;
+
+extern volatile uint32_t sys_tick_counter;
+extern volatile uint32_t systick_temp_1;
+extern volatile uint32_t systick_temp_2;
+extern volatile uint32_t systick_temp_3;
+extern volatile uint32_t systick_temp_4;
+
+
+#if PATCH_UITD_ALIVE_EN
+extern volatile uint32_t  patch_alive_cnt;
+#endif // PATCH_UITD_ALIVE_EN 
+
+extern void rt_hw_board_init(void);
+extern rt_uint32_t rt_hw_tick_get_millisecond(void);
+extern rt_uint32_t rt_hw_tick_get_microsecond(void);
+extern e_dev_type sys_get_ext_board_type(int ID_1, int ID_2);
+
+
+#endif
+
+// <<< end of configuration section >>>
