@@ -1,0 +1,10 @@
+.\build\clock.o: ..\..\RTT_2_1_0\src\clock.c
+.\build\clock.o: ..\..\RTT_2_1_0\include\rthw.h
+.\build\clock.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\clock.o: .\rtconfig.h
+.\build\clock.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\clock.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\clock.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\clock.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\clock.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\clock.o: ..\..\RTT_2_1_0\include\rtthread.h

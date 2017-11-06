@@ -1,0 +1,16 @@
+.\build\log_trace.o: ..\..\RTT_2_1_0\components\utilities\logtrace\log_trace.c
+.\build\log_trace.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\log_trace.o: .\rtconfig.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\log_trace.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\include\rthw.h
+.\build\log_trace.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\components\utilities\logtrace\log_trace.h
+.\build\log_trace.o: ..\..\RTT_2_1_0\components\finsh\finsh.h
+.\build\log_trace.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\build\log_trace.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\log_trace.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
