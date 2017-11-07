@@ -23,6 +23,8 @@ rt_thread_t thread_fire_alarm;
 rt_uint8_t prio_fire_alarm_rx = 4;
 rt_thread_t thread_fire_alarm_rx;
 
+
+
 s_com_bus_cfg com_testing_cfg = 
 {
     COM_TEST_BAUDRATE,
@@ -63,6 +65,7 @@ struct rt_messagequeue *mq_FA_2_manul_fire;
 //uint8_t mq_FA_2_manul_fire_buf[128] = {0};
 
 struct rt_messagequeue *mq_FA_fire;
+struct rt_messagequeue *mq_FA_elec_fire;	//wzy
 //uint8_t mq_FA_fire_buf[128] = {0};
 struct rt_messagequeue *mq_FA_2_fire;
 //uint8_t mq_FA_2_fire_buf[128] = {0};
@@ -2007,9 +2010,6 @@ const s_FAC_config FAC_config_table[] = {
 
 
 
-
-
-
 rt_err_t com_bus_rx_ind(rt_device_t dev, rt_size_t size)
 {
     int i = 0;
@@ -2126,6 +2126,7 @@ int com_bus_server(s_com_bus_cb * cb)
     return 0;
 }
 
+//初始化用
 int com_bus_config(rt_device_t dev, s_com_bus_cfg *cfg)
 {
     struct serial_configure serial_cfg = {0};
@@ -2145,7 +2146,7 @@ int com_bus_config(rt_device_t dev, s_com_bus_cfg *cfg)
     return 0;
 }
 
-
+//没用到
 int com_bus_testing_parser(s_com_bus_cb * cb)
 {
 
@@ -2189,7 +2190,7 @@ int com_bus_testing_parser(s_com_bus_cb * cb)
     return 0;
 }
 
-// 标准协议包截取函数
+//没用到
 int FAC_usual_rx_parser(s_com_bus_cb * cb)
 {
     uint8_t data_temp = 0x00;
@@ -2298,9 +2299,7 @@ int FAC_usual_rx_parser(s_com_bus_cb * cb)
         
     
     }
-    
-    
-    
+       
     return -1;
 }
 
@@ -2395,13 +2394,12 @@ void fire_alarm_struct_init(s_fire_dev_status_info *dev_info)
 }
 RTM_EXPORT(fire_alarm_struct_init);
 
-//报警信息 解析
+
 int FAC_alarm_data_parse(uint8_t *buf, s_FAC_alarm_struct *alarm, s_com_bus_R_alarm *alarm_data)
 {
     int res = 0;
     //s_fire_dev_status_info *status = (s_fire_dev_status_info *)alarm_data->remark;
     
-		//初始化 保存信息
     alarm_data->valid = 0;
     alarm_data->port = 0; 
     alarm_data->sys_addr = 0;
@@ -2411,7 +2409,6 @@ int FAC_alarm_data_parse(uint8_t *buf, s_FAC_alarm_struct *alarm, s_com_bus_R_al
     // set all the seg not used to initial the struct.
     fire_alarm_struct_init(&alarm_data->dev_info);
     
-		//解析数据
     res = FAC_alarm_data_element_parse(buf, &alarm->sys_addr, &alarm_data->sys_addr);
     if (res < 0) return -1;
     alarm_data->dev_info.controller = alarm_data->sys_addr;
@@ -2432,6 +2429,15 @@ int FA_mq_fire(void *buffer, rt_size_t size)
     return rt_mq_send(mq_FA_fire, buffer, size);
 }
 RTM_EXPORT(FA_mq_fire);
+
+//wzy
+int FA_mq_elec_data(void *buffer, rt_size_t size)
+{
+    return rt_mq_send(mq_FA_elec_fire, buffer, size);
+}
+RTM_EXPORT(FA_mq_elec_data);
+
+
 
 int FA_mq_fire_2(void *buffer, rt_size_t size)
 {
@@ -2463,11 +2469,12 @@ int FA_mq_reset_2(void *buffer, rt_size_t size)
 }
 RTM_EXPORT(FA_mq_reset_2);
 
-//截取包解析
+
+//没用到
 int FAC_usual_rx_handler(s_com_bus_cb * cb)
 {
     int res = 0;
-    
+
     if (cb->parse.valid)
     {
         cb->parse.valid = 0;
@@ -2499,7 +2506,7 @@ int FAC_usual_rx_handler(s_com_bus_cb * cb)
 
             }
         }
-        else if ((cb->FAC_config.alarm.fault.if_alarm) && 
+       if ((cb->FAC_config.alarm.fault.if_alarm) && 
              (rt_memcmp(&cb->parse.buf[cb->FAC_config.alarm.fault.index], 
                         cb->FAC_config.alarm.fault.buf, 
                         cb->FAC_config.alarm.fault.len) == 0))
@@ -2556,7 +2563,6 @@ int FAC_usual_rx_handler(s_com_bus_cb * cb)
     return 0;
 }
 
-//上报截取协议
 int FAC_usual_server(s_com_bus_cb *cb)
 {
     if ( (cb->FA_listen == 0) && cb->FAC_config.send_alive_1.if_send_alive)
@@ -2584,8 +2590,6 @@ int FAC_usual_server(s_com_bus_cb *cb)
         }
         
     }
-    
-    
 
     return 0;
 }
@@ -2643,7 +2647,7 @@ int com_bus_init(s_com_bus_cb * cb, rt_device_t dev, s_FA_uart_cfg *cfg, uint8_t
 //    }
     
         
-    if ((cb->FAC_type < FAC_type_unusual_type) && (cb->FAC_type > FAC_type_unknown))					 //小于10000设备类型 协议包解析
+    if ((cb->FAC_type < FAC_type_unusual_type) && (cb->FAC_type > FAC_type_unknown))
     {
         res = FAC_config_find(cb, cb->FAC_type);
         if (res < 0)
@@ -2669,7 +2673,7 @@ int com_bus_init(s_com_bus_cb * cb, rt_device_t dev, s_FA_uart_cfg *cfg, uint8_t
         cb->rx_server = &FAC_usual_server;
     
     }
-    else if ((cb->FAC_type > FAC_type_unusual_type) && (cb->FAC_type < FAC_type_usual_cfg))				//10000<设备类型<20000 协议包解析
+    else if ((cb->FAC_type > FAC_type_unusual_type) && (cb->FAC_type < FAC_type_usual_cfg))
     {
         // Song: just for test, default use FAC_16
         #if 0
@@ -2747,7 +2751,7 @@ int com_bus_init(s_com_bus_cb * cb, rt_device_t dev, s_FA_uart_cfg *cfg, uint8_t
 //            while (1){rt_thread_delay(10);}
 //        }
     }
-    else if (cb->FAC_type > FAC_type_usual_cfg)									//大于20000设备类型 协议包解析
+    else if (cb->FAC_type > FAC_type_usual_cfg)
     {
 //        res = FAC_config_find(cb, type);
 //        if (res < 0)
@@ -2830,7 +2834,14 @@ void rt_thread_entry_fire_alarm(void* parameter)
                  64,
                  RT_IPC_FLAG_FIFO
                 );
-
+//wzy
+	mq_FA_elec_fire = rt_mq_create("mq_FA_elec_fire",
+                 sizeof(s_com_bus_R_alarm),
+                 64,
+                 RT_IPC_FLAG_FIFO
+                );
+				 
+				 
     mq_FA_2_fire = rt_mq_create("mq_FA_2_fire",
                  sizeof(s_com_bus_R_alarm),
                  64,
@@ -2881,17 +2892,9 @@ void rt_thread_entry_fire_alarm(void* parameter)
 
     rt_mutex_init(&mt_IO_input, "mt_IO_input", RT_IPC_FLAG_FIFO);
                 
-//    if (sys_config.dev_type == dev_type_IOT_PRO_UITD)
-//    {
-//        json_cfg_load_FA(&FA_uart_cfg, &FA_uart_num);
-//    }
-//    else
-//    {
-//        json_cfg_load_AP02(&FA_uart_cfg);  
-//    }
+
     json_cfg_load_FA(&FA_uart_cfg, &FA_uart_num);
 
-        
 
     for (i=0;i<sizeof(fire_alarm_IO_input)/sizeof(fire_alarm_IO_input[0]);i++)
     {
@@ -2939,7 +2942,7 @@ void rt_thread_entry_fire_alarm(void* parameter)
     }
     FA_uart_num = FA_num;
 
-    ////com_bus_init(p_com_bus_cb, device_com_bus, FAC_type_JB_3101G);
+    
     
 
 //    p_IO_input_cb = rt_malloc(sizeof(s_IO_input_cb));

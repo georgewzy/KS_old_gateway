@@ -2,10 +2,12 @@
 .\build\uitd_ble.o: applications\UITD_BLE.h
 .\build\uitd_ble.o: drivers\board.h
 .\build\uitd_ble.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\uitd_ble.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cm3.h
+.\build\uitd_ble.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
 .\build\uitd_ble.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\build\uitd_ble.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmInstr.h
-.\build\uitd_ble.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmFunc.h
+.\build\uitd_ble.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
+.\build\uitd_ble.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
+.\build\uitd_ble.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
+.\build\uitd_ble.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
 .\build\uitd_ble.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\uitd_ble.o: drivers\stm32f2xx_conf.h
 .\build\uitd_ble.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h

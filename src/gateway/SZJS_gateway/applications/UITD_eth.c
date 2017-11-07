@@ -580,17 +580,8 @@ void rt_thread_entry_UITD_eth(void* parameter)
         }
         else 
         {
-					
-						//-------------------松江3208 协议配套 用户信息传输装置
-					#define SJ3208_EN 1
-					#if SJ3208_EN
-						UITD_SJ3208_send_pkg(p_UITD_eth_SZJS, 0);
-						//UITD_send_pkg(p_UITD_eth_SZJS, 0);
-					#else
             UITD_service_handler(p_UITD_eth_SZJS);
             UITD_send_handler(p_UITD_eth_SZJS);
-					#endif
-						//-------------------
         }
    
         if (sys_fw_update_reboot)

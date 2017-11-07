@@ -1,4 +1,4 @@
-// ¸³°²JB-QBH-FS5101W
+// º£Íå100
 
 #include "fire_alarm.h"
 #include "sys_config.h"
@@ -25,7 +25,7 @@ static uint8_t *p_data_meta = NULL;
 static uint8_t  data_meta_num = 0;
 
 
-#define FAC_MSG_HEAD			0x01
+#define FAC_MSG_HEAD			0x8E
 #define FAC_MSG_TAIL			0x00
 
 #define FAC_MSG_CMD_ALARM			(u8)0xC3
@@ -49,7 +49,6 @@ const static uint8_t fac_send_data[19] = {0x01,0x54,0x31,0x02,0x57,0x31,0x31,0x3
 
 
 
-static u8 reply_data[8] = {0xF0,0x00, 0x03, 0xA2, 0x00, 0x00, 0x00, 0x00};
 
 
 #define MAX_HP_BUF	20
@@ -71,7 +70,7 @@ static HandshakePro m_HandShakePro;
 
 static uu_status = 0;
 
-s_com_bus_cfg FAC_com_cfg = {2400, 7, PARITY_EVEN, 1};
+s_com_bus_cfg FAC_com_cfg = {9600, 8, PARITY_NONE, 1};
 
 s_com_bus_R_alarm *FAC_msg_buf = NULL;
 int FAC_msg_buf_num = 0;
@@ -129,9 +128,6 @@ void rt_thread_entry_HandShake(void* parameter)
 	
 	while(1)
 	{
-		
-		// rt_memcpy(p_com_bus_cb->parse.buf, fac_send_data, 19);
-		// p_com_bus_cb->parse.len = 19;
 	
 		// rt_device_write(p_com_bus_cb->dev, 0, fac_send_data, 19);
 		// p_com_bus_cb->parse.valid = 1;
@@ -159,12 +155,10 @@ int FAC_unusual_rx_parser(s_com_bus_cb *cb)
 {
  
     uint8_t data_temp = 0x00;
-	uint8_t ddd = 0;
     int res = 0;
 	u16 crc_val = 0;
-	u8 d[2] = {0x01,0xA2};
-    u8 crc_data[20] = {0};
-	
+
+
     while(1)
     {
 	
@@ -174,18 +168,18 @@ int FAC_unusual_rx_parser(s_com_bus_cb *cb)
             return -1;
         }
 		
-        cb->rec_buf[cb->rec_len] = data_temp&0x7F;
-		ddd = data_temp&0x7F;
-//		rt_device_write(cb->dev, 0, &ddd, 1);
+        cb->rec_buf[cb->rec_len] = data_temp;
+
+		rt_device_write(cb->dev, 0, &data_temp, 1);
         cb->rec_len++;
 				
 		switch (uu_status)
 		{
 			case 0:
 				
-				if (ddd == 0x01)
+				if (data_temp == FAC_MSG_HEAD)
 				{
-					uu_status = 1;
+					uu_status = 2;
 				}
 				else
 				{
@@ -193,18 +187,11 @@ int FAC_unusual_rx_parser(s_com_bus_cb *cb)
 				}
 			break;
 			case 1:	
-				if(ddd == 0x4C) 
-				{
-					uu_status = 3;
-				}
-				else
-				{
-					uu_status = 2;
-				}
+
 			break;
 
 			case 2:				
-				if (cb->rec_len >= 19)								
+				if (cb->rec_len >= 10)								
 				{
 					rt_memcpy(cb->parse.buf, cb->rec_buf, cb->rec_len);
 					cb->parse.len = cb->rec_len;
@@ -234,42 +221,16 @@ int FAC_unusual_rx_parser(s_com_bus_cb *cb)
 				break;
 
 			case 3:
-				if (cb->rec_len >= 6)								
-				{
-					rt_memcpy(cb->parse.buf, cb->rec_buf, cb->rec_len);
-					cb->parse.len = cb->rec_len;
-					rt_device_write(cb->dev, 0, cb->rec_buf, cb->rec_len);
-					FAC_StrCLear(cb->rec_buf, cb->rec_len);
-					
-					uu_status = 0;
-					cb->rec_len = 0;
-					
-					cb->parse.valid = 1;
-
-					#ifdef FAC_DBG_EN
-					rt_kprintf("msg valid \n");
-					#endif // FAC_DBG_EN
-
-					return 0;
-				}
-			
 				
-				if (cb->rec_len >= (sizeof(cb->rec_buf) - 2))
-				{
-					cb->parse.len = 0;
-					cb->rec_len = 0;
-					uu_status = 0;
-				}
-		
-		break;
-		case FAC_parse_end:
-		
-		break;
-		default:
+			break;
+			case FAC_parse_end:
 			
-		break;
+			break;
+			default:
+				
+			break;
+		}
 	}
-}
     
     return -1;		
 }
@@ -324,35 +285,7 @@ int FAC_msg_parse(s_com_bus_cb * cb, uint8_t *data, uint32_t len)
 		
 	}
 	
-	else if (data[1] == 0x4C && data[2] == 0x30)	//Ñ²¼ì
-	{
-		FAC_msg_type = FAC_MSG_TYPE_OUTING;
-		
-		cb->alarm_outing.valid = 1;
-		cb->alarm_outing.port = cb->port;
-		cb->alarm_outing.sys_addr = sys_addr;
-		
-		// clean the FAC_msg_buf.
-		#if FAC_MSG_FILETER_EN
-		FAC_msg_buf_clean(FAC_msg_buf);
-		#endif // FAC_MSG_FILETER_EN
-		
-		FA_mq_reset(&cb->alarm_outing, sizeof(s_com_bus_R_reset));
-		FA_mq_reset_2(&cb->alarm_outing, sizeof(s_com_bus_R_reset));
-
-		rt_kprintf("Controller reset : %04X.         RESET .\n\n", cb->alarm_outing.sys_addr);
-	}
-	else if (data[15] == 0x35 && data[16] == 0x36)	//ÆÁ±Î
-	{
-		FAC_msg_type = FAC_MSG_TYPE_SHIELD;
 	
-	}
-	else if (data[15] == 0x34 && data[16] == 0x46)	//·´À¡
-	{
-		FAC_msg_type = FAC_MSG_TYPE_FEEDBACK;
-		
-		
-	}
 	
 	else if ((data[15] == 0x30 && data[16] == 0x30) //»ð¾¯
 
@@ -420,50 +353,7 @@ int FAC_msg_parse(s_com_bus_cb * cb, uint8_t *data, uint32_t len)
 		
 	}
 	
-	else if(FAC_msg_type == FAC_MSG_TYPE_SHIELD)
-	{
-		cb->alarm_shield.valid = 1;
-		cb->alarm_shield.sys_addr  = sys_addr;
-		cb->alarm_shield.addr_main = addr_line;
-		cb->alarm_shield.addr_sub  = dev_ID;
-		
-		fire_alarm_struct_init(&cb->alarm_shield.dev_info);
-		cb->alarm_shield.dev_info.port = addr_area;
-		cb->alarm_shield.dev_info.controller = addr_area;
-		cb->alarm_shield.dev_info.loop = addr_line;
-		cb->alarm_shield.dev_info.device_ID = dev_ID;
-		
-		#if FAC_MSG_FILETER_EN
-		if (FAC_msg_buf_match(FAC_msg_buf, &cb->alarm_shield) == 0)
-		#endif // FAC_MSG_FILETER_EN
-		{
-		FA_mq_fire(&cb->alarm_shield, sizeof(s_com_bus_R_alarm));
-		FA_mq_fire_2(&cb->alarm_shield, sizeof(s_com_bus_R_alarm));
-		rt_kprintf("FireAlarm device  %02X--%02X--%02X--%02X    ALARM .\n\n", sys_addr, addr_area, addr_line, dev_ID );
-		}
-	}
-	else if(FAC_msg_type == FAC_MSG_TYPE_FEEDBACK)
-	{
-		cb->alarm_feedback.valid = 1;
-		cb->alarm_feedback.sys_addr  = sys_addr;
-		cb->alarm_feedback.addr_main = addr_line;
-		cb->alarm_feedback.addr_sub  = dev_ID;
-		
-		fire_alarm_struct_init(&cb->alarm_feedback.dev_info);
-		cb->alarm_feedback.dev_info.port = addr_area;
-		cb->alarm_feedback.dev_info.controller = addr_area;
-		cb->alarm_feedback.dev_info.loop = addr_line;
-		cb->alarm_feedback.dev_info.device_ID = dev_ID;
-		
-		#if FAC_MSG_FILETER_EN
-		if (FAC_msg_buf_match(FAC_msg_buf, &cb->alarm_feedback) == 0)
-		#endif // FAC_MSG_FILETER_EN
-		{
-		FA_mq_fire(&cb->alarm_feedback, sizeof(s_com_bus_R_alarm));
-		FA_mq_fire_2(&cb->alarm_feedback, sizeof(s_com_bus_R_alarm));
-		rt_kprintf("FireAlarm device  %02X--%02X--%02X--%02X    ALARM .\n\n", sys_addr, addr_area, addr_line, dev_ID );
-		}
-	}
+	
 
 	
 	FAC_StrCLear(data, len);

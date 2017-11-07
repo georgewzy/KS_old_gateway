@@ -2,7 +2,7 @@
 #define __VERSION_H__
 
 
-#define SW_VER "1.67"
+#define SW_VER "1.68"
 
 
 

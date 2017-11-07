@@ -10,10 +10,12 @@
 .\build\com_if.o: ..\..\RTT_2_1_0\include\rtthread.h
 .\build\com_if.o: drivers\board.h
 .\build\com_if.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\com_if.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cm3.h
+.\build\com_if.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
 .\build\com_if.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\build\com_if.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmInstr.h
-.\build\com_if.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmFunc.h
+.\build\com_if.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
+.\build\com_if.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
+.\build\com_if.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
+.\build\com_if.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
 .\build\com_if.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\com_if.o: drivers\stm32f2xx_conf.h
 .\build\com_if.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h

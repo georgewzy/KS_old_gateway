@@ -15,6 +15,9 @@ rt_thread_t thread_transparent;
 rt_uint8_t prio_transparent_rx = 4;
 rt_thread_t thread_transparent_rx;
 
+
+
+
 volatile s_transparent_cb *p_transparent_cb = NULL;
 
 s_transparent_cfg   transparent_cfg = {0};

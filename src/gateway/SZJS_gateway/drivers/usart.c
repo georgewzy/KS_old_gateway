@@ -132,24 +132,14 @@ static rt_err_t stm32_configure(struct rt_serial_device *serial, struct serial_c
 
     uart = (struct stm32_uart *)serial->parent.user_data;
 
-		if (cfg->baud_rate == BAUD_RATE_300)
-				USART_InitStructure.USART_BaudRate = 300;
-		else if (cfg->baud_rate == BAUD_RATE_600)
-        USART_InitStructure.USART_BaudRate = 600;
-		else if (cfg->baud_rate == BAUD_RATE_1200)
-        USART_InitStructure.USART_BaudRate = 1200;
-    else if (cfg->baud_rate == BAUD_RATE_2400)
+    if (cfg->baud_rate == BAUD_RATE_2400)
         USART_InitStructure.USART_BaudRate = 2400;
     else if (cfg->baud_rate == BAUD_RATE_4800)
         USART_InitStructure.USART_BaudRate = 4800;
     else if (cfg->baud_rate == BAUD_RATE_9600)
         USART_InitStructure.USART_BaudRate = 9600;
-		else if (cfg->baud_rate == BAUD_RATE_14400)
-        USART_InitStructure.USART_BaudRate = 14400;
     else if (cfg->baud_rate == BAUD_RATE_19200)
         USART_InitStructure.USART_BaudRate = 19200;
-		else if (cfg->baud_rate == BAUD_RATE_28800)
-        USART_InitStructure.USART_BaudRate = 28800;
     else if (cfg->baud_rate == BAUD_RATE_38400)
         USART_InitStructure.USART_BaudRate = 38400;
     else if (cfg->baud_rate == BAUD_RATE_57600)

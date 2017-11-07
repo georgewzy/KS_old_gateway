@@ -14,6 +14,8 @@
 ".\build\uitd_ble.o"
 ".\build\uitd_wifi.o"
 ".\build\transparent.o"
+".\build\pro_ctrl.o"
+".\build\pro_uitd.o"
 ".\build\board.o"
 ".\build\stm32f2xx_it.o"
 ".\build\usart.o"
@@ -74,6 +76,9 @@
 ".\build\com_if.o"
 ".\build\gprs_server.o"
 ".\build\sw_crc.o"
+".\build\iot_digit_in.o"
+".\build\iot_analog_in.o"
+".\build\iot_digit_out.o"
 ".\build\clock.o"
 ".\build\device.o"
 ".\build\idle.o"
@@ -113,6 +118,7 @@
 ".\build\portal.o"
 ".\build\ringbuffer.o"
 ".\build\workqueue.o"
+".\build\i2c-bit-ops.o"
 ".\build\shell.o"
 ".\build\symbol.o"
 ".\build\cmd.o"
@@ -169,7 +175,6 @@
 ".\build\log_trace.o"
 ".\build\ymodem.o"
 --strict --scatter ".\build\rtthread-stm32.sct"
-
- --keep *.o(RTMSymTab)   --keep *.o(FSymTab) --keep *.o(VSymTab) --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--keep *.o(RTMSymTab) --keep *.o(FSymTab) --keep *.o(VSymTab) --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\build\rtthread-stm32.map" -o .\build\rtthread-stm32.axf

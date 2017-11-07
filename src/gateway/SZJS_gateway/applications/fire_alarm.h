@@ -159,7 +159,7 @@ typedef struct
 {
     uint8_t                 valid;
     uint8_t                 port;
-    uint8_t                 sys_addr;   //设备机
+    uint8_t                 sys_addr;
 } s_com_bus_R_reset;
 
 
@@ -219,16 +219,16 @@ typedef struct
 
 typedef struct
 {
-    uint8_t         if_head;						//判断协议是否有 包头
-    uint8_t         head_buf[8];				//包头内容
-    uint8_t         head_len;						//包头长度
+    uint8_t         if_head;
+    uint8_t         head_buf[8];
+    uint8_t         head_len;
 } s_FAC_alarm_head;
 
 typedef struct
 {
-    uint8_t         if_tail;						//判断协议是否有 包尾
-    uint8_t         tail_buf[8];				//包尾内容
-    uint8_t         tail_len;						//包尾长度
+    uint8_t         if_tail;
+    uint8_t         tail_buf[8];
+    uint8_t         tail_len;
 } s_FAC_alarm_tail;
 
 typedef enum
@@ -274,7 +274,7 @@ typedef struct
 
 typedef struct
 {
-    uint8_t         if_alarm;							//是否包含报警信息
+    uint8_t         if_alarm;
     uint8_t         buf[8];
     uint16_t        index;
     uint16_t        len;
@@ -287,7 +287,7 @@ typedef struct
 
 typedef struct
 {
-    uint8_t         if_reset;							
+    uint8_t         if_reset;
     uint8_t         buf[8];
     uint16_t        index;
     uint16_t        len;
@@ -300,67 +300,67 @@ typedef struct
 
 typedef struct
 {
-    s_FAC_alarm_head        head;											//包头
+    s_FAC_alarm_head        head;
     
-    s_FAC_alarm_tail        tail;											//包尾
+    s_FAC_alarm_tail        tail;
 
-    uint8_t                 if_alarm_fix_len;				  //没有包尾的情况下 判断是否有包长度
-    uint16_t                alarm_fix_len;						//包长度
+    uint8_t                 if_alarm_fix_len;
+    uint16_t                alarm_fix_len;
     
-    s_FAC_alarm_struct      alarm;										//火警报警
-    s_FAC_alarm_struct      fault;										//异常报警
+    s_FAC_alarm_struct      alarm;
+    s_FAC_alarm_struct      fault;
 
 } s_FAC_ALARM;
 
 
 typedef struct
 {
-    e_FAC_type          type;									//控制器型号标识
-    uint8_t             name[32];							//控制器型号名称
-    s_com_bus_cfg       cfg;									//串口信息参数
-    uint32_t            alive_period;														//数据上报服务器 周期
+    e_FAC_type          type;
+    uint8_t             name[32];
+    s_com_bus_cfg       cfg;
+    uint32_t            alive_period;
 
 //    s_FAC_pre_send      pre_send_1;
 //    s_FAC_pre_send      pre_send_2;
     
-    s_FAC_rec_alive     rec_alive_1;														//
+    s_FAC_rec_alive     rec_alive_1;
 //    s_FAC_rec_alive     rec_alive_2;
     
-    s_FAC_send_alive    send_alive_1;														//数据上报服务器 结构1
-    s_FAC_send_alive    send_alive_2;														//数据上报服务器 结构2
+    s_FAC_send_alive    send_alive_1;
+    s_FAC_send_alive    send_alive_2;
 
-    s_FAC_reset         reset_1;																//
+    s_FAC_reset         reset_1;
 //    s_FAC_reset         reset_2;
 //    s_FAC_reset         reset_3;
     
-    s_FAC_ALARM         alarm;								//报警数据信息
-    s_FAC_RESET         reset;     						//复位数据信息
+    s_FAC_ALARM         alarm;
+    s_FAC_RESET         reset;     
 
 } s_FAC_config;
 
 
 typedef enum
 {
-	FAC_parse_idle = 0,
-	FAC_parse_head,
-	FAC_parse_data,
-	FAC_parse_tail,
+		FAC_parse_idle = 0,
+		FAC_parse_head,
+		FAC_parse_data,
+		FAC_parse_tail,
     FAC_parse_end,
 } e_FAC_parse_status;
 
 typedef struct
 {
-	uint8_t					valid;
+	uint8_t									valid;
 	e_FAC_parse_status	    status;
-	uint8_t 				buf[FAC_PACKET_LEN_MAX];
-	uint32_t 				len;
+	uint8_t 								buf[FAC_PACKET_LEN_MAX];
+	uint32_t 								len;
 	
 } t_FAC_parse;
 
 typedef struct
 {
     e_com_bus_status    status;
-    rt_device_t         dev;									//设备接口															
+    rt_device_t         dev;
     void                *handler;
     void                *handler_2;
     //s_com_bus_cfg       com_cfg;
@@ -371,38 +371,32 @@ typedef struct
     uint32_t            alive_period;
     
     e_FAC_type          FAC_type;
-    s_FAC_config        FAC_config;								//包含串口配置参数信息
+    s_FAC_config        FAC_config;
     uint8_t             FA_listen;
     
-    t_FAC_parse         parse;									//解析数据包结构
+    t_FAC_parse         parse;
     
-    uint8_t             rec_buf[COM_BUS_REC_MAX];				//接收数据缓存
-    uint32_t            rec_len;								//接收数据的长度
-    uint32_t            rec_index;								//接收数据索引
+    uint8_t             rec_buf[COM_BUS_REC_MAX];
+    uint32_t            rec_len;
+    uint32_t            rec_index;
 //    uint8_t             send_buf[COM_BUS_SEND_MAX];
 //    uint32_t            send_len;
 //    uint32_t            send_index;
     uint8_t             port;
     
-		//----so文件回调函数指针
     void *              FAC_handler;
     pFun_FAC_rx_init    rx_init;
     pFun_FAC_rx_parser  rx_parser;
     pFun_FAC_rx_handler rx_handler;
     pFun_FAC_server     rx_server;
-		//-----
     
-    s_com_bus_R_alarm   alarm_fire;								//火警报警信息
-    s_com_bus_R_alarm   alarm_fault;							//异常报警信息
+    s_com_bus_R_alarm   	alarm_fire;		
+	s_com_bus_R_alarm  	 	alarm_elec_fire;	//wzy
+    s_com_bus_R_alarm  	 	alarm_fault;
     s_com_bus_R_power_off   alarm_power_off;
-    s_com_bus_R_reset   alarm_reset;							//火警复位信息
-		
-		s_com_bus_R_alarm		alarm_shield;							//屏蔽
-		s_com_bus_R_alarm		alarm_feedback;						//反馈
-		s_com_bus_R_alarm		alarm_supervise;					//监管
-		s_com_bus_R_alarm		alarm_start;							//启动
-		s_com_bus_R_reset   alarm_outing;							//巡检
-
+    s_com_bus_R_reset   	alarm_reset;
+	
+	
 } s_com_bus_cb;
 
 
@@ -426,6 +420,7 @@ extern uint16_t g_FA_type;
 extern uint32_t g_FA_baud;
 extern uint32_t g_FA_listen;
 extern struct rt_messagequeue *mq_FA_fire;
+extern struct rt_messagequeue *mq_FA_elec_fire; //wzy
 extern struct rt_messagequeue *mq_FA_2_fire;
 extern struct rt_messagequeue *mq_FA_fault;
 extern struct rt_messagequeue *mq_FA_2_fault;

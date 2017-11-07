@@ -269,6 +269,7 @@ const struct t_sys_cfg sys_cfg_init_data =
 {
 
     0,
+	0,
     0,  // default 0, only set testing mode when factory first programming firmware. 
     
     1,

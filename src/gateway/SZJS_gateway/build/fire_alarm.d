@@ -3,10 +3,12 @@
 .\build\fire_alarm.o: services\IOT_analog_in.h
 .\build\fire_alarm.o: drivers\board.h
 .\build\fire_alarm.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\fire_alarm.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cm3.h
+.\build\fire_alarm.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
 .\build\fire_alarm.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\build\fire_alarm.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmInstr.h
-.\build\fire_alarm.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmFunc.h
+.\build\fire_alarm.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
+.\build\fire_alarm.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
+.\build\fire_alarm.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
+.\build\fire_alarm.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
 .\build\fire_alarm.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\fire_alarm.o: drivers\stm32f2xx_conf.h
 .\build\fire_alarm.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h

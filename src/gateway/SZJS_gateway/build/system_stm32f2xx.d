@@ -1,9 +1,11 @@
 .\build\system_stm32f2xx.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.c
 .\build\system_stm32f2xx.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\system_stm32f2xx.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cm3.h
+.\build\system_stm32f2xx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
 .\build\system_stm32f2xx.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\build\system_stm32f2xx.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmInstr.h
-.\build\system_stm32f2xx.o: ..\..\RTT_2_1_0\components\CMSIS\Include\core_cmFunc.h
+.\build\system_stm32f2xx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
+.\build\system_stm32f2xx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
+.\build\system_stm32f2xx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
+.\build\system_stm32f2xx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
 .\build\system_stm32f2xx.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\system_stm32f2xx.o: drivers\stm32f2xx_conf.h
 .\build\system_stm32f2xx.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h

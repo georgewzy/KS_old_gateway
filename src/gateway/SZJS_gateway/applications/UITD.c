@@ -162,6 +162,7 @@ const s_dev_cmd_list device_cmd_list[] = {
 
 static s_sensor_rough_data sensor_data_temp = {0};
 static s_com_bus_R_alarm FA_fire_temp = {0};
+static s_com_bus_R_alarm FA_elec_fire_temp = {0}; //wzy
 static s_com_bus_R_alarm FA_fault_temp = {0};
 static s_com_bus_R_reset FA_reset_temp = {0};
 static s_com_bus_R_alarm FA_manul_fire_temp = {0};
@@ -178,23 +179,6 @@ static s_sensor_ID_report   sensor_ID_temp[SENSOR_CHANNEL_MAX] = {0};
 static s_file_info_ack  *p_file_info_ack = NULL;
 //static s_sensor_data_report sensor_data_report_temp = {0};
 
-//t_GB_ctrl_timestamp g_GB_TS = {0};
-
-//t_server_node  server_node[GB_SERVER_NODE_MAX] = {0};
-////t_server_node	 *server_node = NULL;
-//t_GB_parse GB_parse = {0};
-//t_GB_pkt GB_pkt_rec = {0};
-//t_GB_pkt GB_pkt_send = {0};
-//uint8_t GB_pkt_buff[GB_PACKET_LEN_MAX] = {0};
-//uint8_t GB_rough_buff[GB_ROUGH_BUF_MAX] = {0};
-
-//RingBuffer *ring_buf = NULL;
-
-//static struct rt_ringbuffer    *UITD_ring = NULL;
-//static uint8_t  UITD_ring_buf[GB_ROUGH_BUF_MAX] = {0};
-
-////uint8_t g_data_buf[2048] = {0};
-//t_server_handler server_handler;
 
 
 void UITD_print_hex_dump(uint8_t *str, uint8_t *buf, uint32_t len)
@@ -1283,9 +1267,7 @@ int UITD_dir_request_ack(t_server_handler *handler, t_GB_pkt *pkt, uint8_t *dir_
     {
         return -1;
     }
-    
-    
-    
+        
     strcpy(data_buf, dir_path);
     
     /* list directory */
@@ -1358,7 +1340,7 @@ int UITD_dir_request_ack(t_server_handler *handler, t_GB_pkt *pkt, uint8_t *dir_
 int UITD_file_data_request_ack(t_server_handler *handler, t_GB_pkt *pkt, s_file_DATA *file_data)
 {
     int32_t len = 0;
-    struct stats;
+    struct stat s;
     int res = 0;
     int fd = -1;
     uint32_t offset = 0;
@@ -1789,7 +1771,6 @@ int UITD_IO_state_cfg_ack(t_server_handler *handler, t_GB_pkt *pkt, uint8_t ID, 
 {
 	int i = 0;
     s_IO_input_cfg_report IO_input_cfg_report = {0};
-    //t_GB_pkt pkt = {0};
     
     IO_input_cfg_report.ID = ID;
     IO_input_cfg_report.trig = trig;
@@ -1828,8 +1809,7 @@ int UITD_send_dev_status(t_server_handler *handler,
 	int if_final = 0;
 	static t_GB_dev_status_data *p_dev_status = NULL;
 	t_GB_pkt *pkt = &handler->GB_pkt_send;
-//	memset(pkt->buf, 0x00, sizeof(pkt->buf));
-//	p_dev_status[0] = (t_GB_dev_status_data *)pkt->buf;
+
 	
 	switch(status)
 	{
@@ -1840,6 +1820,7 @@ int UITD_send_dev_status(t_server_handler *handler,
 			p_dev_status = (t_GB_dev_status_data *)pkt->buf;
 			break;
 		case data_unit_normal:
+			
 			break;
 		case data_unit_final:
 			if_final = 1;
@@ -1862,8 +1843,16 @@ int UITD_send_dev_status(t_server_handler *handler,
 		return -1;
 	}
 	
-	
-	p_dev_status[pkt->data_num].sys_type = GB_SYS_TYPE_FIRE_ALARMER;
+	// wzy
+//	if(sys_config.server_elec_fire == 1)
+//	{
+//		p_dev_status[pkt->data_num].sys_type = GB_SYS_TYPE_FOAM_OUTFIRE;		
+//	}
+//	else
+	{
+		p_dev_status[pkt->data_num].sys_type = GB_SYS_TYPE_FIRE_ALARMER;
+	}
+
 	//p_dev_status[pkt->data_num].sys_addr = sys_addr;
     p_dev_status[pkt->data_num].sys_addr.SZJS_addr.port = port;
     p_dev_status[pkt->data_num].sys_addr.SZJS_addr.controller = sys_addr;
@@ -1876,22 +1865,29 @@ int UITD_send_dev_status(t_server_handler *handler,
         rt_memcpy(&p_dev_status[pkt->data_num].dev_info, dev_info, sizeof(p_dev_status[pkt->data_num].dev_info));
     }    
     
+	
     memset(&p_dev_status[pkt->data_num].status, 0x00, sizeof(p_dev_status[pkt->data_num].status) );
     
     switch (dev_status)
     {
-        case fire_dev_status_smoke_alarm:
+		
+		case fire_dev_status_working:	//wzy   正常运行
+            p_dev_status[pkt->data_num].status.if_working = 1;
+        break;
+		
+        case fire_dev_status_smoke_alarm:	//火警
             p_dev_status[pkt->data_num].status.if_fire = 1;
-            break;
-        case fire_dev_status_smoke_fault:
+        break; 
+		    
+		case fire_dev_status_smoke_fault:	//故障
             p_dev_status[pkt->data_num].status.if_fault = 1;
-            break;
-        case fire_dev_status_smoke_disable:
+        break;
+        case fire_dev_status_smoke_disable:	//屏蔽
             p_dev_status[pkt->data_num].status.if_disable = 1;
-            break;
-        case fire_dev_status_smoke_resume:
+        break;
+        case fire_dev_status_smoke_resume:	//监管
             //p_dev_status[pkt->data_num].status.if_disable = 1;
-            break;
+        break;
         default:
             break;
     }
@@ -1905,19 +1901,9 @@ int UITD_send_dev_status(t_server_handler *handler,
 
 	pkt->data_num ++;
 	
-//	SYS_log( SYS_DEBUG_INFO, ("sys_addr : %d, data_unit_num : %d , p_dev_status : 0x%08X", 
-//				p_dev_status[pkt->data_num].sys_addr,
-//				pkt->data_num,
-//				p_dev_status));
-	
-			
+		
 	if (if_final)
-	{
-		// Song: TODO: fetch the current socket.
-		//pkt->socket = a_new_client_sock_fd;
-		//rt_memcpy(pkt->ctrl.src.addr, g_UITD_addr, sizeof(pkt->ctrl.src));
-		
-		
+	{	
 		
 		SYS_log( SYS_DEBUG_DEBUG, ("Sending the fire devices status ...\n"));
 		UITD_send_2_U_FIRE_DEV_STATUS(handler, pkt, pkt->data_num);
@@ -1930,15 +1916,44 @@ int UITD_send_manul_fire_alarm(t_server_handler *handler, uint8_t port, uint8_t 
 {
     return UITD_send_dev_status(handler, GB_DEV_TYPE_MANUL_ALARM_BUTTON, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
 }
-
+//系统类型标志  
 int UITD_send_smoke_fire_alarm(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
 {
-    return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	if(sys_config.server_elec_fire == 1) //wzy
+	{
+		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	}
+	else
+	{
+		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	}
+   
+}
+//wzy
+int UITD_send_smoke_elec_data(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
+{
+	if(sys_config.server_elec_fire == 1)
+	{
+		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_working, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	}
+	else
+	{
+		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_working, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	}
 }
 
 int UITD_send_smoke_fire_fault(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
 {
-    return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	
+	if(sys_config.server_elec_fire == 1)	//wzy
+	{
+		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	}
+	else
+	{
+		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	}
+
 }
 
 int UITD_send_smoke_fire_resume(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
@@ -1952,9 +1967,10 @@ int UITD_send_smoke_fire_disable(t_server_handler *handler, uint8_t port, uint8_
 }
 
 
-
+//初始化用
 int UITD_send_21_U_UITD_STATUS(t_server_handler *handler, t_GB_pkt *pkt, t_GB_UITD_status status)
 {
+	
 	int i = 0;
 	t_GB_UITD_status_data *p_UITD_status = NULL;
 	
@@ -1985,12 +2001,14 @@ int UITD_send_21_U_UITD_STATUS(t_server_handler *handler, t_GB_pkt *pkt, t_GB_UI
     
 	SYS_log_HEX( SYS_DEBUG_DEBUG, ("TS: ", pkt->data_unit.data, pkt->data_unit.data_len));
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
+	
 }
 
 
-
+//没用到
 int UITD_send_24_U_UITD_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, t_GB_UITD_operate operate)
 {
+	
 	int i = 0;
 	t_GB_UITD_operate_data *p_UITD_operate = NULL;
 
@@ -2013,8 +2031,9 @@ int UITD_send_24_U_UITD_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, t_GB_U
     
 	SYS_log_HEX( SYS_DEBUG_DEBUG, ("TS: ", pkt->data_unit.data, pkt->data_unit.data_len));
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
+	
 }
-
+//没用到
 int UITD_send_1_U_FIRE_SYS_STATUS(t_server_handler *handler, t_GB_pkt *pkt, uint8_t sys_addr, uint8_t port, t_GB_fire_sys_status status)
 {
 	int i = 0;
@@ -2052,6 +2071,7 @@ int UITD_send_1_U_FIRE_SYS_STATUS(t_server_handler *handler, t_GB_pkt *pkt, uint
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
 }
 
+//没用到
 int UITD_send_4_U_FIRE_SYS_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, uint8_t port, uint8_t sys_addr, t_GB_fire_sys_operate operate)
 {
 	int i = 0;
@@ -2080,7 +2100,7 @@ int UITD_send_4_U_FIRE_SYS_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, uin
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
 }
 
-
+//没用到
 int UITD_send_200_U_ROUGH_DATA(t_server_handler *handler, t_GB_pkt *pkt)
 {
 	int i = 0;
@@ -2114,7 +2134,7 @@ int UITD_send_200_U_ROUGH_DATA(t_server_handler *handler, t_GB_pkt *pkt)
 	SYS_log_HEX( SYS_DEBUG_DEBUG, ("TS: ", pkt->data_unit.data, pkt->data_unit.data_len));
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
 }
-
+//没用到
 int UITD_send_fire_sys_main_power_fault(t_server_handler *handler)
 {
     t_GB_pkt pkt = {0};
@@ -2124,7 +2144,7 @@ int UITD_send_fire_sys_main_power_fault(t_server_handler *handler)
 	UITD_send_1_U_FIRE_SYS_STATUS(handler, &pkt, 0, 0, status);
     return 0;
 }
-
+//没用到
 int UITD_send_UITD_main_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 {
 	t_GB_UITD_status status = {0};
@@ -2133,7 +2153,7 @@ int UITD_send_UITD_main_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 	UITD_send_21_U_UITD_STATUS(handler, pkt, status);
     return 0;
 }
-
+//没用到
 int UITD_send_FA_reset(t_server_handler *handler,  uint8_t port, uint8_t sys_addr)
 {
     t_GB_pkt pkt = {0};
@@ -2153,7 +2173,7 @@ int UITD_send_UITD_reset(t_server_handler *handler)
 	UITD_send_24_U_UITD_OPERATE(handler, &pkt, operate);
     return 0;
 }
-
+//没用到
 int UITD_send_UITD_backup_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 {
 	t_GB_UITD_status status = {0};
@@ -2162,7 +2182,7 @@ int UITD_send_UITD_backup_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 	UITD_send_21_U_UITD_STATUS(handler, pkt, status);
     return 0;
 }
-
+//初始化用
 int UITD_send_inital_status_ack_deal(char *data,int len, uint8_t if_affirm)
 {
     t_server_handler *handler = NULL;
@@ -2172,7 +2192,7 @@ int UITD_send_inital_status_ack_deal(char *data,int len, uint8_t if_affirm)
     
     return 0;
 }
-
+//初始化用
 int UITD_send_UITD_inital_status(t_server_handler *handler)
 {
     t_GB_pkt pkt = {0};
@@ -2187,7 +2207,7 @@ int UITD_send_UITD_inital_status(t_server_handler *handler)
 	UITD_send_21_U_UITD_STATUS(handler, &pkt, status);
     return 0;
 }
-
+//没用到
 int UITD_send_comm_rough_data(t_server_handler *handler)
 {
     t_GB_pkt pkt = {0};
@@ -3116,409 +3136,29 @@ int UITD_deal(t_server_handler *handler, t_GB_pkt *pkt)
 	}	
 }
 
-//---------------------------------------------------------------------------松江3208协议
-
-#define SJ_PKT_HEAD								0xFE
-#define SJ_PKT_TAIL								0xFF
-
-#define SJ_PKT_MAX_INFO_COUNT			1
-
-#define ALARM_SJ3208_ROUTING_STATUS					0x64								//巡检 (SJ3208)
-#define ALARM_SJ3208_FIRE_STATUS						0x6E								//火警 (SJ3208)
-#define ALARM_SJ3208_FAULT_STATUS						0x6F								//故障 (SJ3208)
-#define ALARM_SJ3208_REST_STATUS						0x00								//复位 (SJ3208)
-#define ALARM_SJ3208_FEEDBACK_STATUS				0x71								//反馈 (SJ3208)
-#define ALARM_SJ3208_SUPERVISE_STATUS				0x72								//监管 (SJ3208)
-#define ALARM_SJ3208_SHIELD_STATUS					0x73								//屏蔽 (SJ3208)
-#define ALARM_SJ3208_START_STATUS						0x70								//启动 (SJ3208)
 
 
-typedef struct _SJ3208_DATE_TIME
-{
-	uint8_t			nYear;
-	uint8_t			nMonth;
-	uint8_t			nDay;
-	
-	uint8_t			nHour;
-	uint8_t			nMin;
-	
-}Sj3208_DateTime;
-
-typedef struct _SJ3208_PKT_CTRL
-{
-	uint8_t			nHostAddr;								//主机号
-	uint8_t			nInfoCode;								//信息代码
-	uint8_t			nInfoLen_L;								//信息体长度 低字节
-	uint8_t			nInfoLen_H;								//信息体长度 高字节
-	
-}Sj3208_PktCtrl;
-
-typedef struct _SJ3208_PKT_INFO
-{
-	uint8_t			nHostAddr;								//主机号
-	uint8_t			nLoopAddr;								//回路号
-	uint8_t			nDevAddr;									//设备号
-	
-	uint8_t			nAreaAddr_L;							//分区地址 低字节
-	uint8_t			nAreaAddr_H;							//分区地址 高字节
-	
-	uint8_t			nType;										//类型
-	
-	uint8_t			nStatus;									//状态
-	
-	Sj3208_DateTime		nDt;								//日期时间
-	
-	uint8_t			nDescribe[20];						//描述
-}Sj3208_PktInfo;
-
-
-typedef struct _SJ3208_PKT_DATA
-{
-	uint8_t			nInfoCount_L;							//信息体数量 低字节
-	uint8_t			nInfoCount_H;							//信息体数量 高字节
-	
-	Sj3208_PktInfo	nInfo[SJ_PKT_MAX_INFO_COUNT];								//信息体
-	
-}Sj3208_PktData;
-
-typedef struct _SJ3208_PKT_CHECK
-{
-	uint8_t		nCRC16_L;
-	uint8_t		nCRC16_H;
-	
-}Sj3208_PktCheck;
-
-
-//缓存清空
-void Sj_FillBuf(uint8_t *vBuf, uint16_t vLen, uint8_t vVal)
-{
-	uint16_t i = 0;
-	
-	for (i=0; i<vLen; i++)
-	{
-			vBuf[i] = vVal;
-	}
-	
-}
-
-const unsigned short crc16_ccitt_table[256] =
-{
-	0x0000, 0xc0c1, 0xc181, 0x0140, 0xc301, 0x03c0, 0x0280, 0xc241,
-	0xc601, 0x06c0, 0x0780, 0xc741, 0x0500, 0xc5c1, 0xc481, 0x0440,
-	0xcc01, 0x0cc0, 0x0d80, 0xcd41, 0x0f00, 0xcfc1, 0xce81, 0x0e40,
-	0x0a00, 0xcac1, 0xcb81, 0x0b40, 0xc901, 0x09c0, 0x0880, 0xc841,
-	0xd801, 0x18c0, 0x1980, 0xd941, 0x1b00, 0xdbc1, 0xda81, 0x1a40,
-	0x1e00, 0xdec1, 0xdf81, 0x1f40, 0xdd01, 0x1dc0, 0x1c80, 0xdc41,
-	0x1400, 0xd4c1, 0xd581, 0x1540, 0xd701, 0x17c0, 0x1680, 0xd641,
-	0xd201, 0x12c0, 0x1380, 0xd341, 0x1100, 0xd1c1, 0xd081, 0x1040,
-	0xf001, 0x30c0, 0x3180, 0xf141, 0x3300, 0xf3c1, 0xf281, 0x3240,
-	0x3600, 0xf6c1, 0xf781, 0x3740, 0xf501, 0x35c0, 0x3480, 0xf441,
-	0x3c00, 0xfcc1, 0xfd81, 0x3d40, 0xff01, 0x3fc0, 0x3e80, 0xfe41,
-	0xfa01, 0x3ac0, 0x3b80, 0xfb41, 0x3900, 0xf9c1, 0xf881, 0x3840,
-	0x2800, 0xe8c1, 0xe981, 0x2940, 0xeb01, 0x2bc0, 0x2a80, 0xea41,
-	0xee01, 0x2ec0, 0x2f80, 0xef41, 0x2d00, 0xedc1, 0xec81, 0x2c40,
-	0xe401, 0x24c0, 0x2580, 0xe541, 0x2700, 0xe7c1, 0xe681, 0x2640,
-	0x2200, 0xe2c1, 0xe381, 0x2340, 0xe101, 0x21c0, 0x2080, 0xe041,
-	0xa001, 0x60c0, 0x6180, 0xa141, 0x6300, 0xa3c1, 0xa281, 0x6240,
-	0x6600, 0xa6c1, 0xa781, 0x6740, 0xa501, 0x65c0, 0x6480, 0xa441,
-	0x6c00, 0xacc1, 0xad81, 0x6d40, 0xaf01, 0x6fc0, 0x6e80, 0xae41,
-	0xaa01, 0x6ac0, 0x6b80, 0xab41, 0x6900, 0xa9c1, 0xa881, 0x6840,
-	0x7800, 0xb8c1, 0xb981, 0x7940, 0xbb01, 0x7bc0, 0x7a80, 0xba41,
-	0xbe01, 0x7ec0, 0x7f80, 0xbf41, 0x7d00, 0xbdc1, 0xbc81, 0x7c40,
-	0xb401, 0x74c0, 0x7580, 0xb541, 0x7700, 0xb7c1, 0xb681, 0x7640,
-	0x7200, 0xb2c1, 0xb381, 0x7340, 0xb101, 0x71c0, 0x7080, 0xb041,
-	0x5000, 0x90c1, 0x9181, 0x5140, 0x9301, 0x53c0, 0x5280, 0x9241,
-	0x9601, 0x56c0, 0x5780, 0x9741, 0x5500, 0x95c1, 0x9481, 0x5440,
-	0x9c01, 0x5cc0, 0x5d80, 0x9d41, 0x5f00, 0x9fc1, 0x9e81, 0x5e40,
-	0x5a00, 0x9ac1, 0x9b81, 0x5b40, 0x9901, 0x59c0, 0x5880, 0x9841,
-	0x8801, 0x48c0, 0x4980, 0x8941, 0x4b00, 0x8bc1, 0x8a81, 0x4a40,
-	0x4e00, 0x8ec1, 0x8f81, 0x4f40, 0x8d01, 0x4dc0, 0x4c80, 0x8c41,
-	0x4400, 0x84c1, 0x8581, 0x4540, 0x8701, 0x47c0, 0x4680, 0x8641,
-	0x8201, 0x42c0, 0x4380, 0x8341, 0x4100, 0x81c1, 0x8081, 0x4040
-};
-
-unsigned short CRC16_Buf(unsigned char *buffer, int len)
-{
-	if(buffer && len > 0)
-	{
-		unsigned short crc_value = 0xFFFF;           
-		while (len--) 
-		{
-			crc_value=(crc_value>>8)^crc16_ccitt_table[(crc_value^*buffer++)&0xff];
-		}
-		return (unsigned short)(crc_value);
-	}
-	return 0;
-}
-
-/*
-uint8_t		m_DatBuf[70] = {0x01,0x6E,0x42,0x00,0x02,0x00,0x01,0x03,0x1E,0x0A,0x00,0x05,0x01,0x10,0x01,0x20,0x14,0x57,
-													0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
-													0xFF,0xFF,0x01,0x03,0x1D,0x0A,0x00,0x05,0x01,0x10,0x01,0x20,0x14,0x59,0xFF,0xFF,0xFF,0xFF,
-													0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF};
-*/
-
-//松江3208协议打包
-int UITD_SJ3208_send_pkg(t_server_handler *handler, int node)
-{
-	int res = 0;
-	uint8_t  vTemp = 0;
-	uint16_t vVal16 = 0;
-	
-	uint8_t 	*p_InfoData = 0;
-	uint16_t  vInfoCount = 0;					//信息体数目
-	
-	uint16_t  vCRC16 = 0;							//CRC16校验
-	
-	uint16_t  vAlarmStatus = 0;				//报警标志
-	
-	uint16_t	vHostAddr = 0;					//主机地址
-	uint32_t  vLoopAddr = 0;					//回路地址
-	uint64_t	vDevAddr  = 0;					//设备地址
-	
-	
-	Sj3208_PktCtrl 		vPktCtrl;				//控制命令
-	Sj3208_PktData 		vPktData;				//信息体
-	Sj3208_PktCheck 	vPktCheck;			//校验
-	
-	Sj3208_DateTime		vDt;						//日期时间
-	
-	uint32_t now;
-  struct tm *ti;
-    
-	rt_time(&now);
-
-	ti = localtime(&now);
-
-	vDt.nYear = ti->tm_year + 1900 - 2000;
-	vDt.nMonth = ti->tm_mon + 1;
-	vDt.nDay = ti->tm_mday;
-	vDt.nHour = ti->tm_hour;
-	vDt.nMin = ti->tm_min;
-	
-
-  if (p_com_bus_cb->alarm_fire.valid == 1)														//火警
-	{
-		p_com_bus_cb->alarm_fire.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_FIRE_STATUS;
-		vHostAddr = p_com_bus_cb->alarm_fire.dev_info.controller;
-		
-		vLoopAddr = p_com_bus_cb->alarm_fire.dev_info.loop;
-		vDevAddr  = p_com_bus_cb->alarm_fire.dev_info.device_ID;
-	}
-	else if (p_com_bus_cb->alarm_fault.valid == 1)											//故障
-	{
-		p_com_bus_cb->alarm_fault.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_FAULT_STATUS;
-		vHostAddr = p_com_bus_cb->alarm_fault.dev_info.controller;
-		
-		vLoopAddr = p_com_bus_cb->alarm_fault.dev_info.loop;
-		vDevAddr  = p_com_bus_cb->alarm_fault.dev_info.device_ID;
-	}
-	else if (p_com_bus_cb->alarm_reset.valid == 1)											//复位
-	{
-		p_com_bus_cb->alarm_reset.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_REST_STATUS;
-		
-		vHostAddr = p_com_bus_cb->alarm_reset.sys_addr;
-	}
-	else if (p_com_bus_cb->alarm_outing.valid == 1)											//巡检
-	{
-		p_com_bus_cb->alarm_outing.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_ROUTING_STATUS;
-		
-		vHostAddr = p_com_bus_cb->alarm_outing.sys_addr;
-	}
-	else if (p_com_bus_cb->alarm_shield.valid == 1)											//屏蔽
-	{
-		p_com_bus_cb->alarm_shield.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_SHIELD_STATUS;
-		vHostAddr = p_com_bus_cb->alarm_shield.dev_info.controller;
-		
-		vLoopAddr = p_com_bus_cb->alarm_shield.dev_info.loop;
-		vDevAddr  = p_com_bus_cb->alarm_shield.dev_info.device_ID;
-	}
-	else if (p_com_bus_cb->alarm_feedback.valid == 1)											//反馈
-	{
-		p_com_bus_cb->alarm_feedback.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_FEEDBACK_STATUS;
-		vHostAddr = p_com_bus_cb->alarm_feedback.dev_info.controller;
-		
-		vLoopAddr = p_com_bus_cb->alarm_feedback.dev_info.loop;
-		vDevAddr  = p_com_bus_cb->alarm_feedback.dev_info.device_ID;
-	}
-	else if (p_com_bus_cb->alarm_supervise.valid == 1)											//监管
-	{
-		p_com_bus_cb->alarm_supervise.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_SUPERVISE_STATUS;
-		vHostAddr = p_com_bus_cb->alarm_supervise.dev_info.controller;
-		
-		vLoopAddr = p_com_bus_cb->alarm_supervise.dev_info.loop;
-		vDevAddr  = p_com_bus_cb->alarm_supervise.dev_info.device_ID;
-	}
-	else if (p_com_bus_cb->alarm_start.valid == 1)											//启动
-	{
-		p_com_bus_cb->alarm_start.valid = 0;
-		
-		vAlarmStatus = ALARM_SJ3208_START_STATUS;
-		vHostAddr = p_com_bus_cb->alarm_start.dev_info.controller;
-		
-		vLoopAddr = p_com_bus_cb->alarm_start.dev_info.loop;
-		vDevAddr  = p_com_bus_cb->alarm_start.dev_info.device_ID;
-	}
-	else
-	{
-		return 0;
-	}
-	
-	
-	handler->data_len = 0;
-	
-	//---------------协议头
-	vTemp = SJ_PKT_HEAD;
-	rt_memcpy(&handler->send_buf[handler->data_len], &vTemp, sizeof(uint8_t));
-	handler->data_len += sizeof(uint8_t);
-	//---------------
-	
-	
-	if (vAlarmStatus == ALARM_SJ3208_ROUTING_STATUS)
-	{
-		//----------------协议控制命令
-		Sj_FillBuf((uint8_t*)&vPktCtrl, sizeof(Sj3208_PktCtrl), 0x00);								//缓存初始化
-		
-		vPktCtrl.nHostAddr = vHostAddr&0xFF;									//主机号
-		
-		vPktCtrl.nInfoCode = vAlarmStatus;										//报警类型
-		
-		vVal16 = 1;						//单信息体发送
-		vPktCtrl.nInfoLen_L = vVal16&0xFF;
-		vPktCtrl.nInfoLen_H = (vVal16>>8)&0xFF;
-		
-		rt_memcpy(&handler->send_buf[handler->data_len], &vPktCtrl, sizeof(Sj3208_PktCtrl));
-		handler->data_len += sizeof(Sj3208_PktCtrl);
-		//------------------
-		
-		
-		//------------------协议信息体
-		handler->send_buf[handler->data_len+1] = 0x64;
-		handler->data_len += 1;
-		//------------------
-	}
-	else
-	{
-		//----------------协议控制命令
-		Sj_FillBuf((uint8_t*)&vPktCtrl, sizeof(Sj3208_PktCtrl), 0x00);								//缓存初始化
-		
-		vPktCtrl.nHostAddr = vHostAddr&0xFF;									//主机号
-		
-		vPktCtrl.nInfoCode = vAlarmStatus;										//报警类型
-		
-		vVal16 = 34;						//单信息体发送
-		vPktCtrl.nInfoLen_L = vVal16&0xFF;
-		vPktCtrl.nInfoLen_H = (vVal16>>8)&0xFF;
-		
-		rt_memcpy(&handler->send_buf[handler->data_len], &vPktCtrl, sizeof(Sj3208_PktCtrl));
-		handler->data_len += sizeof(Sj3208_PktCtrl);
-		//------------------
-		
-		//------------------协议信息体
-		Sj_FillBuf((uint8_t*)&vPktCtrl, sizeof(Sj3208_PktCtrl), 0x00);							//缓存初始化
-		
-		vVal16 = 1;											//信息体数目(默认1)
-		vPktData.nInfoCount_L = vVal16&0xFF;
-		vPktData.nInfoCount_H = (vVal16>>8)&0xFF;
-		
-		vPktData.nInfo[0].nHostAddr = vHostAddr&0xFF;				//主机号
-		vPktData.nInfo[0].nLoopAddr = vLoopAddr&0xFF;				//回路号
-		vPktData.nInfo[0].nDevAddr  = vDevAddr&0xFF;				//设备号
-		
-		vPktData.nInfo[0].nAreaAddr_L = 0;									//分区地址
-		vPktData.nInfo[0].nAreaAddr_H = 0;
-		
-		vPktData.nInfo[0].nType = 0;												//类型
-		vPktData.nInfo[0].nStatus = 0;											//状态
-		
-		vPktData.nInfo[0].nDt.nYear = vDt.nYear;											//年月日
-		vPktData.nInfo[0].nDt.nMonth = vDt.nMonth;
-		vPktData.nInfo[0].nDt.nDay = vDt.nDay;
-		
-		vPktData.nInfo[0].nDt.nHour = vDt.nHour;										//时分
-		vPktData.nInfo[0].nDt.nMin  = vDt.nMin;
-		
-		Sj_FillBuf(vPktData.nInfo[0].nDescribe, sizeof(vPktData.nInfo[0].nDescribe), 0xFF);				//描述填充0xFF
-		
-		rt_memcpy(&handler->send_buf[handler->data_len], &vPktData, sizeof(Sj3208_PktData));
-		handler->data_len += sizeof(Sj3208_PktData);
-		//------------------
-	}
-	
-	//------------------校验和
-	vCRC16 = CRC16_Buf(&handler->send_buf[1], handler->data_len-1);
-	vPktCheck.nCRC16_L = vCRC16&0xFF;
-	vPktCheck.nCRC16_H = (vCRC16>>8)&0xFF;
-	rt_memcpy(&handler->send_buf[handler->data_len], &vPktCheck, sizeof(Sj3208_PktCheck));
-	handler->data_len += sizeof(Sj3208_PktCheck);
-	//------------------
-
-	//------------------协议尾
-	vTemp = SJ_PKT_TAIL;
-	rt_memcpy(&handler->send_buf[handler->data_len], &vTemp, sizeof(uint8_t));
-	handler->data_len += sizeof(uint8_t);
-	//------------------
-	
-	
-	//记录日志
-	SYS_log_HEX( SYS_DEBUG_DEBUG, ("pkg_send_buf ", handler->send_buf, handler->data_len));
-
-	//发送协议
-	res = handler->send_data(handler, handler->node[node].socket, handler->send_buf, handler->data_len);
-	if (res != handler->data_len)
-	{
-		SYS_log( SYS_DEBUG_ERROR, ("Net send data failed : %d\n", res));
-		return -2;
-	}
-	
-	return 0;
-}
-
-//---------------------------------------------------------------------------
-
-
-
-int UITD_send_pkg(t_server_handler *handler, int node)				//26875协议打包
+int UITD_send_pkg(t_server_handler *handler, int node)
 {
 	int res = 0;
 //	int data_len = 0;
 	handler->data_len = 0;
 	
-	// 协议头
 	rt_memcpy(&handler->send_buf[handler->data_len], GB_PKT_HEAD, strlen(GB_PKT_HEAD));
 	handler->data_len += strlen(GB_PKT_HEAD);
 	
-	//协议控制命令
 	rt_memcpy(&handler->send_buf[handler->data_len], &handler->node[node].ctrl, sizeof(t_GB_ctrl_unit));
 	handler->data_len += sizeof(t_GB_ctrl_unit);
 
-	//协议信息体
 	rt_memcpy(&handler->send_buf[handler->data_len], handler->node[node].data, handler->node[node].ctrl.data_len);
 	handler->data_len += handler->node[node].ctrl.data_len;
 	
-	//协议校验
 	rt_memcpy(&handler->send_buf[handler->data_len], &handler->node[node].checksum, GB_CHECKSUM_LEN);
 	handler->data_len += GB_CHECKSUM_LEN;
 
-	//协议尾
 	rt_memcpy(&handler->send_buf[handler->data_len], GB_PKT_TAIL, strlen(GB_PKT_TAIL));
 	handler->data_len += strlen(GB_PKT_TAIL);
 	
-	//发送协议、记录日志
 	SYS_log_HEX( SYS_DEBUG_DEBUG, ("pkg_send_buf ", handler->send_buf, handler->data_len));
 	res = handler->send_data(handler, handler->node[node].socket, handler->send_buf, handler->data_len);
 	if (res != handler->data_len)
@@ -3704,7 +3344,7 @@ int UITD_send_handler(t_server_handler *handler)
 	}
 }
 
-
+//初始化用
 int UITD_service_init(t_server_handler *handler)
 {
     uint8_t *p = NULL;
@@ -4210,15 +3850,6 @@ int UITD_service_handler(t_server_handler *handler)
         }
     }
    
-//    if (p_PRO_sensor_cb && (handler->status == UITD_svc_status_alive))
-//    {
-//        res = rt_mq_recv(mq_sensor_send, &sensor_data_temp, sizeof(sensor_data_temp), 0);
-//        if (res == RT_EOK)
-//        {
-//            UITD_sensor_upload_rough_data(handler, sensor_data_temp.ID, sensor_data_temp.out_type, sensor_data_temp.data, &sensor_data_temp.timestamp);
-//        }
-//        
-//    }
     
     if (p_output_ctrl_cb && (handler->status == UITD_svc_status_alive))
     {
@@ -4233,18 +3864,6 @@ int UITD_service_handler(t_server_handler *handler)
         }
     }
     
-//    if (p_PRO_output_ctrl_cb && (handler->status == UITD_svc_status_alive))
-//    {
-//        if (handler->output.valid)
-//        {
-//            handler->output.valid = 0;
-//            
-//            for (i=0;i<handler->output.num;i++)
-//            {
-//                rt_mq_send(mq_PRO_output_ctrl, &handler->output.data[i], sizeof(handler->output.data[0]));
-//            }
-//        }
-//    }
     
     if (p_com_bus_cb && (handler->status == UITD_svc_status_alive))
     {
@@ -4252,17 +3871,20 @@ int UITD_service_handler(t_server_handler *handler)
         {
             res = rt_mq_recv(mq_FA_fire, &FA_fire_temp, sizeof(s_com_bus_R_alarm), 0);
             if (res == RT_EOK)
-            {
-                
+            {             
                 UITD_send_smoke_fire_alarm(handler, FA_fire_temp.port, FA_fire_temp.sys_addr, FA_fire_temp.addr_main, FA_fire_temp.addr_sub, &FA_fire_temp.dev_info, data_unit_single);
+            }
+			
+			//wzy			
+			res = rt_mq_recv(mq_FA_elec_fire, &FA_elec_fire_temp, sizeof(s_com_bus_R_alarm), 0);
+            if (res == RT_EOK)
+            {               
+                UITD_send_smoke_elec_data(handler, FA_elec_fire_temp.port, FA_elec_fire_temp.sys_addr, FA_elec_fire_temp.addr_main, FA_elec_fire_temp.addr_sub, &FA_elec_fire_temp.dev_info, data_unit_single);
             }
             
             res = rt_mq_recv(mq_FA_fault, &FA_fault_temp, sizeof(s_com_bus_R_alarm), 0);
             if (res == RT_EOK)
             {
-//                #if 1 // Just for debug  shanghai NTN.
-//                rt_kprintf("FA_", FA_fire_temp.sys_addr, FA_fire_temp.addr_main, FA_fire_temp.addr_sub);
-//                #endif 
                 if (FA_fault_temp.valid == 0) // resume to normal status.
                 {
                     UITD_send_smoke_fire_resume(handler, FA_fault_temp.port, FA_fault_temp.sys_addr, FA_fault_temp.addr_main, FA_fault_temp.addr_sub, &FA_fault_temp.dev_info, data_unit_single);
@@ -4271,8 +3893,6 @@ int UITD_service_handler(t_server_handler *handler)
                 {
                     UITD_send_smoke_fire_fault(handler, FA_fault_temp.port, FA_fault_temp.sys_addr, FA_fault_temp.addr_main, FA_fault_temp.addr_sub, &FA_fault_temp.dev_info, data_unit_single);
                 }
-                
-                
             }
 
             res = rt_mq_recv(mq_FA_reset, &FA_reset_temp, sizeof(s_com_bus_R_reset), 0);
@@ -4297,7 +3917,7 @@ int UITD_service_handler(t_server_handler *handler)
         {
             res = rt_mq_recv(mq_FA_2_fire, &FA_fire_temp, sizeof(s_com_bus_R_alarm), 0);
             if (res == RT_EOK)
-            {
+            {	
                 UITD_send_smoke_fire_alarm(handler, FA_fire_temp.port, FA_fire_temp.sys_addr, FA_fire_temp.addr_main, FA_fire_temp.addr_sub, &FA_fire_temp.dev_info, data_unit_single);
             }
             
