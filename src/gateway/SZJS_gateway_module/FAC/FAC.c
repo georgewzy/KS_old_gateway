@@ -191,7 +191,7 @@ int FAC_unusual_rx_parser(s_com_bus_cb *cb)
 			break;
 
 			case 2:				
-				if (cb->rec_len >= 10)								
+				if (cb->rec_len >= 23)								
 				{
 					rt_memcpy(cb->parse.buf, cb->rec_buf, cb->rec_len);
 					cb->parse.len = cb->rec_len;
@@ -245,27 +245,42 @@ int FAC_msg_parse(s_com_bus_cb * cb, uint8_t *data, uint32_t len)
 
 	int i = 0;
 	FAC_msg_type = 0;
+	uint8_t s1=0, s2=0, s3=0;
+	
 	
 	sys_addr = 0;
 	addr_area = 0;
-	addr_line = 0;
-	dev_ID = 0;
+
 	tmp = 0;
 	#ifdef FAC_DBG_EN
 	rt_kprintf("msg cmd : %d \n", data[10]);
 	#endif // FAC_DBG_EN
 	
+	sys_addr = 0;
+	addr_area = 0;
 
-	sys_addr = data[8];
-	addr_area = data[8];
-	addr_line = data[9];
-	// tmp = data[10];
-	// tmp = (tmp<<8) + data[11];
-	dev_ID = data[11];
+	
+
+	
+	addr_line = data[13] - 0x30;
+
+	
+	s1 = data[15]-0x30;
+	if(s1>9)
+	s1 -= 7l;
+	s2 = data[16]-0x30;
+	if(s2>9)
+	s2 -= 7l;
+	s3 = data[17]-0x30;
+	if(s3>9)
+	s3 -= 7l;
+	
+	dev_ID = s1*10*10 + s2*10 + s3;
 	
 	
 	
-	if (data[15] == 0x38 && data[16] == 0x35)
+	
+	if (data[11] == 0x1D )
 	{
 		FAC_msg_type = FAC_MSG_TYPE_RESET;
 		
@@ -284,18 +299,12 @@ int FAC_msg_parse(s_com_bus_cb * cb, uint8_t *data, uint32_t len)
 		rt_kprintf("Controller reset : %04X.         RESET .\n\n", cb->alarm_reset.sys_addr);
 		
 	}
-	
-	
-	
-	else if ((data[15] == 0x30 && data[16] == 0x30) //»ð¾¯
+	else if(data[11] == 0x11) //»ð¾¯
 
-	) 
 	{
 		FAC_msg_type = FAC_MSG_TYPE_ALARM;
 	}
-	else if ((data[15] == 0x34 && data[16] == 0x36)				//¹ÊÕÏ FAT
-	
-	)	
+	else if (data[11] == 0x16)				//¹ÊÕÏ FAT	
 	{
 		FAC_msg_type = FAC_MSG_TYPE_FAULT;
 	}
