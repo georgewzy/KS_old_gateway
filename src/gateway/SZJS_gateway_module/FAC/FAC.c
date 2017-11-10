@@ -170,7 +170,7 @@ int FAC_unusual_rx_parser(s_com_bus_cb *cb)
 		
         cb->rec_buf[cb->rec_len] = data_temp;
 
-		rt_device_write(cb->dev, 0, &data_temp, 1);
+	//	rt_device_write(cb->dev, 0, &data_temp, 1);
         cb->rec_len++;
 				
 		switch (uu_status)
