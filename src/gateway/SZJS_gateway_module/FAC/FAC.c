@@ -70,7 +70,7 @@ static HandshakePro m_HandShakePro;
 
 static uu_status = 0;
 
-s_com_bus_cfg FAC_com_cfg = {9600, 8, PARITY_NONE, 1};
+s_com_bus_cfg FAC_com_cfg = {1200, 8, PARITY_NONE, 1};
 
 s_com_bus_R_alarm *FAC_msg_buf = NULL;
 int FAC_msg_buf_num = 0;

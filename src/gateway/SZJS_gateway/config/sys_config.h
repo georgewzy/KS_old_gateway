@@ -25,7 +25,6 @@
 
 #define SYS_CFG_DIR         "/config"
 #define SYS_CFG_FILE_PATH   "/config/sys.cfg"
-#define ELEC_FIRE_CFG_FILE_PATH	"/config/elec.cfg"	//wzy
 #define AP01_CFG_FILE_PATH  "/config/AP01.cfg"
 #define AP02_CFG_FILE_PATH  "/config/AP02.cfg"
 #define ETH_CFG_FILE_PATH   "/config/eth.cfg"

@@ -152,17 +152,6 @@ typedef struct
     
 } s_FA_cfg;   
 
-//wzy
-typedef struct
-{
-    uint8_t     sys_addr;
-    uint32_t    addr_area;
-    uint32_t    addr_line; 
-    
-} s_ELEC_cfg; 
-//wzy
-extern s_ELEC_cfg *p_ELEC_cfg;
-
     
 typedef struct
 {

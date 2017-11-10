@@ -162,7 +162,6 @@ const s_dev_cmd_list device_cmd_list[] = {
 
 static s_sensor_rough_data sensor_data_temp = {0};
 static s_com_bus_R_alarm FA_fire_temp = {0};
-static s_com_bus_R_alarm FA_elec_fire_temp = {0}; //wzy
 static s_com_bus_R_alarm FA_fault_temp = {0};
 static s_com_bus_R_reset FA_reset_temp = {0};
 static s_com_bus_R_alarm FA_manul_fire_temp = {0};
@@ -179,6 +178,23 @@ static s_sensor_ID_report   sensor_ID_temp[SENSOR_CHANNEL_MAX] = {0};
 static s_file_info_ack  *p_file_info_ack = NULL;
 //static s_sensor_data_report sensor_data_report_temp = {0};
 
+//t_GB_ctrl_timestamp g_GB_TS = {0};
+
+//t_server_node  server_node[GB_SERVER_NODE_MAX] = {0};
+////t_server_node	 *server_node = NULL;
+//t_GB_parse GB_parse = {0};
+//t_GB_pkt GB_pkt_rec = {0};
+//t_GB_pkt GB_pkt_send = {0};
+//uint8_t GB_pkt_buff[GB_PACKET_LEN_MAX] = {0};
+//uint8_t GB_rough_buff[GB_ROUGH_BUF_MAX] = {0};
+
+//RingBuffer *ring_buf = NULL;
+
+//static struct rt_ringbuffer    *UITD_ring = NULL;
+//static uint8_t  UITD_ring_buf[GB_ROUGH_BUF_MAX] = {0};
+
+////uint8_t g_data_buf[2048] = {0};
+//t_server_handler server_handler;
 
 
 void UITD_print_hex_dump(uint8_t *str, uint8_t *buf, uint32_t len)
@@ -1267,7 +1283,9 @@ int UITD_dir_request_ack(t_server_handler *handler, t_GB_pkt *pkt, uint8_t *dir_
     {
         return -1;
     }
-        
+    
+    
+    
     strcpy(data_buf, dir_path);
     
     /* list directory */
@@ -1771,6 +1789,7 @@ int UITD_IO_state_cfg_ack(t_server_handler *handler, t_GB_pkt *pkt, uint8_t ID, 
 {
 	int i = 0;
     s_IO_input_cfg_report IO_input_cfg_report = {0};
+    //t_GB_pkt pkt = {0};
     
     IO_input_cfg_report.ID = ID;
     IO_input_cfg_report.trig = trig;
@@ -1809,7 +1828,8 @@ int UITD_send_dev_status(t_server_handler *handler,
 	int if_final = 0;
 	static t_GB_dev_status_data *p_dev_status = NULL;
 	t_GB_pkt *pkt = &handler->GB_pkt_send;
-
+//	memset(pkt->buf, 0x00, sizeof(pkt->buf));
+//	p_dev_status[0] = (t_GB_dev_status_data *)pkt->buf;
 	
 	switch(status)
 	{
@@ -1820,7 +1840,6 @@ int UITD_send_dev_status(t_server_handler *handler,
 			p_dev_status = (t_GB_dev_status_data *)pkt->buf;
 			break;
 		case data_unit_normal:
-			
 			break;
 		case data_unit_final:
 			if_final = 1;
@@ -1843,16 +1862,8 @@ int UITD_send_dev_status(t_server_handler *handler,
 		return -1;
 	}
 	
-	// wzy
-//	if(sys_config.server_elec_fire == 1)
-//	{
-//		p_dev_status[pkt->data_num].sys_type = GB_SYS_TYPE_FOAM_OUTFIRE;		
-//	}
-//	else
-	{
-		p_dev_status[pkt->data_num].sys_type = GB_SYS_TYPE_FIRE_ALARMER;
-	}
-
+	
+	p_dev_status[pkt->data_num].sys_type = GB_SYS_TYPE_FIRE_ALARMER;
 	//p_dev_status[pkt->data_num].sys_addr = sys_addr;
     p_dev_status[pkt->data_num].sys_addr.SZJS_addr.port = port;
     p_dev_status[pkt->data_num].sys_addr.SZJS_addr.controller = sys_addr;
@@ -1865,29 +1876,22 @@ int UITD_send_dev_status(t_server_handler *handler,
         rt_memcpy(&p_dev_status[pkt->data_num].dev_info, dev_info, sizeof(p_dev_status[pkt->data_num].dev_info));
     }    
     
-	
     memset(&p_dev_status[pkt->data_num].status, 0x00, sizeof(p_dev_status[pkt->data_num].status) );
     
     switch (dev_status)
     {
-		
-		case fire_dev_status_working:	//wzy   正常运行
-            p_dev_status[pkt->data_num].status.if_working = 1;
-        break;
-		
-        case fire_dev_status_smoke_alarm:	//火警
+        case fire_dev_status_smoke_alarm:
             p_dev_status[pkt->data_num].status.if_fire = 1;
-        break; 
-		    
-		case fire_dev_status_smoke_fault:	//故障
+            break;
+        case fire_dev_status_smoke_fault:
             p_dev_status[pkt->data_num].status.if_fault = 1;
-        break;
-        case fire_dev_status_smoke_disable:	//屏蔽
+            break;
+        case fire_dev_status_smoke_disable:
             p_dev_status[pkt->data_num].status.if_disable = 1;
-        break;
-        case fire_dev_status_smoke_resume:	//监管
+            break;
+        case fire_dev_status_smoke_resume:
             //p_dev_status[pkt->data_num].status.if_disable = 1;
-        break;
+            break;
         default:
             break;
     }
@@ -1901,9 +1905,19 @@ int UITD_send_dev_status(t_server_handler *handler,
 
 	pkt->data_num ++;
 	
-		
+//	SYS_log( SYS_DEBUG_INFO, ("sys_addr : %d, data_unit_num : %d , p_dev_status : 0x%08X", 
+//				p_dev_status[pkt->data_num].sys_addr,
+//				pkt->data_num,
+//				p_dev_status));
+	
+			
 	if (if_final)
-	{	
+	{
+		// Song: TODO: fetch the current socket.
+		//pkt->socket = a_new_client_sock_fd;
+		//rt_memcpy(pkt->ctrl.src.addr, g_UITD_addr, sizeof(pkt->ctrl.src));
+		
+		
 		
 		SYS_log( SYS_DEBUG_DEBUG, ("Sending the fire devices status ...\n"));
 		UITD_send_2_U_FIRE_DEV_STATUS(handler, pkt, pkt->data_num);
@@ -1916,44 +1930,15 @@ int UITD_send_manul_fire_alarm(t_server_handler *handler, uint8_t port, uint8_t 
 {
     return UITD_send_dev_status(handler, GB_DEV_TYPE_MANUL_ALARM_BUTTON, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
 }
-//系统类型标志  
+
 int UITD_send_smoke_fire_alarm(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
 {
-	if(sys_config.server_elec_fire == 1) //wzy
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-	else
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-   
-}
-//wzy
-int UITD_send_smoke_elec_data(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
-{
-	if(sys_config.server_elec_fire == 1)
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_working, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-	else
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_working, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
+    return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
 }
 
 int UITD_send_smoke_fire_fault(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
 {
-	
-	if(sys_config.server_elec_fire == 1)	//wzy
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-	else
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-
+    return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
 }
 
 int UITD_send_smoke_fire_resume(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
@@ -1967,10 +1952,9 @@ int UITD_send_smoke_fire_disable(t_server_handler *handler, uint8_t port, uint8_
 }
 
 
-//初始化用
+
 int UITD_send_21_U_UITD_STATUS(t_server_handler *handler, t_GB_pkt *pkt, t_GB_UITD_status status)
 {
-	
 	int i = 0;
 	t_GB_UITD_status_data *p_UITD_status = NULL;
 	
@@ -2001,14 +1985,12 @@ int UITD_send_21_U_UITD_STATUS(t_server_handler *handler, t_GB_pkt *pkt, t_GB_UI
     
 	SYS_log_HEX( SYS_DEBUG_DEBUG, ("TS: ", pkt->data_unit.data, pkt->data_unit.data_len));
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
-	
 }
 
 
-//没用到
+
 int UITD_send_24_U_UITD_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, t_GB_UITD_operate operate)
 {
-	
 	int i = 0;
 	t_GB_UITD_operate_data *p_UITD_operate = NULL;
 
@@ -2031,9 +2013,8 @@ int UITD_send_24_U_UITD_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, t_GB_U
     
 	SYS_log_HEX( SYS_DEBUG_DEBUG, ("TS: ", pkt->data_unit.data, pkt->data_unit.data_len));
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
-	
 }
-//没用到
+
 int UITD_send_1_U_FIRE_SYS_STATUS(t_server_handler *handler, t_GB_pkt *pkt, uint8_t sys_addr, uint8_t port, t_GB_fire_sys_status status)
 {
 	int i = 0;
@@ -2071,7 +2052,6 @@ int UITD_send_1_U_FIRE_SYS_STATUS(t_server_handler *handler, t_GB_pkt *pkt, uint
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
 }
 
-//没用到
 int UITD_send_4_U_FIRE_SYS_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, uint8_t port, uint8_t sys_addr, t_GB_fire_sys_operate operate)
 {
 	int i = 0;
@@ -2100,7 +2080,7 @@ int UITD_send_4_U_FIRE_SYS_OPERATE(t_server_handler *handler, t_GB_pkt *pkt, uin
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
 }
 
-//没用到
+
 int UITD_send_200_U_ROUGH_DATA(t_server_handler *handler, t_GB_pkt *pkt)
 {
 	int i = 0;
@@ -2134,7 +2114,7 @@ int UITD_send_200_U_ROUGH_DATA(t_server_handler *handler, t_GB_pkt *pkt)
 	SYS_log_HEX( SYS_DEBUG_DEBUG, ("TS: ", pkt->data_unit.data, pkt->data_unit.data_len));
 	return UITD_send_actively(handler, pkt, &pkt->data_unit);
 }
-//没用到
+
 int UITD_send_fire_sys_main_power_fault(t_server_handler *handler)
 {
     t_GB_pkt pkt = {0};
@@ -2144,7 +2124,7 @@ int UITD_send_fire_sys_main_power_fault(t_server_handler *handler)
 	UITD_send_1_U_FIRE_SYS_STATUS(handler, &pkt, 0, 0, status);
     return 0;
 }
-//没用到
+
 int UITD_send_UITD_main_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 {
 	t_GB_UITD_status status = {0};
@@ -2153,7 +2133,7 @@ int UITD_send_UITD_main_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 	UITD_send_21_U_UITD_STATUS(handler, pkt, status);
     return 0;
 }
-//没用到
+
 int UITD_send_FA_reset(t_server_handler *handler,  uint8_t port, uint8_t sys_addr)
 {
     t_GB_pkt pkt = {0};
@@ -2173,7 +2153,7 @@ int UITD_send_UITD_reset(t_server_handler *handler)
 	UITD_send_24_U_UITD_OPERATE(handler, &pkt, operate);
     return 0;
 }
-//没用到
+
 int UITD_send_UITD_backup_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 {
 	t_GB_UITD_status status = {0};
@@ -2182,7 +2162,7 @@ int UITD_send_UITD_backup_power_fault(t_server_handler *handler, t_GB_pkt *pkt)
 	UITD_send_21_U_UITD_STATUS(handler, pkt, status);
     return 0;
 }
-//初始化用
+
 int UITD_send_inital_status_ack_deal(char *data,int len, uint8_t if_affirm)
 {
     t_server_handler *handler = NULL;
@@ -2192,7 +2172,7 @@ int UITD_send_inital_status_ack_deal(char *data,int len, uint8_t if_affirm)
     
     return 0;
 }
-//初始化用
+
 int UITD_send_UITD_inital_status(t_server_handler *handler)
 {
     t_GB_pkt pkt = {0};
@@ -2207,7 +2187,7 @@ int UITD_send_UITD_inital_status(t_server_handler *handler)
 	UITD_send_21_U_UITD_STATUS(handler, &pkt, status);
     return 0;
 }
-//没用到
+
 int UITD_send_comm_rough_data(t_server_handler *handler)
 {
     t_GB_pkt pkt = {0};
@@ -3136,8 +3116,6 @@ int UITD_deal(t_server_handler *handler, t_GB_pkt *pkt)
 	}	
 }
 
-
-
 int UITD_send_pkg(t_server_handler *handler, int node)
 {
 	int res = 0;
@@ -3344,7 +3322,7 @@ int UITD_send_handler(t_server_handler *handler)
 	}
 }
 
-//初始化用
+
 int UITD_service_init(t_server_handler *handler)
 {
     uint8_t *p = NULL;
@@ -3850,6 +3828,15 @@ int UITD_service_handler(t_server_handler *handler)
         }
     }
    
+//    if (p_PRO_sensor_cb && (handler->status == UITD_svc_status_alive))
+//    {
+//        res = rt_mq_recv(mq_sensor_send, &sensor_data_temp, sizeof(sensor_data_temp), 0);
+//        if (res == RT_EOK)
+//        {
+//            UITD_sensor_upload_rough_data(handler, sensor_data_temp.ID, sensor_data_temp.out_type, sensor_data_temp.data, &sensor_data_temp.timestamp);
+//        }
+//        
+//    }
     
     if (p_output_ctrl_cb && (handler->status == UITD_svc_status_alive))
     {
@@ -3864,6 +3851,18 @@ int UITD_service_handler(t_server_handler *handler)
         }
     }
     
+//    if (p_PRO_output_ctrl_cb && (handler->status == UITD_svc_status_alive))
+//    {
+//        if (handler->output.valid)
+//        {
+//            handler->output.valid = 0;
+//            
+//            for (i=0;i<handler->output.num;i++)
+//            {
+//                rt_mq_send(mq_PRO_output_ctrl, &handler->output.data[i], sizeof(handler->output.data[0]));
+//            }
+//        }
+//    }
     
     if (p_com_bus_cb && (handler->status == UITD_svc_status_alive))
     {
@@ -3871,20 +3870,17 @@ int UITD_service_handler(t_server_handler *handler)
         {
             res = rt_mq_recv(mq_FA_fire, &FA_fire_temp, sizeof(s_com_bus_R_alarm), 0);
             if (res == RT_EOK)
-            {             
+            {
+                
                 UITD_send_smoke_fire_alarm(handler, FA_fire_temp.port, FA_fire_temp.sys_addr, FA_fire_temp.addr_main, FA_fire_temp.addr_sub, &FA_fire_temp.dev_info, data_unit_single);
-            }
-			
-			//wzy			
-			res = rt_mq_recv(mq_FA_elec_fire, &FA_elec_fire_temp, sizeof(s_com_bus_R_alarm), 0);
-            if (res == RT_EOK)
-            {               
-                UITD_send_smoke_elec_data(handler, FA_elec_fire_temp.port, FA_elec_fire_temp.sys_addr, FA_elec_fire_temp.addr_main, FA_elec_fire_temp.addr_sub, &FA_elec_fire_temp.dev_info, data_unit_single);
             }
             
             res = rt_mq_recv(mq_FA_fault, &FA_fault_temp, sizeof(s_com_bus_R_alarm), 0);
             if (res == RT_EOK)
             {
+//                #if 1 // Just for debug  shanghai NTN.
+//                rt_kprintf("FA_", FA_fire_temp.sys_addr, FA_fire_temp.addr_main, FA_fire_temp.addr_sub);
+//                #endif 
                 if (FA_fault_temp.valid == 0) // resume to normal status.
                 {
                     UITD_send_smoke_fire_resume(handler, FA_fault_temp.port, FA_fault_temp.sys_addr, FA_fault_temp.addr_main, FA_fault_temp.addr_sub, &FA_fault_temp.dev_info, data_unit_single);
@@ -3893,6 +3889,8 @@ int UITD_service_handler(t_server_handler *handler)
                 {
                     UITD_send_smoke_fire_fault(handler, FA_fault_temp.port, FA_fault_temp.sys_addr, FA_fault_temp.addr_main, FA_fault_temp.addr_sub, &FA_fault_temp.dev_info, data_unit_single);
                 }
+                
+                
             }
 
             res = rt_mq_recv(mq_FA_reset, &FA_reset_temp, sizeof(s_com_bus_R_reset), 0);
@@ -3917,7 +3915,7 @@ int UITD_service_handler(t_server_handler *handler)
         {
             res = rt_mq_recv(mq_FA_2_fire, &FA_fire_temp, sizeof(s_com_bus_R_alarm), 0);
             if (res == RT_EOK)
-            {	
+            {
                 UITD_send_smoke_fire_alarm(handler, FA_fire_temp.port, FA_fire_temp.sys_addr, FA_fire_temp.addr_main, FA_fire_temp.addr_sub, &FA_fire_temp.dev_info, data_unit_single);
             }
             

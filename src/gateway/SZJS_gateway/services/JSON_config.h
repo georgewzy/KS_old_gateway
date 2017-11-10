@@ -14,23 +14,6 @@ struct t_json_value
     int  type;
 };
 
-//wzy
-#define ELEC_SYNC						0x01
-#define ELEC_START						0x02
-#define ELEC_STOP						0x03
-#define ELEC_SEND_BUF_LEN				10
-#define ELEC_WAIT_DLY					2				//????10?
-typedef struct 
-{
-	uint8_t nStatus;
-	uint8_t nBuf[ELEC_SEND_BUF_LEN];
-	uint8_t nLen;
-}elec_buf_t;
-
-
-
-
-
 
 extern int json_cfg_load(void);
 

@@ -115,9 +115,7 @@ struct t_sys_cfg
 {
 // Add user's var here //
     uint8_t sys_cfg;
-	uint8_t  sys_elec_fire;	//wzy
     e_sys_mode sys_mode;
-
 //    uint32_t A8_if_BR;
 //    uint32_t uart2_BR;
 //    

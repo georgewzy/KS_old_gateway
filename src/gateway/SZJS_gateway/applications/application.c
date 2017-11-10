@@ -63,21 +63,10 @@
 #include "transparent.h"
 #include "pro_ctrl.h"
 #include "pro_UITD.h"
-#include "JSON_config.h"
 
 //int testing_fd = 0;
 
-//wzy
-rt_thread_t elec_send_data;	//wzy
-extern void rt_platform_init(void);	//wzy
-extern void json_cfg_load_elec(void *p);//wzy
-extern void elec_send_frame(void *p);
-extern elec_buf_t m_elec_buf_t;	//wzy
-extern volatile s_com_bus_cb *p_com_bus_cb;	//wzy
-
-
-
-
+extern void rt_platform_init(void);
 
 uint8_t testing_TF = 0;
 
@@ -91,6 +80,18 @@ void system_fs_check(void)
     DIR *dir;
     char temp_char = 0;
 
+    
+    // Song: just a file expend test.
+//    rm("/test.txt");
+//    fd = open("/test.txt", O_CREAT | O_RDWR | O_TRUNC , 0);
+//    if (fd >= 0)
+//    {
+//        lseek(fd, 0, DFS_SEEK_SET);
+//        
+//        lseek(fd, 6*1024*1024, DFS_SEEK_CUR);
+//        
+//        close(fd);
+//    }
     
     fd = open(SYS_CFG_FILE_PATH, O_RDONLY, 0);
     if (fd < 0)
@@ -182,6 +183,12 @@ void system_fs_check(void)
         mkdir( MODULE_LIB_DIR, 0);
     }
     closedir(dir);      
+//    dir = opendir(BIN_PATH);
+//    if (dir == NULL)
+//    {
+//        mkdir( BIN_PATH, 0);
+//    }
+//    closedir(dir);
 
     dir = opendir(FW_FILE_DIR);
     if (dir == NULL)
@@ -334,7 +341,18 @@ void system_fs_check(void)
         json_cfg_create_AP01(AP01_CFG_FILE_PATH, &AP01_cfg_init_data);
         rt_kprintf("AP01 config file is recreated with AP01_cfg_init_data !!! \n");
     }    
- 
+
+//    fd = open( AP02_CFG_FILE_PATH, O_RDONLY | O_BINARY, 0);
+//    if (fd >= 0)
+//    {
+//        close(fd);
+//    }
+//    else
+//    {
+//        json_cfg_create_AP02(AP02_CFG_FILE_PATH, &AP02_cfg_init_data);
+//        rt_kprintf("AP02 config file is recreated with AP02_cfg_init_data !!! \n");
+//    }    
+
     fd = open( FA_CFG_FILE_PATH, O_RDONLY | O_BINARY, 0);
     if (fd >= 0)
     {
@@ -1500,30 +1518,16 @@ void rt_APP_init_thread_entry(void* parameter)
 {
     rt_thread_t tid;
 
-
+//    while(sys_config.board_type_checked == 0)
+//    {
+//        rt_thread_delay(1);
+//    }
     
     while(sys_config.sys_inited_flag == 0)
     {
         rt_thread_delay(2);
     }
     
-	
-	
-//wzy	
-	//------- create ELEC thread
-	elec_send_data = rt_thread_create("ELEC",
-										json_cfg_load_elec,
-										RT_NULL,
-										4096,
-										9,
-										60);
-	if (elec_send_data != RT_NULL)
-	{        
-		rt_thread_startup(elec_send_data);     
-	}
-	//--------
-	
-	
     
     if (sys_config.sys_mode == sys_mode_transparent)
     {

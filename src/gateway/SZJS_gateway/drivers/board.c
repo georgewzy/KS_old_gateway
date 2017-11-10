@@ -46,10 +46,9 @@ volatile uint32_t  patch_alive_cnt = 0;
 s_sys_cfg   sys_config = 
 {
     1,
-	0,
     {SVR_IF_USE_NAME, SVR_IF_NAME, SVR_IF_IP, SVR_IF_PORT, 0},
     {SVR_2_IF_USE_NAME, SVR_2_IF_NAME, SVR_2_IF_IP, SVR_2_IF_PORT, 1},
- 
+    
     0,
     0,
     0,

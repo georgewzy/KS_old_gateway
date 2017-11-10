@@ -1,12 +1,8 @@
 .\build\application.o: applications\application.c
 .\build\application.o: drivers\board.h
 .\build\application.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\application.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
+.\build\application.o: .\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
 .\build\application.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\build\application.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
-.\build\application.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
-.\build\application.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
-.\build\application.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
 .\build\application.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\application.o: drivers\stm32f2xx_conf.h
 .\build\application.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h
@@ -110,4 +106,3 @@
 .\build\application.o: applications\transparent.h
 .\build\application.o: applications\pro_ctrl.h
 .\build\application.o: applications\pro_UITD.h
-.\build\application.o: services\JSON_config.h

@@ -13,11 +13,7 @@
 .\build\spi_flash_w25qxx.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\build\spi_flash_w25qxx.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_gpio.h
 .\build\spi_flash_w25qxx.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\spi_flash_w25qxx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
-.\build\spi_flash_w25qxx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
-.\build\spi_flash_w25qxx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
-.\build\spi_flash_w25qxx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
-.\build\spi_flash_w25qxx.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
+.\build\spi_flash_w25qxx.o: .\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
 .\build\spi_flash_w25qxx.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\spi_flash_w25qxx.o: drivers\stm32f2xx_conf.h
 .\build\spi_flash_w25qxx.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h

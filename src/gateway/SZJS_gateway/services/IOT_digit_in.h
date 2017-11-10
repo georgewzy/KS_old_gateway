@@ -4,6 +4,7 @@
 
 #include "board.h"
 #include "sys_def.h"
+
 #include "UITD.h"
 
 
@@ -48,7 +49,6 @@ extern uint8_t g_INPUT_trig_cfg[INPUT_CHANNEL_MAX];
 extern uint32_t g_INPUT_report_period[INPUT_CHANNEL_MAX];
 
 extern struct rt_messagequeue *mq_IO_input;
-
 extern struct rt_mutex  mt_IO_input;
 
 extern int IO_input_pin_cfg(s_IO_input_cb *cb, s_IO_input *cfg);

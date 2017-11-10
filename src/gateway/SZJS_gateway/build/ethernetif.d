@@ -1,12 +1,8 @@
 .\build\ethernetif.o: ..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\netif\ethernetif.c
 .\build\ethernetif.o: drivers\board.h
 .\build\ethernetif.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\ethernetif.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
+.\build\ethernetif.o: .\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
 .\build\ethernetif.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\build\ethernetif.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
-.\build\ethernetif.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
-.\build\ethernetif.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
-.\build\ethernetif.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
 .\build\ethernetif.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\ethernetif.o: drivers\stm32f2xx_conf.h
 .\build\ethernetif.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h

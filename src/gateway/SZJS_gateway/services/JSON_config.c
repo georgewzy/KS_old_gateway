@@ -12,22 +12,12 @@
 #include "transparent.h"
 #include "pro_ctrl.h"
 
-
-
-
-
-
-//wzy
-static elec_buf_t elec_buff; 
-static uint8_t elec_frame[10] = {0};
-const static uint8_t elec_sync[10] = {0x66, 0xF0, 0x00, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFD};
-extern elec_buf_t m_elec_buf_t;
-
-
-
+//#include "A8_if.h"
+//#include "data_store.h"
+//#include "wifi_app.h"
 
 static uint8_t *cfg;
-//s_ELEC_cfg *p_ELEC_cfg = NULL;
+
 
 int json_cfg_open(char *dir, int flags)
 {
@@ -150,7 +140,6 @@ int json_cfg_create_PRO_UITD(char *dir, const s_PRO_UITD_cfg *p_cfg)
     
     return 0;
 }
-
 
 int json_cfg_create_PRO_CTRL(char *dir, const s_PRO_CTRL_cfg *p_cfg)
 {
@@ -600,7 +589,70 @@ int json_cfg_create_WIFI(char *dir, const s_WIFI_cfg *p_cfg)
     return 0;
 }
 
+//int json_cfg_create_AP02(char *dir, const s_AP02_cfg *p_cfg)
+//{
+//    
+//    int res = 0;
+//    int wr_res = 0;
+//    int len = 0;
+//    cJSON *pJSON = NULL;
+//    char *json_buf = NULL;
+//    int fd;
+//    struct stat *state = NULL;
+//    DIR *cfg_dir;
+//    //uint8_t *cfg = NULL;
+//    
+//    cfg_dir = opendir(SYS_CFG_DIR);
+//    if (cfg_dir == NULL)
+//    {
+//        mkdir(SYS_CFG_DIR, 0);
+//    }
+//    closedir(cfg_dir);
+//    
+//    // Create the config file.
+//    fd = open( dir, O_CREAT | O_RDWR, 0);
+//    if (fd >= 0)
+//    {
+//        pJSON = cJSON_CreateObject();
+//        // Add the system config item to cJSON.
+//        cJSON_AddNumberToObject( pJSON, "FA_type" , p_cfg->FA_type);
+//        cJSON_AddNumberToObject( pJSON, "FA_baud" , p_cfg->FA_baud);
+//        cJSON_AddNumberToObject( pJSON, "FA_listen" , p_cfg->FA_listen);
+//        cJSON_AddNumberToObject( pJSON, "SW01_trig_cfg" , p_cfg->SW01_trig_cfg);
+//        cJSON_AddNumberToObject( pJSON, "SW01_report_period" , p_cfg->SW01_report_period);
 
+//        // Print the cJSON to string.
+//        json_buf = cJSON_Print(pJSON);
+//        cJSON_Delete(pJSON);
+//        
+//        if (json_buf != NULL)
+//        {
+//            len = strlen(json_buf);
+//            // Write string to config file.
+//            wr_res = write(fd, json_buf, len);
+//            if (wr_res != len)
+//            {
+//                rt_kprintf("%s write error!\n", dir);
+//            }
+//            rt_free(json_buf);
+//        }
+//        else
+//        {
+//            rt_kprintf("cJSON_Print output buf malloc failed ! \n");
+//            close(fd);
+//            return -8;
+//        }
+//    }
+//    else
+//    {
+//        rt_kprintf("Create config file failed ! \n");
+//        return fd;
+//    }
+//    
+//    close(fd);
+//    
+//    return 0;
+//}
 
 
 int json_cfg_create_FA(char *dir, const s_FA_cfg *p_cfg)
@@ -696,72 +748,6 @@ int json_cfg_create_FA(char *dir, const s_FA_cfg *p_cfg)
     return 0;
 }
 
-//wzy
-int json_cfg_create_elec(char *dir)
-{
-    
-    int res = 0;
-    int wr_res = 0;
-    int len = 0;
-    cJSON *pJSON = NULL;
-    char *json_buf = NULL;
-    int fd;
-    struct stat *state = NULL;
-    DIR *cfg_dir;
-    //uint8_t *cfg = NULL;
-    
-    cfg_dir = opendir(SYS_CFG_DIR);
-    if (cfg_dir == NULL)
-    {
-        mkdir(SYS_CFG_DIR, 0);
-    }
-    closedir(cfg_dir);
-    
-    // Create the config file.
-    fd = open( dir, O_CREAT | O_RDWR, 0);
-    if (fd >= 0)
-    {
-        pJSON = cJSON_CreateObject();
-        
-		cJSON_AddNumberToObject( pJSON, "node_num" , 1);
-        cJSON_AddNumberToObject( pJSON, "sys_addr0" , 0);
-        cJSON_AddStringToObject( pJSON, "sys_addr0" , 0);
-        cJSON_AddNumberToObject( pJSON, "sys_addr0" , 0);
-     
-        // Print the cJSON to string.
-        json_buf = cJSON_Print(pJSON);
-        cJSON_Delete(pJSON);
-        
-        if (json_buf != NULL)
-        {
-            len = strlen(json_buf);
-            // Write string to config file.
-            wr_res = write(fd, json_buf, len);
-            if (wr_res != len)
-            {
-                rt_kprintf("%s write error!\n", dir);
-            }
-            rt_free(json_buf);
-        }
-        else
-        {
-            rt_kprintf("cJSON_Print output buf malloc failed ! \n");
-            close(fd);
-            return -8;
-        }
-    }
-    else
-    {
-        rt_kprintf("Create config file failed ! \n");
-        return fd;
-    }
-    
-    close(fd);
-    
-    return 0;
-}
-
-
 
 
 int json_cfg_create(char *dir, const struct t_sys_cfg *p_cfg)
@@ -792,7 +778,10 @@ int json_cfg_create(char *dir, const struct t_sys_cfg *p_cfg)
         // Add the system config item to cJSON.
         cJSON_AddNumberToObject( pJSON, "sys_cfg" , p_cfg->sys_cfg);
         cJSON_AddNumberToObject( pJSON, "sys_mode" , p_cfg->sys_mode);
-		cJSON_AddNumberToObject( pJSON, "server_elec_fire" , p_cfg->sys_elec_fire);
+//        cJSON_AddNumberToObject( pJSON, "A8_if_BR", p_cfg->A8_if_BR);
+//        cJSON_AddNumberToObject( pJSON, "uart2_BR", p_cfg->uart2_BR);
+//        cJSON_AddStringToObject( pJSON, "SSID", p_cfg->SSID);
+//        cJSON_AddStringToObject( pJSON, "key", p_cfg->key);
         cJSON_AddNumberToObject( pJSON, "server_num" , p_cfg->svr_num);
         cJSON_AddNumberToObject( pJSON, "svr_use_name", p_cfg->svr_use_name);
         cJSON_AddStringToObject( pJSON, "svr_if_name", p_cfg->svr_if_name);
@@ -808,7 +797,20 @@ int json_cfg_create(char *dir, const struct t_sys_cfg *p_cfg)
         cJSON_AddNumberToObject( pJSON, "debug_level", p_cfg->debug_level);
         cJSON_AddNumberToObject( pJSON, "log_file_en", p_cfg->log_file_en);
         cJSON_AddStringToObject( pJSON, "log_file_path", p_cfg->log_file_path);
-
+        
+//        cJSON_AddNumberToObject( pJSON, "sensor_period_1", p_cfg->sensor_period_1);
+//        cJSON_AddNumberToObject( pJSON, "sensor_period_2", p_cfg->sensor_period_2);
+//        cJSON_AddNumberToObject( pJSON, "auto_update", p_cfg->auto_update);
+//        cJSON_AddNumberToObject( pJSON, "force_check_up", p_cfg->force_check_up);
+//        cJSON_AddNumberToObject( pJSON, "force_up_wifi", p_cfg->force_up_wifi);
+//        cJSON_AddNumberToObject( pJSON, "force_up_sensor", p_cfg->force_up_sensor);
+//        cJSON_AddNumberToObject( pJSON, "server_if_en", p_cfg->server_if_en);
+//        cJSON_AddNumberToObject( pJSON, "wifi_auto_en", p_cfg->wifi_auto_en);
+//        
+//        cJSON_AddNumberToObject( pJSON, "RT_peri", p_cfg->RT_peri);
+//        cJSON_AddNumberToObject( pJSON, "RT_len", p_cfg->RT_len);
+//        cJSON_AddNumberToObject( pJSON, "Nor_len", p_cfg->Nor_len);
+//        cJSON_AddNumberToObject( pJSON, "wifi_roam", p_cfg->wifi_roam);
         
         // Print the cJSON to string.
         json_buf = cJSON_Print(pJSON);
@@ -842,8 +844,6 @@ int json_cfg_create(char *dir, const struct t_sys_cfg *p_cfg)
     
     return 0;
 }
-
-
 
 // Song: TODO
 int json_cfg_load_PRO_UITD(void)
@@ -1074,8 +1074,6 @@ AP01_cfg_load_start:
     return 0;
 }
 
-
-
 int json_cfg_load_eth(void)
 {
     int res = 0;
@@ -1134,8 +1132,6 @@ eth_cfg_load_start:
     return 0;
 }
 
-
-//初始化用
 int json_cfg_load_mode(void)
 {
     int res = 0;
@@ -1191,7 +1187,6 @@ mode_cfg_load_start:
     return 0;
 }
 
-
 int json_cfg_load_WIFI(void)
 {
     int res = 0;
@@ -1238,11 +1233,73 @@ WIFI_cfg_load_start:
     return 0;
 }
 
+//int json_cfg_load_AP02(s_FA_uart_cfg *cfg)
+//{
+//    int res = 0;
+//    cJSON *pJSON;
+//    cJSON *JSON_item ;
+//    int value = 0;
 
-//初始化用
+//AP02_cfg_load_start:
+//    
+//    res = json_cfg_open( AP02_CFG_FILE_PATH, O_RDONLY);
+//    if (res >= 0)
+//    {
+//        // Parse the config.
+//        pJSON = cJSON_Parse(cfg);
+//        
+//        JSON_item = cJSON_GetObjectItem(pJSON, "FA_type");
+//        if (JSON_item != NULL) 
+//            g_FA_type = JSON_item->valueint;
+//        
+//        JSON_item = cJSON_GetObjectItem(pJSON, "FA_baud");
+//        if (JSON_item != NULL) 
+//            g_FA_baud = JSON_item->valueint;
+//        
+//        JSON_item = cJSON_GetObjectItem(pJSON, "FA_listen");
+//        if (JSON_item != NULL) 
+//            g_FA_listen = JSON_item->valueint;
+
+//        JSON_item = cJSON_GetObjectItem(pJSON, "SW01_trig_cfg");
+//        if (JSON_item != NULL) 
+//            g_INPUT_trig_cfg[0] = JSON_item->valueint;
+//        
+//        JSON_item = cJSON_GetObjectItem(pJSON, "SW01_report_period");
+//        if (JSON_item != NULL) 
+//            g_INPUT_report_period[0] = JSON_item->valueint;
+
+//        json_cfg_close(res);
+//    }
+//    else if (res == -2) // config file is not exist.
+//    {
+//        // Create a default config file.
+//        json_cfg_create_AP02(AP02_CFG_FILE_PATH, &AP02_cfg_init_data);
+//        
+//        res = json_cfg_open( AP02_CFG_FILE_PATH, O_RDONLY);
+//        if (res >= 0)
+//        {
+//            json_cfg_close(res);
+//            goto AP02_cfg_load_start;
+//        }
+//        else
+//        {
+//            SYS_log(SYS_DEBUG_ERROR, ("Create AP02.cfg failed !!!\n"));
+//            return -1;
+//        }
+//    }
+//    
+//    
+//    strcpy(cfg[0].FA_name, UITD_UART_COM_BUS); 
+//    cfg[0].FA_baud = g_FA_baud;
+//    cfg[0].FA_listen = g_FA_listen;
+//    
+//    FA_uart_num = 1;
+//    
+//    return 0;
+//}
+
 int json_cfg_load_FA(s_FA_uart_cfg *p_cfg, uint8_t *FA_uart_num)
 {
-
     int res = 0;
     cJSON *pJSON;
     cJSON *JSON_item ;
@@ -1250,12 +1307,10 @@ int json_cfg_load_FA(s_FA_uart_cfg *p_cfg, uint8_t *FA_uart_num)
     int i = 0;
     int j = 0;
     uint8_t json_buf[32] = {0};
-	uint8_t d = 0;
     int FA_en = 0;
 
 FA_cfg_load_start:
     
-	
     res = json_cfg_open( FA_CFG_FILE_PATH, O_RDONLY);
     if (res >= 0)
     {
@@ -1328,142 +1383,8 @@ FA_cfg_load_start:
         }
     }
     
-    return 0;	
+    return 0;
 }
-
-//wzy
-void json_cfg_load_elec(void *p)
-{
-
-    int res = 0;
-    cJSON *pJSON;
-    cJSON *JSON_item ;
-    uint8_t sys_addr = 0, addr_area = 0, addr_line = 0;
-    int i = 0, j = 0, k = 0, n = 0;
-    uint8_t json_buf[32] = {0};
-	int d = 0;
-	int times_cnt = 0;
-
-	
-ELEC_cfg_load_start:
-    
-    res = json_cfg_open( ELEC_FIRE_CFG_FILE_PATH, O_RDONLY);
-    if (res >= 0)
-    {
-        // Parse the config.
-		pJSON = cJSON_Parse(cfg);
-	
-		JSON_item = cJSON_GetObjectItem(pJSON, "node_num");
-			if (JSON_item != NULL) 
-				d = JSON_item->valueint;
-			
-			
-		JSON_item = cJSON_GetObjectItem(pJSON, "comm_time");
-		if (JSON_item != NULL) 
-			times_cnt = JSON_item->valueint;
-	
-		while(1)
-		{
-			
-			if (n == d)
-			{
-				
-				JSON_item = cJSON_GetObjectItem(pJSON, "node_num");
-				if (JSON_item != NULL) 
-					d = JSON_item->valueint;
-				
-				i = 0;
-				j = 0;
-				k = 0;
-	
-				elec_frame[0] = 0x66;
-				elec_frame[1] = 0xF0;
-				elec_frame[3] = 0x10;
-				elec_frame[6] = 0x66;
-				elec_frame[7] = 0x00;
-				elec_frame[8] = 0x00;
-				elec_frame[9] = 0xFD;				
-			}			
-		
-			d--;
-			for(n=0; n<d; n++)
-			{
-			
-				sprintf(json_buf, "sys_addr_%d", k);
-				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
-				if (JSON_item != NULL) 
-					sys_addr = JSON_item->valueint;
-										
-				sprintf(json_buf, "addr_area_%d_%d", k, i);
-				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
-				if (JSON_item != NULL) 
-					addr_area = JSON_item->valueint;
-				
-				if (addr_area == 255)
-				{
-					k++;
-					i = 0;
-					j = 0;
-				}
-				
-				
-				sprintf(json_buf, "addr_line_%d_%d_%d", k, i, j);
-				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
-				if (JSON_item != NULL) 
-					addr_line = JSON_item->valueint;						
-				
-				elec_frame[2] = sys_addr;
-				elec_frame[4] = addr_area;
-				elec_frame[5] = addr_line;				
-				
-				j++;
-
-				if (addr_line == 255)
-				{
-					i++;
-					j = 0;
-				}
-		
-								
-				if(addr_line != 255)
-				{	
-					rt_device_write(p_com_bus_cb->dev, 0, elec_frame, 10); 
-					rt_thread_delay(250);	 // 每个节点延时2秒钟
-				}
-
-			}
-			
-			rt_thread_delay(300);
-			elec_frame[6] = 0x00;
-			rt_device_write(p_com_bus_cb->dev, 0, elec_frame, 10);
-			
-			rt_thread_delay(times_cnt*100);
-			
-		}
-		
-
-        json_cfg_close(res);
-    }
-    else if (res == -2) // config file is not exist.
-    {
-        // Create a default config file.
-        json_cfg_create_elec(ELEC_FIRE_CFG_FILE_PATH);
-        
-        res = json_cfg_open( ELEC_FIRE_CFG_FILE_PATH, O_RDONLY);
-        if (res >= 0)
-        {
-            json_cfg_close(res);
-goto ELEC_cfg_load_start;
-        }
-        else
-        {
-            SYS_log(SYS_DEBUG_ERROR, ("Create %s failed !!!\n", ELEC_FIRE_CFG_FILE_PATH));
-            return ;
-        }
-    }
-    	
-}
-
 
 
 
@@ -1535,7 +1456,7 @@ trans_cfg_load_start:
 }
 
 
-//初始化用
+
 int json_cfg_load(void)
 {
     int res = 0;
@@ -1562,19 +1483,14 @@ sys_cfg_load_start:
             if (JSON_item != NULL) 
                 sys_config.sys_mode = JSON_item->valueint;
         }
-        		
-		JSON_item = cJSON_GetObjectItem(pJSON, "server_elec_fire");
-        if (JSON_item != NULL) 
-            sys_config.server_elec_fire = JSON_item->valueint;
-		
-		
+        
         JSON_item = cJSON_GetObjectItem(pJSON, "server_num");
         if (JSON_item != NULL) 
             sys_config.server_num = JSON_item->valueint;
 
         JSON_item = cJSON_GetObjectItem(pJSON, "svr_use_name");
         if (JSON_item != NULL) 
-            sys_config.server_SZJS.svr_use_name = JSON_item->valueint; //0;
+            sys_config.server_SZJS.svr_use_name = JSON_item->valueint;
 
         JSON_item = cJSON_GetObjectItem(pJSON, "svr_if_name");
         if (JSON_item != NULL) 
@@ -1583,12 +1499,10 @@ sys_cfg_load_start:
         JSON_item = cJSON_GetObjectItem(pJSON, "svr_if_ip");
         if (JSON_item != NULL) 
             memcpy( sys_config.server_SZJS.svr_if_ip, JSON_item->valuestring, strlen(JSON_item->valuestring)+1);
-	//		memcpy( sys_config.server_SZJS.svr_if_ip, "180.169.14.34", 13);//strlen(JSON_item->valuestring)+1);
-		
-		
+
         JSON_item = cJSON_GetObjectItem(pJSON, "svr_if_port");
         if (JSON_item != NULL) 
-            sys_config.server_SZJS.svr_if_port = JSON_item->valueint; //23367;
+            sys_config.server_SZJS.svr_if_port = JSON_item->valueint;
         
         JSON_item = cJSON_GetObjectItem(pJSON, "if_UITD");
         if (JSON_item != NULL) 
@@ -1637,7 +1551,7 @@ sys_cfg_load_start:
         if (res >= 0)
         {
             json_cfg_close(res);
-goto sys_cfg_load_start;
+            goto sys_cfg_load_start;
         }
         else
         {
@@ -1650,10 +1564,6 @@ goto sys_cfg_load_start;
     return 0;
 }
 
-
-
-
-//
 // type: 1:int; 2:string;
 int json_cfg_write(char *name, void *value, int type)
 {
@@ -1718,6 +1628,72 @@ int json_cfg_write(char *name, void *value, int type)
 
 
 
+
+// 
+//int json_cfg_write_mult(struct t_json_value *json_value, int num)
+//{
+//    //uint8_t *cfg = NULL;
+//    int res = 0;
+//    cJSON *pJSON;
+//    cJSON *JSON_item ;
+//    char *new_cfg;
+//    int i;
+//    
+
+//    
+//    res = json_cfg_open( SYS_CFG_FILE_PATH, DFS_O_RDWR);
+//    if (res >= 0)
+//    {
+
+//        // Parse the config.
+//        pJSON = cJSON_Parse(cfg);
+//        json_cfg_close(res);
+//        
+//        
+//        for (i=0;i<num;i++)
+//        {
+//            JSON_item = cJSON_GetObjectItem(pJSON, json_value[i].name);
+//            
+//            if (json_value[i].type == 1)
+//            {
+//                // Song: note: you must change the valuedouble at least to change the item value.
+//                JSON_item->valuedouble = json_value[i].value;
+//            }
+//            else if (json_value[i].type == 2)
+//            {
+//                memcpy(JSON_item->valuestring, json_value[i].string, strlen(json_value[i].string) + 1);
+//            }
+//            
+//        }
+//        
+////        JSON_item = cJSON_GetObjectItem(pJSON, name);
+////        // Song: note: you must change the valuedouble at least to change the item value.
+////        JSON_item->valuedouble = update;
+//        
+//        //cJSON_ReplaceItemInObject(pJSON, "sys_cfg", JSON_item);
+//       
+//        new_cfg = cJSON_Print(pJSON);
+//        cJSON_Delete(pJSON);
+//        
+//        if (new_cfg != NULL)
+//        {
+//            rm(SYS_CFG_FILE_PATH);
+//            res = open( SYS_CFG_FILE_PATH, DFS_O_CREAT | DFS_O_WRONLY, 0);
+//            // Write string to config file.
+//            write(res, new_cfg, strlen(new_cfg));
+//            close(res);
+//            
+//            rt_free(new_cfg);
+//        }
+//        else
+//        {
+//            rt_kprintf("System config write update failed !\n");
+//        }
+//        
+//    }
+//    
+//    return 0;
+//}
 
 
 int json_cfg_write_mult_ext(char *cfg_file, struct t_json_value *json_value, int num)
@@ -1784,16 +1760,77 @@ int json_cfg_write_mult_ext(char *cfg_file, struct t_json_value *json_value, int
     
     return 0;
 }
-//写入配置文件
+
 int json_cfg_wr_sys_cfg(int sys_cfg)
 {
     return json_cfg_write("sys_cfg", &sys_cfg, 1);
 }
 
+//int json_cfg_wr_A8_if_BR(int A8_if_BR)
+//{
+//    return json_cfg_write("A8_if_BR", &A8_if_BR, 1);
+//}
+
+//int json_cfg_wr_uart2_BR(int uart2_BR)
+//{
+//    return json_cfg_write("uart2_BR", &uart2_BR, 1);
+//}
+
+//int json_cfg_wr_auto_update(int auto_update)
+//{
+//    return json_cfg_write("auto_update", &auto_update, 1);
+//}
+
+//int json_cfg_wr_force_check_up(int force_check_up)
+//{
+//    return json_cfg_write("force_check_up", &force_check_up, 1);
+//}
+
+//int json_cfg_wr_force_up_wifi(int force_up_wifi)
+//{
+//    return json_cfg_write("force_up_wifi", &force_up_wifi, 1);
+//}
+
+//int json_cfg_wr_force_up_sensor(int force_up_sensor)
+//{
+//    return json_cfg_write("force_up_sensor", &force_up_sensor, 1);
+//}
+
+//int json_cfg_wr_server_if_en(int server_if_en)
+//{
+//    return json_cfg_write("server_if_en", &server_if_en, 1);
+//}
+
+//int json_cfg_wr_wifi_auto_en(int wifi_auto_en)
+//{
+//    return json_cfg_write("wifi_auto_en", &wifi_auto_en, 1);
+//}
+
+//int json_cfg_wr_SSID_KEY(char *SSID, char *key)
+//{
+//    struct t_json_value *json_value;
+//    
+//    json_value = (struct t_json_value *)rt_malloc(sizeof(struct t_json_value)*2);
+//    
+//    json_value[0].type = 2;
+//    strcpy(json_value[0].name, "SSID");
+//    json_value[0].string = SSID;
+
+//    json_value[1].type = 2;
+//    strcpy(json_value[1].name, "key");
+//    json_value[1].string = key;
+//    
+//    json_cfg_write_mult(json_value, 2);
+//    
+//    rt_free(json_value);
+//    
+//    return 0;
+//}
+
+
 int json_cfg_wr_sensor_period_1(int sensor_period_1)
 {
-   
-	return json_cfg_write("sensor_period_1", &sensor_period_1, 1);
+    return json_cfg_write("sensor_period_1", &sensor_period_1, 1);
 }
 
 
@@ -2139,12 +2176,6 @@ int json_cfg_wr_FA_uart( uint8_t FA_index, uint8_t FA_en, uint8_t *FA_name, uint
     
     return 0;
 }
-
-//wzy
-
-
-
-
 int json_cfg_wr_FA_input( uint32_t SW01_trig_cfg, uint32_t SW01_report_period)
 {
     struct t_json_value *json_value;
@@ -2288,6 +2319,39 @@ int json_cfg_wr_AP01(uint32_t SEN01_report_period, uint32_t SEN02_report_period)
     return 0;
 }
 
+//int json_cfg_wr_AP02(uint32_t FA_type, uint32_t FA_baud, uint32_t FA_listen, uint8_t SW01_trig_cfg, uint32_t SW01_report_period)
+//{
+//    struct t_json_value *json_value;
+//    
+//    // Malloc json_value struct buffer * 5
+//    json_value = (struct t_json_value *)rt_malloc(sizeof(struct t_json_value) * 5);
+//    
+//    json_value[0].type = 1;
+//    strcpy(json_value[0].name, "FA_type");
+//    json_value[0].value = FA_type;
+
+//    json_value[1].type = 1;
+//    strcpy(json_value[1].name, "FA_baud");
+//    json_value[1].value = FA_baud;
+//    
+//    json_value[2].type = 1;
+//    strcpy(json_value[2].name, "FA_listen");
+//    json_value[2].value = FA_listen;
+
+//    json_value[3].type = 1;
+//    strcpy(json_value[3].name, "SW01_trig_cfg");
+//    json_value[3].value = SW01_trig_cfg;
+
+//    json_value[4].type = 1;
+//    strcpy(json_value[4].name, "SW01_report_period");
+//    json_value[4].value = SW01_report_period;
+
+//    json_cfg_write_mult_ext(AP02_CFG_FILE_PATH, json_value, 5);
+//    
+//    rt_free(json_value);
+//    
+//    return 0;
+//}
 
 int json_cfg_wr_WIFI(uint8_t *SSID, uint8_t *PW)
 {
@@ -2455,6 +2519,29 @@ int json_cfg_wr_mode(uint32_t mode, uint32_t GPRS, uint32_t ETHERNET, uint32_t W
     return 0;
 }
 
+//int json_cfg_wr_RT_NOR_para(uint32_t RT_peri, uint32_t RT_len, uint32_t Nor_len)
+//{
+//    
+//    json_cfg_write("RT_peri", &RT_peri, 1);
+//    json_cfg_write("RT_len", &RT_len, 1);
+//    
+//    if (Nor_len % DATA_STORE_BUF_NUM)
+//    {
+//        rt_kprintf("Nor_len write failed ! Nor_len must be times of %d", DATA_STORE_BUF_NUM);
+//    }
+//    else
+//    {
+//        json_cfg_write("Nor_len", &Nor_len, 1);
+//    }
+//    return 0;
+//}
+
+
+//int json_cfg_wr_wifi_roam(int32_t wifi_roam)
+//{
+//    json_cfg_write("wifi_roam", &wifi_roam, 1);
+//    return 0;
+//}
 
 // type: 1:int; 2:string;
 int json_cfg_read(char *name, void *value, int type)
@@ -2536,11 +2623,184 @@ int json_cfg_read_mult_ext(char *cfg_file, struct t_json_value *json_value, int 
 }
 
 
+//int json_cfg_read_mult(struct t_json_value *json_value, int num)
+//{
+//    //uint8_t *cfg = NULL;
+//    int res = 0;
+//    cJSON *pJSON;
+//    cJSON *JSON_item ;
+//    char *new_cfg;
+//    int i;
+//    
+//    res = json_cfg_open( SYS_CFG_FILE_PATH, O_RDONLY);
+//    if (res >= 0)
+//    {
+//        // Parse the config.
+//        pJSON = cJSON_Parse(cfg);
+//        
+//        for (i=0;i<num;i++)
+//        {
+//            JSON_item = cJSON_GetObjectItem(pJSON, json_value[i].name);
+//            
+//            if (json_value[i].type == 1)
+//            {
+//               json_value[i].value = JSON_item->valuedouble;
+//            }
+//            else if (json_value[i].type == 2)
+//            {
+//                memcpy( json_value[i].string, JSON_item->valuestring, strlen(JSON_item->valuestring) + 1);
+//            }
+//        }
+
+//        json_cfg_close(res);
+//    }
+//    else if (res == -2) // config file is not exist.
+//    {
+//        rt_kprintf("System config read mult failed !\n");
+//    }
+//    
+//    return 0;
+//}
 
 int json_cfg_rd_sys_cfg(int *sys_cfg)
 {
     return json_cfg_read("sys_cfg", sys_cfg, 1);
 }
+
+//int json_cfg_rd_auto_update(int *auto_update)
+//{
+//    return json_cfg_read("auto_update", auto_update, 1);
+//}
+
+//int json_cfg_rd_force_check_up(int *force_check_up)
+//{
+//    return json_cfg_read("force_check_up", force_check_up, 1);
+//}
+
+//int json_cfg_rd_force_up_wifi(int *force_up_wifi)
+//{
+//    return json_cfg_read("force_up_wifi", force_up_wifi, 1);
+//}
+
+//int json_cfg_rd_force_up_sensor(int *force_up_sensor)
+//{
+//    return json_cfg_read("force_up_sensor", force_up_sensor, 1);
+//}
+
+//void json_cfg_print_auto_update(void)
+//{
+//    int auto_update = 0;
+//    json_cfg_rd_auto_update(&auto_update);
+//    
+//    rt_kprintf("auto_update: %d\n", auto_update);
+//}
+
+//void json_cfg_print_force_check_up(void)
+//{
+//    int force_check_up = 0;
+//    json_cfg_rd_force_check_up(&force_check_up);
+//    
+//    rt_kprintf("force_check_up: %d\n", force_check_up);
+//}
+
+//void json_cfg_print_force_up_wifi(void)
+//{
+//    int force_up_wifi = 0;
+//    json_cfg_rd_force_up_wifi(&force_up_wifi);
+//    
+//    rt_kprintf("force_up_wifi: %d\n", force_up_wifi);
+//}
+
+//void json_cfg_print_force_up_sensor(void)
+//{
+//    int force_up_sensor = 0;
+//    json_cfg_rd_force_up_sensor(&force_up_sensor);
+//    
+//    rt_kprintf("force_up_sensor: %d\n", force_up_sensor);
+//}
+
+//int json_cfg_rd_server_if_en(int *server_if_en)
+//{
+//    return json_cfg_read("server_if_en", server_if_en, 1);
+//}
+
+//void json_cfg_print_server_if_en(void)
+//{
+//    int server_if_en = 0;
+//    json_cfg_rd_server_if_en(&server_if_en);
+//    
+//    rt_kprintf("server_if_en: %d\n", server_if_en);
+//}
+
+
+//int json_cfg_rd_wifi_auto_en(int *wifi_auto_en)
+//{
+//    return json_cfg_read("wifi_auto_en", wifi_auto_en, 1);
+//}
+
+//void json_cfg_print_wifi_auto_en(void)
+//{
+//    int wifi_auto_en = 0;
+//    json_cfg_rd_wifi_auto_en(&wifi_auto_en);
+//    
+//    rt_kprintf("wifi_auto_en: %d\n", wifi_auto_en);
+//}
+
+//int json_cfg_rd_A8_if_BR(int *A8_if_BR)
+//{
+//    return json_cfg_read("A8_if_BR", A8_if_BR, 1);
+//}
+//void json_cfg_print_A8_if_BR(void)
+//{
+//    int A8_if_BR = 0;
+//    json_cfg_rd_A8_if_BR(&A8_if_BR);
+//    
+//    rt_kprintf("A8_if_BR: %d\n", A8_if_BR);
+//}
+
+//int json_cfg_rd_uart2_BR(int *uart2_BR)
+//{
+//    return json_cfg_read("uart2_BR", uart2_BR, 1);
+//}
+//void json_cfg_print_uart2_BR(void)
+//{
+//    int uart2_BR = 0;
+//    json_cfg_rd_A8_if_BR(&uart2_BR);
+//    
+//    rt_kprintf("uart2_BR: %d\n", uart2_BR);
+//}
+
+//int json_cfg_rd_SSID_KEY(char *SSID, char *key)
+//{
+//    struct t_json_value *json_value;
+//    
+//    json_value = (struct t_json_value *)rt_malloc(sizeof(struct t_json_value) * 2);
+//    
+//    json_value[0].type = 2;
+//    strcpy(json_value[0].name, "SSID");
+//    json_value[0].string = SSID;
+
+//    json_value[1].type = 2;
+//    strcpy(json_value[1].name, "key");
+//    json_value[1].string = key;
+//    
+//    json_cfg_read_mult(json_value, 2);
+//    
+//    rt_free(json_value);
+//    
+//    return 0;
+//}
+
+//void json_cfg_print_SSID_KEY(void)
+//{
+//    char ssid[WIFI_SSID_LEN+1] = {0};
+//    char key[WIFI_KEY_LEN+1] = {0};
+
+//    json_cfg_rd_SSID_KEY(ssid, key);
+
+//    rt_kprintf(" SSID: %s\n KEY: %s\n", ssid, key);
+
+//}
 
 
 int json_cfg_rd_sensor_period_1(int *sensor_period_1)
@@ -2748,6 +3008,59 @@ void json_cfg_print_AP01(void)
     rt_kprintf(" SEN01_report_period: %d\n SEN02_report_period: %d\n", SEN01_report_period, SEN02_report_period);
 
 }
+
+//void json_cfg_print_AP02(void)
+//{
+//    uint32_t FA_type  = 0;
+//    uint32_t FA_baud  = 0;
+//    uint8_t SW01_trig_cfg  = 0;
+//    uint32_t SW01_report_period  = 0;
+
+//    json_cfg_rd_AP02(&FA_type, &FA_baud, &SW01_trig_cfg, &SW01_report_period);
+
+//    rt_kprintf(" FA_type: %d\n FA_baud: %d\n SW01_trig_cfg: %d\n SW01_report_period: %d\n", 
+//                FA_type, FA_baud, SW01_trig_cfg, SW01_report_period);
+
+//}
+
+//int json_cfg_rd_RT_NOR_para(uint32_t *RT_peri, uint32_t *RT_len, uint32_t *Nor_len)
+//{
+//    
+//    json_cfg_read("RT_peri", RT_peri, 1);
+//    json_cfg_read("RT_len", RT_len, 1);
+//    json_cfg_read("Nor_len", Nor_len, 1);
+//    
+//    return 0;
+//}
+
+
+//int json_cfg_print_RT_NOR_para(void)
+//{
+//    uint32_t RT_peri,RT_len,Nor_len;
+//    
+//    json_cfg_rd_RT_NOR_para(&RT_peri, &RT_len, &Nor_len);
+//    
+//    rt_kprintf(" RT_peri = %d\n RT_len = %d\n Nor_len = %d\n", RT_peri, RT_len, Nor_len);
+//    
+//    return 0;
+//}
+
+//int json_cfg_rd_wifi_roam(int32_t *wifi_roam)
+//{
+//    json_cfg_read("wifi_roam", wifi_roam, 1);
+//    return 0;
+//}
+
+//int json_cfg_print_wifi_roam(void)
+//{
+//    int32_t wifi_roam;
+//    
+//    json_cfg_rd_wifi_roam(&wifi_roam);
+//    rt_kprintf(" wifi_roam = %d\n", wifi_roam);
+//    
+//    return 0;
+//}
+
 
 
 #ifdef RT_USING_FINSH
