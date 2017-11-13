@@ -177,7 +177,7 @@ int FAC_unusual_rx_parser(s_com_bus_cb *cb)
 		{
 			case 0:
 				
-				if (data_temp == 0x8E)
+				if (data_temp == FAC_MSG_HEAD)
 				{
 					uu_status = 2;
 				}
