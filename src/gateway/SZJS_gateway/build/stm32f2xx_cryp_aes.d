@@ -1,8 +1,12 @@
 .\build\stm32f2xx_cryp_aes.o: Libraries\STM32F2xx_StdPeriph_Driver\src\stm32f2xx_cryp_aes.c
 .\build\stm32f2xx_cryp_aes.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_cryp.h
 .\build\stm32f2xx_cryp_aes.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\stm32f2xx.h
-.\build\stm32f2xx_cryp_aes.o: .\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
+.\build\stm32f2xx_cryp_aes.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\core_cm3.h
 .\build\stm32f2xx_cryp_aes.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\stm32f2xx_cryp_aes.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_version.h
+.\build\stm32f2xx_cryp_aes.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_compiler.h
+.\build\stm32f2xx_cryp_aes.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\cmsis_armcc.h
+.\build\stm32f2xx_cryp_aes.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include\mpu_armv7.h
 .\build\stm32f2xx_cryp_aes.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx\system_stm32f2xx.h
 .\build\stm32f2xx_cryp_aes.o: drivers\stm32f2xx_conf.h
 .\build\stm32f2xx_cryp_aes.o: Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_adc.h

@@ -13,16 +13,16 @@
       <pCCUsed>5060061::V5.06 update 1 (build 61)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32F207VETx</Device>
+          <Device>STM32F207VG</Device>
           <Vendor>STMicroelectronics</Vendor>
           <PackID>Keil.STM32F2xx_DFP.2.7.0</PackID>
           <PackURL>http://www.keil.com/pack</PackURL>
-          <Cpu>IROM(0x08000000,0x80000) IRAM(0x20000000,0x20000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
+          <Cpu>IROM(0x08000000,0x100000) IRAM(0x20000000,0x20000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F2xx_1024 -FS08000000 -FL080000 -FP0($$Device:STM32F207VETx$CMSIS\Flash\STM32F2xx_1024.FLM))</FlashDriverDll>
-          <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:STM32F207VETx$Drivers\CMSIS\Device\ST\STM32F2xx\Include\stm32f2xx.h</RegisterFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F2xx_1024 -FS08000000 -FL0100000 -FP0($$Device:STM32F207VG$CMSIS\Flash\STM32F2xx_1024.FLM))</FlashDriverDll>
+          <DeviceId>5118</DeviceId>
+          <RegisterFile>$$Device:STM32F207VG$Drivers\CMSIS\Device\ST\STM32F2xx\Include\stm32f2xx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -32,7 +32,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:STM32F207VETx$CMSIS\SVD\STM32F20x.svd</SFDFile>
+          <SFDFile>$$Device:STM32F207VG$CMSIS\SVD\STM32F20x.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -48,7 +48,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\build\</OutputDirectory>
-          <OutputName>SZJS_gateway</OutputName>
+          <OutputName>rtthread-stm32</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -69,7 +69,7 @@
             <nStopU2X>0</nStopU2X>
           </BeforeCompile>
           <BeforeMake>
-            <RunUserProg1>1</RunUserProg1>
+            <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>build_before.bat</UserProg1Name>
             <UserProg2Name></UserProg2Name>
@@ -80,7 +80,7 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
-            <RunUserProg2>1</RunUserProg2>
+            <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>fromelf --bin !L --output rtthread.bin</UserProg1Name>
             <UserProg2Name>BIN_encode -e rtthread.bin firmware.bin 87181</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
@@ -109,11 +109,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments> -REMAP -MPU</SimDllArguments>
+          <SimDllArguments>-MPU -REMAP</SimDllArguments>
           <SimDlgDll>DCM.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM3</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments> -MPU</TargetDllArguments>
+          <TargetDllArguments>-MPU</TargetDllArguments>
           <TargetDlgDll>TCM.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM3</TargetDlgDllArguments>
         </DllOption>
@@ -174,10 +174,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <DriverSelection>4099</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash2>Segger\JL2CM3.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -227,7 +227,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>1</useUlib>
+            <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -289,7 +289,7 @@
               <IROM>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x80000</Size>
+                <Size>0x100000</Size>
               </IROM>
               <XRAM>
                 <Type>0</Type>
@@ -351,7 +351,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>2</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>0</OneElfS>
@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;.;config;.;drivers;Libraries\STM32F2xx_StdPeriph_Driver\inc;Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx;misc;.;services;.;..\..\RTT_2_1_0\include;..\..\RTT_2_1_0\libcpu\arm\cortex-m3;..\..\RTT_2_1_0\libcpu\arm\common;..\..\RTT_2_1_0\components\dfs\include;..\..\RTT_2_1_0\components\dfs\filesystems\elmfat;..\..\RTT_2_1_0\components\dfs\filesystems\romfs;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\spi;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\finsh;..\..\RTT_2_1_0\components\libdl;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\include;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\include\ipv4;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\include\netif;..\..\RTT_2_1_0\components\utilities\logtrace;..\..\RTT_2_1_0\components\utilities\ymodem;.\Libraries\CMSIS\CM3\CoreSupport</IncludePath>
+              <IncludePath>applications;.;config;.;drivers;Libraries\STM32F2xx_StdPeriph_Driver\inc;Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F2xx;misc;.;services;.;..\..\RTT_2_1_0\include;..\..\RTT_2_1_0\libcpu\arm\cortex-m3;..\..\RTT_2_1_0\libcpu\arm\common;..\..\RTT_2_1_0\components\dfs\include;..\..\RTT_2_1_0\components\dfs\filesystems\elmfat;..\..\RTT_2_1_0\components\dfs\filesystems\romfs;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\spi;..\..\RTT_2_1_0\components\drivers\i2c;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\drivers\include;..\..\RTT_2_1_0\components\finsh;..\..\RTT_2_1_0\components\libdl;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\include;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\include\ipv4;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\arch\include;..\..\RTT_2_1_0\components\net\lwip-1.4.1\src\include\netif;..\..\RTT_2_1_0\components\utilities\logtrace;..\..\RTT_2_1_0\components\utilities\ymodem</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -406,7 +406,7 @@
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
-            <Misc> --keep *.o(RTMSymTab)   --keep *.o(FSymTab) --keep *.o(VSymTab) </Misc>
+            <Misc>--keep *.o(RTMSymTab)   --keep *.o(FSymTab) --keep *.o(VSymTab)</Misc>
             <LinkerInputFile></LinkerInputFile>
             <DisabledWarnings></DisabledWarnings>
           </LDads>
@@ -494,12 +494,12 @@
             <File>
               <FileName>pro_ctrl.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\pro_ctrl.c</FilePath>
+              <FilePath>.\applications\pro_ctrl.c</FilePath>
             </File>
             <File>
               <FileName>pro_UITD.c</FileName>
               <FileType>1</FileType>
-              <FilePath>applications\pro_UITD.c</FilePath>
+              <FilePath>.\applications\pro_UITD.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -822,19 +822,19 @@
               <FilePath>services\sw_crc.c</FilePath>
             </File>
             <File>
-              <FileName>IOT_analog_in.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>services\IOT_analog_in.c</FilePath>
-            </File>
-            <File>
               <FileName>IOT_digit_in.c</FileName>
               <FileType>1</FileType>
-              <FilePath>services\IOT_digit_in.c</FilePath>
+              <FilePath>.\services\IOT_digit_in.c</FilePath>
+            </File>
+            <File>
+              <FileName>IOT_analog_in.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\services\IOT_analog_in.c</FilePath>
             </File>
             <File>
               <FileName>IOT_digit_out.c</FileName>
               <FileType>1</FileType>
-              <FilePath>services\IOT_digit_out.c</FilePath>
+              <FilePath>.\services\IOT_digit_out.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1002,11 +1002,6 @@
               <FilePath>..\..\RTT_2_1_0\components\drivers\i2c\i2c_dev.c</FilePath>
             </File>
             <File>
-              <FileName>i2c-bit-ops.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\RTT_2_1_0\components\drivers\i2c\i2c-bit-ops.c</FilePath>
-            </File>
-            <File>
               <FileName>pin.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\RTT_2_1_0\components\drivers\misc\pin.c</FilePath>
@@ -1055,6 +1050,11 @@
               <FileName>workqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\RTT_2_1_0\components\drivers\src\workqueue.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c-bit-ops.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\RTT_2_1_0\components\drivers\i2c\i2c-bit-ops.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1353,8 +1353,24 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
+        </Group>
       </Groups>
     </Target>
   </Targets>
+
+  <RTE>
+    <apis/>
+    <components>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="4.3.0" condition="Cortex-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.5.0"/>
+        <targetInfos>
+          <targetInfo name="RT-Thread STM32"/>
+        </targetInfos>
+      </component>
+    </components>
+    <files/>
+  </RTE>
 
 </Project>

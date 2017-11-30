@@ -1113,7 +1113,6 @@ int GSM_srv_report_deal(void)
         p_GSM_CB->ack.ack_stru.IMEI_REC = 0;
     }
 
-
 }
 
 int GSM_srv_service(void)

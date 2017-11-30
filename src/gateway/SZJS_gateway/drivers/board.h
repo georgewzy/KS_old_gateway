@@ -542,13 +542,14 @@ typedef struct
 typedef struct
 {
     uint8_t             server_num;
+	uint8_t 			server_elec_fire;
     s_sys_server_cfg    server_SZJS;
     s_sys_server_cfg    server_XFZD;
     
     uint8_t             sys_inited_flag;
     uint8_t             eth_inited_flag;
     e_sys_mode          sys_mode;
-//    uint8_t             sys_testing_mode;
+
     s_test_flag         test_flag;
     
     uint8_t             board_type_checked;

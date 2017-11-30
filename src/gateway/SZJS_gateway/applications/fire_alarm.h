@@ -341,19 +341,19 @@ typedef struct
 
 typedef enum
 {
-	FAC_parse_idle = 0,
-	FAC_parse_head,
-	FAC_parse_data,
-	FAC_parse_tail,
+		FAC_parse_idle = 0,
+		FAC_parse_head,
+		FAC_parse_data,
+		FAC_parse_tail,
     FAC_parse_end,
 } e_FAC_parse_status;
 
 typedef struct
 {
-	uint8_t					valid;
+	uint8_t									valid;
 	e_FAC_parse_status	    status;
-	uint8_t 				buf[FAC_PACKET_LEN_MAX];
-	uint32_t 				len;
+	uint8_t 								buf[FAC_PACKET_LEN_MAX];
+	uint32_t 								len;
 	
 } t_FAC_parse;
 
@@ -390,11 +390,13 @@ typedef struct
     pFun_FAC_rx_handler rx_handler;
     pFun_FAC_server     rx_server;
     
-    s_com_bus_R_alarm   alarm_fire;
-    s_com_bus_R_alarm   alarm_fault;
+    s_com_bus_R_alarm   	alarm_fire;		
+	s_com_bus_R_alarm  	 	alarm_elec_fire;	//wzy
+    s_com_bus_R_alarm  	 	alarm_fault;
     s_com_bus_R_power_off   alarm_power_off;
-    s_com_bus_R_reset   alarm_reset;
-
+    s_com_bus_R_reset   	alarm_reset;
+	
+	
 } s_com_bus_cb;
 
 
@@ -418,6 +420,7 @@ extern uint16_t g_FA_type;
 extern uint32_t g_FA_baud;
 extern uint32_t g_FA_listen;
 extern struct rt_messagequeue *mq_FA_fire;
+extern struct rt_messagequeue *mq_FA_elec_fire; //wzy
 extern struct rt_messagequeue *mq_FA_2_fire;
 extern struct rt_messagequeue *mq_FA_fault;
 extern struct rt_messagequeue *mq_FA_2_fault;

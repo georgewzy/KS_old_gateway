@@ -77,10 +77,11 @@
 #define UITD_VER_MAIN		    1
 #define UITD_VER_SUB		    1
 
+//控制单元命令字
 #define GB_CMD_RESERVE		    0
 #define GB_CMD_CTRL				1
-#define GB_CMD_SEND_DATA	    2
-#define GB_CMD_AFFIRM			3
+#define GB_CMD_SEND_DATA	    2	//发送数据
+#define GB_CMD_AFFIRM			3	//确认
 #define GB_CMD_REQUIRE		    4
 #define GB_CMD_ACK				5
 #define GB_CMD_DENY				6
@@ -200,14 +201,20 @@
 #define GB_SYS_TYPE_FIRE_POWER					23
 #define GB_SYS_TYPE_FIRE_TELEPHONE			    24
 
+
 // Song: TODO: complete the whole device type defines.
 #define GB_DEV_TYPE_NORMAL						0
 #define GB_DEV_TYPE_FIRE_ALARMER				1
+#define GB_DEV_TYPE_ELEC_FIRE_ALARMER			16    //wzy
+
 #define GB_DEV_TYPE_MANUL_ALARM_BUTTON          23
 #define GB_DEV_TYPE_SOMKE_ALARMER				40
-//#define GB_DEV_TYPE_
-//#define GB_DEV_TYPE_
-//#define GB_DEV_TYPE_
+
+
+
+
+
+
 
 typedef int	(* fun_send_retry)(void *data, int node, int time);
 typedef int	(* fun_send_fail)(void *data, int node);
@@ -306,7 +313,7 @@ typedef struct
 	uint8_t 	type;
 	uint8_t		num;
 	uint32_t	data_len;
-	void 			*data;
+	void 		*data;
 } t_GB_data_unit;
 
 
@@ -345,10 +352,10 @@ typedef enum
 
 typedef enum
 {
-	UITD_status_working = 0,
-	UITD_status_fire_alarm,
-	UITD_status_fault,
-	UITD_status_main_power,
+	UITD_status_working = 0,	//正常运行状态
+	UITD_status_fire_alarm,		//火警
+	UITD_status_fault,			//故障
+	UITD_status_main_power,		//
 	UITD_status_backup_power,
 	UITD_status_server_discon,
 	UITD_status_bus_discon
@@ -453,7 +460,7 @@ typedef struct
 	e_cmd_acked_status	ack_status;
 	
 	fun_send_retry		send_retry;
-	fun_send_fail			send_fail;
+	fun_send_fail		send_fail;
 	fun_send_success	send_success;
 	fun_send_acked		send_acked;
 	
@@ -622,7 +629,7 @@ typedef struct // totally 31 bytes.
 {
     int32_t     reserved;   
     int16_t     port;
-    int16_t     controller;
+    int16_t     controller;	//
     int32_t     loop;
     int64_t     device_ID;
     int32_t     device_port;
@@ -891,22 +898,23 @@ typedef union
 
 typedef enum
 {
-    fire_dev_status_working = 0,
-    fire_dev_status_smoke_alarm,
-    fire_dev_status_smoke_fault,
-    fire_dev_status_smoke_disable,
-    fire_dev_status_smoke_resume,
+    fire_dev_status_working = 0,	//运行状态
+    fire_dev_status_smoke_alarm,	//火警
+    fire_dev_status_smoke_fault,	//故障
+    fire_dev_status_smoke_disable,	//屏蔽
+    fire_dev_status_smoke_resume,	//监管
 } e_fire_dev_status;
+
 
 typedef struct
 {
-	uint8_t 						sys_type;
-	//uint8_t							sys_addr;
-	u_GB_fire_sys_addr              sys_addr;
-    uint8_t							type;
-	uint8_t							addr[4];
-	t_GB_dev_status			        status;
-    s_fire_dev_status_info          dev_info;
+	uint8_t 						sys_type;	//系统类型标志
+	//uint8_t						sys_addr;
+	u_GB_fire_sys_addr              sys_addr;	//系统地址
+    uint8_t							type;		//系统类型
+	uint8_t							addr[4];	//部件地址
+	t_GB_dev_status			        status;		//部件状态
+    s_fire_dev_status_info          dev_info;	//部件说明
 	//uint8_t							remark[31];
 	t_GB_ctrl_timestamp	timestamp;
 } PACK_STRUCT_STRUCT t_GB_dev_status_data;
@@ -915,11 +923,11 @@ typedef struct
 typedef struct
 {
 	uint8_t		if_working 			:1;
-	uint8_t		if_fire 				:1;
-	uint8_t		if_fault 				:1;
+	uint8_t		if_fire 			:1;
+	uint8_t		if_fault 			:1;
 	uint8_t		if_main_power		:1;
-	uint8_t		if_backup_power :1;
-	uint8_t		if_server_discon:1;
+	uint8_t		if_backup_power 	:1;
+	uint8_t		if_server_discon	:1;
 	uint8_t		if_bus_discon		:1;
 	uint8_t		reserve	  			:1;
 

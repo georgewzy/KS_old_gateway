@@ -10,11 +10,11 @@ SDA: I2C1_SDA PB7
 */
 #define GPIO_PORT_I2C_SCL   GPIOB
 #define RCC_I2C_SCL         RCC_AHB1Periph_GPIOB
-#define PIN_I2C_SCL		    GPIO_Pin_6
+#define PIN_I2C_SCL		    	GPIO_Pin_6
 
 #define GPIO_PORT_I2C_SDA   GPIOB
 #define RCC_I2C_SDA         RCC_AHB1Periph_GPIOB
-#define PIN_I2C_SDA		    GPIO_Pin_7
+#define PIN_I2C_SDA		    	GPIO_Pin_7
 
 static struct rt_i2c_bus_device i2c_device;
 
