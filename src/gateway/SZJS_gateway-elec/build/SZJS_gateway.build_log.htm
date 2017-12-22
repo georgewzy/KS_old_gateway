@@ -1,0 +1,50 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.17.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: gg gg, gg, LIC=UB4Y8-3FAKY-21RPS-L3K9W-6MJ3Q-9F90H
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.17
+Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.17
+Dialog DLL:      DCM.DLL V1.13.4.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+E:\kingsum\project\gateway\SZJS_gateway\project.uvprojx
+Project File Date:  08/16/2017
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'd:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'RT-Thread STM32'
+Before Build - User command #1: build_before.bat
+E:\kingsum\project\gateway\SZJS_gateway>cd ..\..\RTT_2_1_0\components\dfs\filesystems\romfs 
+E:\kingsum\project\RTT_2_1_0\components\dfs\filesystems\romfs>mkromfs.py romfs romfs.c 
+compiling romfs.c...
+linking...
+Program Size: Code=259036 RO-data=41684 RW-data=2880 ZI-data=24064  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin .\build\SZJS_gateway.axf --output rtthread.bin
+After Build - User command #2: BIN_encode -e rtthread.bin firmware.bin 87181
+Encode success ! 
+".\build\SZJS_gateway.axf" - 0 Error(s), 0 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  E:\kingsum\project\gateway\SZJS_gateway\RTE
+  d:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:06
+</pre>
+</body>
+</html>

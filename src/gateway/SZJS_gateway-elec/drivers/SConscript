@@ -1,0 +1,50 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+cwd     = os.path.join(str(Dir('#')), 'drivers')
+
+# add the general drivers.
+src = Split("""
+board.c
+stm32f2xx_it.c
+usart.c
+rtc.c
+platform.c
+GSM_MG301.c
+WIFI_ESP_07.c
+spi_flash_w25qxx.c
+timer.c
+ADC.c
+msd.c
+VK3266.c
+MCP23X17.c
+
+""")
+
+# add Ethernet drivers.
+if GetDepend('RT_USING_LWIP'):
+    src += ['stm32f2xx_eth_LAN8720A.c']
+
+# add gpio drivers.
+if GetDepend('RT_USING_PIN'):
+    src += ['gpio.c']
+
+# add SPI drivers.
+if GetDepend('RT_USING_SPI'):
+    src += ['stm32f20x_40x_spi.c']
+
+# add I2C drivers.
+if GetDepend('RT_USING_I2C'):
+		src += ['stm32_i2c.c']
+    
+# add RTC drivers.
+#if GetDepend('RT_USING_RTC'):
+#    src += ['rtc.c']
+
+CPPPATH = [cwd]
+
+group = DefineGroup('Drivers', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')
+

@@ -1,0 +1,121 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.17.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: lei song, sorry, LIC=IC9X7-E1NJT-23XM4-FA2PH-Y6SJ0-8KQNI
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.17
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.17
+Dialog DLL:      DCM.DLL V1.13.4.0
+    Target DLL: STLink\ST-LINKIII-KEIL.dll
+Dialog DLL:      TCM.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+E:\workroom\my STM32\SZJS_gateway\project.uvproj
+Project File Date:  07/05/2016
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'rt-thread_stm32f4xx'
+compiling startup.c...
+applications\startup.c(19): error:  #5: cannot open source input file "stm32f2xx.h": No such file or directory
+  #include "stm32f2xx.h"
+applications\startup.c: 0 warnings, 1 error
+compiling application.c...
+drivers\board.h(19): error:  #5: cannot open source input file "stm32f2xx.h": No such file or directory
+  #include <stm32f2xx.h>
+applications\application.c: 0 warnings, 1 error
+compiling board.c...
+drivers\board.c(18): error:  #5: cannot open source input file "stm32f2xx.h": No such file or directory
+  #include "stm32f2xx.h"
+drivers\board.c: 0 warnings, 1 error
+compiling stm32f4xx_it.c...
+"no source": Error:  #5: cannot open source input file "drivers\stm32f4xx_it.c": No such file or directory
+drivers\stm32f4xx_it.c: 0 warnings, 1 error
+compiling usart.c...
+drivers\usart.c(18): error:  #5: cannot open source input file "stm32f2xx.h": No such file or directory
+  #include "stm32f2xx.h"
+drivers\usart.c: 0 warnings, 1 error
+compiling gpio.c...
+drivers\board.h(19): error:  #5: cannot open source input file "stm32f2xx.h": No such file or directory
+  #include <stm32f2xx.h>
+drivers\gpio.c: 0 warnings, 1 error
+compiling system_stm32f4xx.c...
+"no source": Error:  #5: cannot open source input file "Libraries\CMSIS\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c": No such file or directory
+Libraries\CMSIS\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c: 0 warnings, 1 error
+compiling misc.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c: 0 warnings, 1 error
+compiling stm32f4xx_adc.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c: 0 warnings, 1 error
+compiling stm32f4xx_can.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c: 0 warnings, 1 error
+compiling stm32f4xx_crc.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c: 0 warnings, 1 error
+compiling stm32f4xx_cryp.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: 0 warnings, 1 error
+compiling stm32f4xx_cryp_aes.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c: 0 warnings, 1 error
+compiling stm32f4xx_cryp_des.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c: 0 warnings, 1 error
+compiling stm32f4xx_cryp_tdes.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c: 0 warnings, 1 error
+compiling stm32f4xx_dac.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c: 0 warnings, 1 error
+compiling stm32f4xx_dbgmcu.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c: 0 warnings, 1 error
+compiling stm32f4xx_dcmi.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c: 0 warnings, 1 error
+compiling stm32f4xx_dma.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c: 0 warnings, 1 error
+compiling stm32f4xx_exti.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c: 0 warnings, 1 error
+compiling stm32f4xx_flash.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c: 0 warnings, 1 error
+compiling stm32f4xx_fsmc.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c: 0 warnings, 1 error
+compiling stm32f4xx_gpio.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c: 0 warnings, 1 error
+compiling stm32f4xx_hash.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c: 0 warnings, 1 error
+compiling stm32f4xx_hash_md5.c...
+compiling stm32f4xx_hash_sha1.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c: 0 warnings, 1 error
+compiling stm32f4xx_i2c.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c: 0 warnings, 1 error
+compiling stm32f4xx_iwdg.c...
+"no source": Error:  #5: cannot open source input file "Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c": No such file or directory
+Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c: 0 warnings, 1 error
+Project build/rebuild aborted.
+Build Time Elapsed:  00:00:08
+</pre>
+</body>
+</html>

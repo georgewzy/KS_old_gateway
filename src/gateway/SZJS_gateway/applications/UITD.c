@@ -1871,7 +1871,7 @@ int UITD_send_dev_status(t_server_handler *handler,
     switch (dev_status)
     {
 		
-		case fire_dev_status_working:	//wzy   正常运行
+		case fire_dev_status_working:		//wzy   正常运行
             p_dev_status[pkt->data_num].status.if_working = 1;
         break;
 		
@@ -1919,41 +1919,25 @@ int UITD_send_manul_fire_alarm(t_server_handler *handler, uint8_t port, uint8_t 
 //系统类型标志  
 int UITD_send_smoke_fire_alarm(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
 {
-	if(sys_config.server_elec_fire == 1) //wzy
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-	else
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
+
+	return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_alarm, port, sys_addr, addr_main, addr_sub, status, dev_info);
+
    
 }
 //wzy
 int UITD_send_smoke_elec_data(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
 {
-	if(sys_config.server_elec_fire == 1)
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_working, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-	else
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_working, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
+
+	return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_working, port, sys_addr, addr_main, addr_sub, status, dev_info);
+
+	
 }
 
 int UITD_send_smoke_fire_fault(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
 {
 	
-	if(sys_config.server_elec_fire == 1)	//wzy
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-	else
-	{
-		return UITD_send_dev_status(handler, GB_DEV_TYPE_SOMKE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
-	}
-
+	return UITD_send_dev_status(handler, GB_DEV_TYPE_ELEC_FIRE_ALARMER, fire_dev_status_smoke_fault, port, sys_addr, addr_main, addr_sub, status, dev_info);
+	
 }
 
 int UITD_send_smoke_fire_resume(t_server_handler *handler, uint8_t port, uint8_t sys_addr, uint16_t addr_main, uint16_t addr_sub, s_fire_dev_status_info *dev_info, e_GB_data_unit_status status)
@@ -3876,11 +3860,11 @@ int UITD_service_handler(t_server_handler *handler)
             }
 			
 			//wzy			
-			res = rt_mq_recv(mq_FA_elec_fire, &FA_elec_fire_temp, sizeof(s_com_bus_R_alarm), 0);
-            if (res == RT_EOK)
-            {               
-                UITD_send_smoke_elec_data(handler, FA_elec_fire_temp.port, FA_elec_fire_temp.sys_addr, FA_elec_fire_temp.addr_main, FA_elec_fire_temp.addr_sub, &FA_elec_fire_temp.dev_info, data_unit_single);
-            }
+//			res = rt_mq_recv(mq_FA_elec_fire, &FA_elec_fire_temp, sizeof(s_com_bus_R_alarm), 0);
+//            if (res == RT_EOK)
+//            {               
+//                UITD_send_smoke_elec_data(handler, FA_elec_fire_temp.port, FA_elec_fire_temp.sys_addr, FA_elec_fire_temp.addr_main, FA_elec_fire_temp.addr_sub, &FA_elec_fire_temp.dev_info, data_unit_single);
+//            }
             
             res = rt_mq_recv(mq_FA_fault, &FA_fault_temp, sizeof(s_com_bus_R_alarm), 0);
             if (res == RT_EOK)

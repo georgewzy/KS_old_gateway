@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\build\rtthread-stm32.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\rtthread-stm32.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu Nov 30 17:01:51 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu Dec 14 13:56:01 2017
 <BR><P>
 <H3>Maximum Stack Usage =       2632 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2612,7 +2612,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[34f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_service_handler
 </UL>
 
-<P><STRONG><a name="[3b5]"></a>UITD_send_smoke_fire_alarm</STRONG> (Thumb, 76 bytes, Stack size 56 bytes, uitd.o(.text))
+<P><STRONG><a name="[3b5]"></a>UITD_send_smoke_fire_alarm</STRONG> (Thumb, 44 bytes, Stack size 56 bytes, uitd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = UITD_send_smoke_fire_alarm &rArr; UITD_send_dev_status &rArr; UITD_send_2_U_FIRE_DEV_STATUS &rArr; UITD_send_actively &rArr; UITD_send_data &rArr; log_trace &rArr; __logtrace_vfmtout &rArr; rt_snprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_dev_status
@@ -2620,15 +2620,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[34f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_service_handler
 </UL>
 
-<P><STRONG><a name="[3b6]"></a>UITD_send_smoke_elec_data</STRONG> (Thumb, 76 bytes, Stack size 56 bytes, uitd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = UITD_send_smoke_elec_data &rArr; UITD_send_dev_status &rArr; UITD_send_2_U_FIRE_DEV_STATUS &rArr; UITD_send_actively &rArr; UITD_send_data &rArr; log_trace &rArr; __logtrace_vfmtout &rArr; rt_snprintf &rArr; rt_vsnprintf &rArr; print_number
-</UL>
-<BR>[Calls]<UL><LI><a href="#[3b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_dev_status
-</UL>
-<BR>[Called By]<UL><LI><a href="#[34f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_service_handler
+<P><STRONG><a name="[3b6]"></a>UITD_send_smoke_elec_data</STRONG> (Thumb, 44 bytes, Stack size 56 bytes, uitd.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[3b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_dev_status
 </UL>
 
-<P><STRONG><a name="[3b7]"></a>UITD_send_smoke_fire_fault</STRONG> (Thumb, 76 bytes, Stack size 56 bytes, uitd.o(.text))
+<P><STRONG><a name="[3b7]"></a>UITD_send_smoke_fire_fault</STRONG> (Thumb, 44 bytes, Stack size 56 bytes, uitd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = UITD_send_smoke_fire_fault &rArr; UITD_send_dev_status &rArr; UITD_send_2_U_FIRE_DEV_STATUS &rArr; UITD_send_actively &rArr; UITD_send_data &rArr; log_trace &rArr; __logtrace_vfmtout &rArr; rt_snprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_dev_status
@@ -2644,11 +2640,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[34f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_service_handler
 </UL>
 
-<P><STRONG><a name="[3b9]"></a>UITD_send_smoke_fire_disable</STRONG> (Thumb, 118 bytes, Stack size 56 bytes, uitd.o(.text), UNUSED)
+<P><STRONG><a name="[3b9]"></a>UITD_send_smoke_fire_disable</STRONG> (Thumb, 44 bytes, Stack size 56 bytes, uitd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[3b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_dev_status
 </UL>
 
-<P><STRONG><a name="[3ba]"></a>UITD_send_21_U_UITD_STATUS</STRONG> (Thumb, 196 bytes, Stack size 40 bytes, uitd.o(.text))
+<P><STRONG><a name="[3ba]"></a>UITD_send_21_U_UITD_STATUS</STRONG> (Thumb, 298 bytes, Stack size 40 bytes, uitd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = UITD_send_21_U_UITD_STATUS &rArr; UITD_send_actively &rArr; UITD_send_data &rArr; log_trace &rArr; __logtrace_vfmtout &rArr; rt_snprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[356]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_get_time
@@ -2663,7 +2659,7 @@ Global Symbols
 <LI><a href="#[3c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_UITD_main_power_fault
 </UL>
 
-<P><STRONG><a name="[3bb]"></a>UITD_send_24_U_UITD_OPERATE</STRONG> (Thumb, 174 bytes, Stack size 40 bytes, uitd.o(.text), UNUSED)
+<P><STRONG><a name="[3bb]"></a>UITD_send_24_U_UITD_OPERATE</STRONG> (Thumb, 178 bytes, Stack size 40 bytes, uitd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[356]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_get_time
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_kprintf
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log_trace_flush
@@ -2700,7 +2696,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_FA_reset
 </UL>
 
-<P><STRONG><a name="[3be]"></a>UITD_send_200_U_ROUGH_DATA</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, uitd.o(.text), UNUSED)
+<P><STRONG><a name="[3be]"></a>UITD_send_200_U_ROUGH_DATA</STRONG> (Thumb, 190 bytes, Stack size 24 bytes, uitd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[356]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_get_time
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_kprintf
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log_trace_flush
@@ -2711,7 +2707,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_comm_rough_data
 </UL>
 
-<P><STRONG><a name="[3bf]"></a>UITD_send_fire_sys_main_power_fault</STRONG> (Thumb, 212 bytes, Stack size 1112 bytes, uitd.o(.text))
+<P><STRONG><a name="[3bf]"></a>UITD_send_fire_sys_main_power_fault</STRONG> (Thumb, 64 bytes, Stack size 1112 bytes, uitd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1464<LI>Call Chain = UITD_send_fire_sys_main_power_fault &rArr; UITD_send_1_U_FIRE_SYS_STATUS &rArr; UITD_send_actively &rArr; UITD_send_data &rArr; log_trace &rArr; __logtrace_vfmtout &rArr; rt_snprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_1_U_FIRE_SYS_STATUS
@@ -2724,7 +2720,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_21_U_UITD_STATUS
 </UL>
 
-<P><STRONG><a name="[3c1]"></a>UITD_send_FA_reset</STRONG> (Thumb, 66 bytes, Stack size 1120 bytes, uitd.o(.text))
+<P><STRONG><a name="[3c1]"></a>UITD_send_FA_reset</STRONG> (Thumb, 192 bytes, Stack size 1120 bytes, uitd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1472<LI>Call Chain = UITD_send_FA_reset &rArr; UITD_send_4_U_FIRE_SYS_OPERATE &rArr; UITD_send_actively &rArr; UITD_send_data &rArr; log_trace &rArr; __logtrace_vfmtout &rArr; rt_snprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_4_U_FIRE_SYS_OPERATE
@@ -2767,7 +2763,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_deal
 </UL>
 
-<P><STRONG><a name="[3c7]"></a>UITD_deal</STRONG> (Thumb, 9696 bytes, Stack size 120 bytes, uitd.o(.text))
+<P><STRONG><a name="[3c7]"></a>UITD_deal</STRONG> (Thumb, 9694 bytes, Stack size 120 bytes, uitd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1824 + Unknown Stack Size
 <LI>Call Chain = UITD_deal &rArr; UITD_dir_request_ack &rArr; dfs_file_stat &rArr; dfs_normalize_path &rArr; rt_strdup &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_kprintf &rArr; rt_device_write &rArr; rt_assert_handler &rArr;  rt_kprintf (Cycle)
 </UL>
@@ -2931,7 +2927,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[34f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_service_handler
 </UL>
 
-<P><STRONG><a name="[34f]"></a>UITD_service_handler</STRONG> (Thumb, 2978 bytes, Stack size 1120 bytes, uitd.o(.text))
+<P><STRONG><a name="[34f]"></a>UITD_service_handler</STRONG> (Thumb, 2914 bytes, Stack size 1120 bytes, uitd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 2592<LI>Call Chain = UITD_service_handler &rArr; UITD_send_FA_reset &rArr; UITD_send_4_U_FIRE_SYS_OPERATE &rArr; UITD_send_actively &rArr; UITD_send_data &rArr; log_trace &rArr; __logtrace_vfmtout &rArr; rt_snprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[357]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_sensor_upload_rough_data
@@ -2951,7 +2947,6 @@ Global Symbols
 <LI><a href="#[3bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_fire_sys_main_power_fault
 <LI><a href="#[3b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_smoke_fire_resume
 <LI><a href="#[3b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_smoke_fire_fault
-<LI><a href="#[3b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_smoke_elec_data
 <LI><a href="#[3b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_smoke_fire_alarm
 <LI><a href="#[3b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_send_manul_fire_alarm
 <LI><a href="#[3ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UITD_IO_state_report

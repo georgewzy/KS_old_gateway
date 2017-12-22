@@ -205,7 +205,7 @@
 // Song: TODO: complete the whole device type defines.
 #define GB_DEV_TYPE_NORMAL						0
 #define GB_DEV_TYPE_FIRE_ALARMER				1
-#define GB_DEV_TYPE_ELEC_FIRE_ALARMER			16    //wzy
+#define GB_DEV_TYPE_ELEC_FIRE_ALARMER			150    //wzy
 
 #define GB_DEV_TYPE_MANUL_ALARM_BUTTON          23
 #define GB_DEV_TYPE_SOMKE_ALARMER				40

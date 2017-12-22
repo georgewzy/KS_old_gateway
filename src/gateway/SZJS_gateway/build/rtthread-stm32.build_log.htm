@@ -30,11 +30,849 @@ Build target 'RT-Thread STM32'
 compiling i2c-bit-ops.c...
 "no source": Error:  #5: cannot open source input file "..\RTT_2_1_0\components\drivers\i2c\i2c-bit-ops.c": No such file or directory
 ..\RTT_2_1_0\components\drivers\i2c\i2c-bit-ops.c: 0 warnings, 1 error
+compiling UITD.c...
+config\sys_config.h(61): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+config\sys_config.h(67): warning:  #9-D: nested comment is not allowed
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+drivers\board.h(685): warning:  #1-D: last line of file ends without a newline
+  // <<< end of configuration section >>>
+services\IOT_analog_in.h(121): warning:  #1-D: last line of file ends without a newline
+   
+services\IOT_digit_in.h(78): warning:  #1-D: last line of file ends without a newline
+   
+applications\UITD.c(32): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_SAMPLE_CTRL, 
+applications\UITD.c(51): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_SIMPLE_UITD, 
+applications\UITD.c(63): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_CONTROLLER, 
+applications\UITD.c(80): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_WIRE_EXTEND_BAT, 
+applications\UITD.c(92): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_FULL_FUNC_BAT, 
+applications\UITD.c(111): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_UITD_3UART_BAT, 
+applications\UITD.c(123): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_IOT_PRO_UITD, 
+applications\UITD.c(135): warning:  #188-D: enumerated type mixed with another type
+          DEV_TYPE_IOT_PRO_CTRL, 
+applications\UITD.c(198): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, ("CB ack deal -- somke alarm, if_affirm : %d\n", if_affirm));
+applications\UITD.c(198): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, ("CB ack deal -- somke alarm, if_affirm : %d\n", if_affirm));
+applications\UITD.c(204): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, ("CB send fail -- somke alarm, node : %d\n", node));
+applications\UITD.c(204): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, ("CB send fail -- somke alarm, node : %d\n", node));
+applications\UITD.c(211): warning:  #940-D: missing return statement at end of non-void function "UITD_net_send_data"
+  }
+applications\UITD.c(223): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      fd = open(filename, 
+_RDONLY, 0);
+applications\UITD.c(227): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          fd = open(filename, 
+_WRONLY | 
+_TRUNC, 0);
+applications\UITD.c(232): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          fd = open(filename, 
+_WRONLY | 
+_CREAT, 0);
+applications\UITD.c(287): warning:  #223-D: function "log_trace" declared implicitly
+              
+YS_log(SYS_DEBUG_ERROR, ("File trans malloc failed!\n"));
+applications\UITD.c(287): warning:  #223-D: function "log_trace_flush" declared implicitly
+              
+YS_log(SYS_DEBUG_ERROR, ("File trans malloc failed!\n"));
+applications\UITD.c(423): warning:  #513-D: a value of type "int (*)(int, const void *, size_t)" cannot be assigned to an entity of type "pFun_file_write"
+      handler->FW.file_write = &write;
+applications\UITD.c(388): warning:  #177-D: variable "p" was declared but never referenced
+      uint8_t *p = NULL;
+applications\UITD.c(471): warning:  #223-D: function "UITD_service_init" declared implicitly
+      UITD_service_init(handler);
+applications\UITD.c(480): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+          sscanf(IP, "%d.%d.%d.%d", 
+applications\UITD.c(481): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                      &handler->IP[0],
+applications\UITD.c(482): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                      &handler->IP[1],
+applications\UITD.c(483): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                      &handler->IP[2],
+applications\UITD.c(484): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                      &handler->IP[3]
+applications\UITD.c(500): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          if (strlen(IP) >= SVR_IF_NAME_LEN)
+applications\UITD.c(502): warning:  #223-D: function "log_trace" declared implicitly
+              
+YS_log( SYS_DEBUG_ERROR, ("Server name is too long ! connect failed \n"));
+applications\UITD.c(502): warning:  #223-D: function "log_trace_flush" declared implicitly
+              
+YS_log( SYS_DEBUG_ERROR, ("Server name is too long ! connect failed \n"));
+applications\UITD.c(505): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+          strcpy(handler->svr_name, IP);
+applications\UITD.c(505): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+          strcpy(handler->svr_name, IP);
+applications\UITD.c(545): warning:  #940-D: missing return statement at end of non-void function "UITD_disconnect"
+  }
+applications\UITD.c(595): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(726): warning:  #111-D: statement is unreachable
+  	return -1;
+applications\UITD.c(805): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("SN      : %d \n", ctrl->SN));
+applications\UITD.c(805): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("SN      : %d \n", ctrl->SN));
+applications\UITD.c(807): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Ver_main: %d \n", ctrl->ver.ver_main));
+applications\UITD.c(807): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Ver_main: %d \n", ctrl->ver.ver_main));
+applications\UITD.c(808): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Ver_user: %d \n", ctrl->ver.ver_user));
+applications\UITD.c(808): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Ver_user: %d \n", ctrl->ver.ver_user));
+applications\UITD.c(810): warning:  #223-D: function "log_trace" declared implicitly
+  	SYS_log( SYS_DEBUG_DEBUG, ("TimeStamp: %d-%d-%d %d:%d:%d \n", 
+applications\UITD.c(810): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	SYS_log( SYS_DEBUG_DEBUG, ("TimeStamp: %d-%d-%d %d:%d:%d \n", 
+applications\UITD.c(817): warning:  #223-D: function "log_trace" declared implicitly
+  	SYS_log( SYS_DEBUG_DEBUG, ("IP src : %d-%d-%d-%d-%d-%d \n", 
+applications\UITD.c(817): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	SYS_log( SYS_DEBUG_DEBUG, ("IP src : %d-%d-%d-%d-%d-%d \n", 
+applications\UITD.c(825): warning:  #223-D: function "log_trace" declared implicitly
+  	SYS_log( SYS_DEBUG_DEBUG, ("IP des : %d-%d-%d-%d-%d-%d \n", 
+applications\UITD.c(825): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	SYS_log( SYS_DEBUG_DEBUG, ("IP des : %d-%d-%d-%d-%d-%d \n", 
+applications\UITD.c(833): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("CMD : %d \n", ctrl->cmd));
+applications\UITD.c(833): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("CMD : %d \n", ctrl->cmd));
+applications\UITD.c(835): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Checksum : %d , 0x%02X\n", pkt->checksum, pkt->checksum));
+applications\UITD.c(835): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Checksum : %d , 0x%02X\n", pkt->checksum, pkt->checksum));
+applications\UITD.c(837): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Data_len : %d \n", ctrl->data_len));
+applications\UITD.c(837): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Data_len : %d \n", ctrl->data_len));
+applications\UITD.c(849): warning:  #223-D: function "rt_time" declared implicitly
+      rt_time(&now);
+applications\UITD.c(898): warning:  #223-D: function "mktime" declared implicitly
+      now = mktime(&time_tm);
+applications\UITD.c(900): warning:  #223-D: function "set_time_date" declared implicitly
+      set_time_date(&now);
+applications\UITD.c(1050): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Ctrl checksum: 0x%02X\n", checksum));
+applications\UITD.c(1050): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, ("Ctrl checksum: 0x%02X\n", checksum));
+applications\UITD.c(1059): warning:  #223-D: function "log_trace" declared implicitly
+  			
+YS_log( SYS_DEBUG_ERROR, ("No space to malloc !\n"));
+applications\UITD.c(1059): warning:  #223-D: function "log_trace_flush" declared implicitly
+  			
+YS_log( SYS_DEBUG_ERROR, ("No space to malloc !\n"));
+applications\UITD.c(1137): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1162): warning:  #223-D: function "log_trace" declared implicitly
+  		
+YS_log( SYS_DEBUG_ERROR, ("Send fire device status parameter error ! num: %d \n", num));
+applications\UITD.c(1162): warning:  #223-D: function "log_trace_flush" declared implicitly
+  		
+YS_log( SYS_DEBUG_ERROR, ("Send fire device status parameter error ! num: %d \n", num));
+applications\UITD.c(1167): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, (" num: %d , p_dev_status: 0x%08X\n", num, p_dev_status));
+applications\UITD.c(1167): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_DEBUG, (" num: %d , p_dev_status: 0x%08X\n", num, p_dev_status));
+applications\UITD.c(1205): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1226): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1248): warning:  #223-D: function "UITD_file_req_pkt" declared implicitly
+      UITD_file_req_pkt(handler, handler->FW.data_req.index);
+applications\UITD.c(1271): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(data_buf, dir_path);
+applications\UITD.c(1271): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(data_buf, dir_path);
+applications\UITD.c(1274): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      if (dfs_file_open(&fd, dir_path, 
+FS_O_DIRECTORY) == 0)
+applications\UITD.c(1276): warning:  #223-D: function "log_trace" declared implicitly
+          
+YS_log(SYS_DEBUG_DEBUG, ("Directory %s:\n", dir_path));
+applications\UITD.c(1276): warning:  #223-D: function "log_trace_flush" declared implicitly
+          
+YS_log(SYS_DEBUG_DEBUG, ("Directory %s:\n", dir_path));
+applications\UITD.c(1286): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+                  fullpath = dfs_normalize_path(dir_path, dirent.d_name);
+applications\UITD.c(1292): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                      dir_len = sprintf(dir_info, "%s\t", dirent.d_name);
+applications\UITD.c(1296): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log(SYS_DEBUG_DEBUG, ("%s\t", dirent.d_name));
+applications\UITD.c(1296): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log(SYS_DEBUG_DEBUG, ("%s\t", dirent.d_name));
+applications\UITD.c(1299): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                          dir_len = sprintf(dir_info, "%s\n", "<DIR>");
+applications\UITD.c(1303): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log(SYS_DEBUG_DEBUG, ("%s\n", "<DIR>"));
+applications\UITD.c(1303): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log(SYS_DEBUG_DEBUG, ("%s\n", "<DIR>"));
+applications\UITD.c(1307): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                          dir_len = sprintf(dir_info, "%lu\n", stat.st_size);
+applications\UITD.c(1311): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log(SYS_DEBUG_DEBUG, ("%lu\n", stat.st_size));
+applications\UITD.c(1311): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log(SYS_DEBUG_DEBUG, ("%lu\n", stat.st_size));
+applications\UITD.c(1315): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log(SYS_DEBUG_DEBUG, ("BAD file: %s\n", dirent.d_name));
+applications\UITD.c(1315): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log(SYS_DEBUG_DEBUG, ("BAD file: %s\n", dirent.d_name));
+applications\UITD.c(1324): warning:  #223-D: function "log_trace" declared implicitly
+          
+YS_log(SYS_DEBUG_DEBUG, ("No such directory : %s\n", dir_path));
+applications\UITD.c(1324): warning:  #223-D: function "log_trace_flush" declared implicitly
+          
+YS_log(SYS_DEBUG_DEBUG, ("No such directory : %s\n", dir_path));
+applications\UITD.c(1336): warning:  #223-D: function "log_trace" declared implicitly
+      
+YS_log( SYS_DEBUG_DEBUG, ("Upload dir info : %s \n", dir_path));
+applications\UITD.c(1336): warning:  #223-D: function "log_trace_flush" declared implicitly
+      
+YS_log( SYS_DEBUG_DEBUG, ("Upload dir info : %s \n", dir_path));
+applications\UITD.c(1257): warning:  #177-D: variable "res" was declared but never referenced
+      int res = 0;
+applications\UITD.c(1365): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "const char *"
+      fd = open(file_data->name, 
+_RDONLY, 0);
+applications\UITD.c(1343): warning:  #177-D: variable "s" was declared but never referenced
+      struct stat s;
+applications\UITD.c(1419): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      fd = open(name, 
+_RDONLY, 0);
+applications\UITD.c(1451): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1469): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1495): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(file_info.name, name);
+applications\UITD.c(1495): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(file_info.name, name);
+applications\UITD.c(1490): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1513): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(file_info.name, name);
+applications\UITD.c(1513): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(file_info.name, name);
+applications\UITD.c(1514): warning:  #223-D: function "file_get_length" declared implicitly
+      res = file_get_length(file_info.name, &file_info.length);
+applications\UITD.c(1517): warning:  #223-D: function "log_trace" declared implicitly
+          
+YS_log(SYS_DEBUG_ERROR, ("Get file length failed : %s  --  %d\n", file_info.name, res));
+applications\UITD.c(1517): warning:  #223-D: function "log_trace_flush" declared implicitly
+          
+YS_log(SYS_DEBUG_ERROR, ("Get file length failed : %s  --  %d\n", file_info.name, res));
+applications\UITD.c(1521): warning:  #223-D: function "file_get_CRC16" declared implicitly
+      res = file_get_CRC16(file_info.name, &file_info.CRC16);
+applications\UITD.c(1524): warning:  #223-D: function "log_trace" declared implicitly
+          
+YS_log(SYS_DEBUG_ERROR, ("Get file CRC16 failed : %s  --  %d\n", file_info.name, res));
+applications\UITD.c(1524): warning:  #223-D: function "log_trace_flush" declared implicitly
+          
+YS_log(SYS_DEBUG_ERROR, ("Get file CRC16 failed : %s  --  %d\n", file_info.name, res));
+applications\UITD.c(1508): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1541): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1564): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1595): warning:  #223-D: function "log_trace" declared implicitly
+      
+YS_log(SYS_DEBUG_INFO, ("Transparent bytes %d :\n", data->len));
+applications\UITD.c(1595): warning:  #223-D: function "log_trace_flush" declared implicitly
+      
+YS_log(SYS_DEBUG_INFO, ("Transparent bytes %d :\n", data->len));
+applications\UITD.c(1603): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1627): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1648): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1710): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1730): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1772): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1842): warning:  #223-D: function "log_trace" declared implicitly
+  		
+YS_log( SYS_DEBUG_ERROR, ("Data unit is too many !"));
+applications\UITD.c(1842): warning:  #223-D: function "log_trace_flush" declared implicitly
+  		
+YS_log( SYS_DEBUG_ERROR, ("Data unit is too many !"));
+applications\UITD.c(1908): warning:  #223-D: function "log_trace" declared implicitly
+  		
+YS_log( SYS_DEBUG_DEBUG, ("Sending the fire devices status ...\n"));
+applications\UITD.c(1908): warning:  #223-D: function "log_trace_flush" declared implicitly
+  		
+YS_log( SYS_DEBUG_DEBUG, ("Sending the fire devices status ...\n"));
+applications\UITD.c(1808): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(1976): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" UITD_status: 0x%02X\n", p_UITD_status->status));
+applications\UITD.c(1976): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" UITD_status: 0x%02X\n", p_UITD_status->status));
+applications\UITD.c(1961): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(2006): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" UITD_status: 0x%02X\n", p_UITD_operate->operate));
+applications\UITD.c(2006): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" UITD_status: 0x%02X\n", p_UITD_operate->operate));
+applications\UITD.c(1999): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(2031): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" fire_sys_status: 0x%04X\n", status));
+applications\UITD.c(2031): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" fire_sys_status: 0x%04X\n", status));
+applications\UITD.c(2041): warning:  #223-D: function "log_trace" declared implicitly
+          
+YS_log(SYS_DEBUG_ERROR, ("Send FIRE_SYS_STATUS error ! port: %d, sys_addr %d \n", port, sys_addr));
+applications\UITD.c(2041): warning:  #223-D: function "log_trace_flush" declared implicitly
+          
+YS_log(SYS_DEBUG_ERROR, ("Send FIRE_SYS_STATUS error ! port: %d, sys_addr %d \n", port, sys_addr));
+applications\UITD.c(2026): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(2068): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" fire_sys_operate: 0x%02X\n", operate));
+applications\UITD.c(2068): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" fire_sys_operate: 0x%02X\n", operate));
+applications\UITD.c(2064): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(2108): warning:  #223-D: function "log_trace" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" UITD_status: 0x%02X\n", p_UITD_status->status));
+applications\UITD.c(2108): warning:  #223-D: function "log_trace_flush" declared implicitly
+  	
+YS_log( SYS_DEBUG_INFO, (" UITD_status: 0x%02X\n", p_UITD_status->status));
+applications\UITD.c(2093): warning:  #177-D: variable "i" was declared but never referenced
+  	int i = 0;
+applications\UITD.c(2201): warning:  #177-D: variable "status" was declared but never referenced
+  	t_GB_UITD_status status = {0};
+applications\UITD.c(2229): warning:  #223-D: function "log_trace" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("C_UITD_INIT :%d\n", pkt->data_type));
+applications\UITD.c(2229): warning:  #223-D: function "log_trace_flush" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("C_UITD_INIT :%d\n", pkt->data_type));
+applications\UITD.c(2232): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("UITD Node : %d\n", res));
+applications\UITD.c(2232): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("UITD Node : %d\n", res));
+applications\UITD.c(2238): warning:  #223-D: function "log_trace" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("C_UITD_SYNC :%d\n", pkt->data_type));
+applications\UITD.c(2238): warning:  #223-D: function "log_trace_flush" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("C_UITD_SYNC :%d\n", pkt->data_type));
+applications\UITD.c(2241): warning:  #223-D: function "log_trace" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("UITD Node : %d\n", res));
+applications\UITD.c(2241): warning:  #223-D: function "log_trace_flush" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("UITD Node : %d\n", res));
+applications\UITD.c(2246): warning:  #223-D: function "log_trace" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("C_UITD_CHECK :%d\n", pkt->data_type));
+applications\UITD.c(2246): warning:  #223-D: function "log_trace_flush" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("C_UITD_CHECK :%d\n", pkt->data_type));
+applications\UITD.c(2249): warning:  #223-D: function "log_trace" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("UITD Node : %d\n", res));
+applications\UITD.c(2249): warning:  #223-D: function "log_trace_flush" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("UITD Node : %d\n", res));
+applications\UITD.c(2261): warning:  #223-D: function "log_trace" declared implicitly
+  			
+YS_log( SYS_DEBUG_INFO, ("Rec affirm:%d\n", pkt->ctrl.SN));
+applications\UITD.c(2261): warning:  #223-D: function "log_trace_flush" declared implicitly
+  			
+YS_log( SYS_DEBUG_INFO, ("Rec affirm:%d\n", pkt->ctrl.SN));
+applications\UITD.c(2266): warning:  #223-D: function "log_trace" declared implicitly
+  				
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2266): warning:  #223-D: function "log_trace_flush" declared implicitly
+  				
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2292): warning:  #223-D: function "log_trace" declared implicitly
+              
+YS_log( SYS_DEBUG_INFO, ("Received a deny packet, SN:%d\n", pkt->ctrl.SN));
+applications\UITD.c(2292): warning:  #223-D: function "log_trace_flush" declared implicitly
+              
+YS_log( SYS_DEBUG_INFO, ("Received a deny packet, SN:%d\n", pkt->ctrl.SN));
+applications\UITD.c(2297): warning:  #223-D: function "log_trace" declared implicitly
+                  
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2297): warning:  #223-D: function "log_trace_flush" declared implicitly
+                  
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2311): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a new firmware\n"));
+applications\UITD.c(2311): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a new firmware\n"));
+applications\UITD.c(2312): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Version: %d.%02d\n", handler->FW.FW.fw_ver_main, handler->FW.FW.fw_ver_user));
+applications\UITD.c(2312): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Version: %d.%02d\n", handler->FW.FW.fw_ver_main, handler->FW.FW.fw_ver_user));
+applications\UITD.c(2313): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Support device: 0X%08x\n", *(uint32_t *)&handler->FW.FW.support_dev));
+applications\UITD.c(2313): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Support device: 0X%08x\n", *(uint32_t *)&handler->FW.FW.support_dev));
+applications\UITD.c(2314): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2314): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2315): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2315): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2327): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server check this file: %s\n", pkt->buf+2));
+applications\UITD.c(2327): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server check this file: %s\n", pkt->buf+2));
+applications\UITD.c(2338): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a force firmware\n"));
+applications\UITD.c(2338): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a force firmware\n"));
+applications\UITD.c(2339): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Version: %d.%02d\n", handler->FW.FW.fw_ver_main, handler->FW.FW.fw_ver_user));
+applications\UITD.c(2339): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Version: %d.%02d\n", handler->FW.FW.fw_ver_main, handler->FW.FW.fw_ver_user));
+applications\UITD.c(2340): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Support device: 0X%08x\n", *(uint32_t *)&handler->FW.FW.support_dev));
+applications\UITD.c(2340): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Support device: 0X%08x\n", *(uint32_t *)&handler->FW.FW.support_dev));
+applications\UITD.c(2341): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2341): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2342): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2342): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2359): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a force file\n"));
+applications\UITD.c(2359): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a force file\n"));
+applications\UITD.c(2360): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("File name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2360): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("File name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2361): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2361): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2371): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2371): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2388): warning:  #223-D: function "log_trace" declared implicitly
+                                  SYS_log( SYS_DEBUG_INFO, ("SN: %d, Len: %d\n", 
+applications\UITD.c(2388): warning:  #223-D: function "log_trace_flush" declared implicitly
+                                  SYS_log( SYS_DEBUG_INFO, ("SN: %d, Len: %d\n", 
+applications\UITD.c(2393): warning:  #223-D: function "log_trace" declared implicitly
+                                      SYS_log( SYS_DEBUG_ERROR, 
+applications\UITD.c(2393): warning:  #223-D: function "log_trace_flush" declared implicitly
+                                      SYS_log( SYS_DEBUG_ERROR, 
+applications\UITD.c(2408): warning:  #223-D: function "log_trace" declared implicitly
+                                          SYS_log( SYS_DEBUG_DEBUG, 
+applications\UITD.c(2408): warning:  #223-D: function "log_trace_flush" declared implicitly
+                                          SYS_log( SYS_DEBUG_DEBUG, 
+applications\UITD.c(2430): warning:  #223-D: function "log_trace" declared implicitly
+                                                          SYS_log( SYS_DEBUG_ERROR, 
+applications\UITD.c(2430): warning:  #223-D: function "log_trace_flush" declared implicitly
+                                                          SYS_log( SYS_DEBUG_ERROR, 
+applications\UITD.c(2435): warning:  #223-D: function "log_trace" declared implicitly
+                                                      SYS_log( SYS_DEBUG_DEBUG, ("Saved file data, index: %d, waiting: %d\n",
+applications\UITD.c(2435): warning:  #223-D: function "log_trace_flush" declared implicitly
+                                                      SYS_log( SYS_DEBUG_DEBUG, ("Saved file data, index: %d, waiting: %d\n",
+applications\UITD.c(2471): warning:  #223-D: function "log_trace" declared implicitly
+                                                  SYS_log( SYS_DEBUG_DEBUG, ("Fetch file data, index: %d, waiting: %d\n", 
+applications\UITD.c(2471): warning:  #223-D: function "log_trace_flush" declared implicitly
+                                                  SYS_log( SYS_DEBUG_DEBUG, ("Fetch file data, index: %d, waiting: %d\n", 
+applications\UITD.c(2488): warning:  #223-D: function "log_trace" declared implicitly
+                                          SYS_log( SYS_DEBUG_ERROR, 
+applications\UITD.c(2488): warning:  #223-D: function "log_trace_flush" declared implicitly
+                                          SYS_log( SYS_DEBUG_ERROR, 
+applications\UITD.c(2554): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2554): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2564): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_ERROR, ("Server return invalid firmware information !\n"));
+applications\UITD.c(2564): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_ERROR, ("Server return invalid firmware information !\n"));
+applications\UITD.c(2569): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("Server return new firmware information\n"));
+applications\UITD.c(2569): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("Server return new firmware information\n"));
+applications\UITD.c(2570): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("Version: %d.%02d\n", handler->FW.FW.fw_ver_main, handler->FW.FW.fw_ver_user));
+applications\UITD.c(2570): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("Version: %d.%02d\n", handler->FW.FW.fw_ver_main, handler->FW.FW.fw_ver_user));
+applications\UITD.c(2571): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("FW name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2571): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("FW name: %s\n", handler->FW.FW.name));
+applications\UITD.c(2572): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2572): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("FW len: %d\n", handler->FW.FW.len));
+applications\UITD.c(2581): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2581): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Searched the match node\n"));
+applications\UITD.c(2610): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "char *restrict"
+                          strcpy(handler->FW.FW.name, p_file_info_ack->name);
+applications\UITD.c(2610): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "const char *restrict"
+                          strcpy(handler->FW.FW.name, p_file_info_ack->name);
+applications\UITD.c(2632): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log(SYS_DEBUG_ERROR, ("UITD upload file data failed : %d\n", res));
+applications\UITD.c(2632): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log(SYS_DEBUG_ERROR, ("UITD upload file data failed : %d\n", res));
+applications\UITD.c(2652): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a RESTART command !!!  Restart 5 second later.\n"));
+applications\UITD.c(2652): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Server pushed a RESTART command !!!  Restart 5 second later.\n"));
+applications\UITD.c(2670): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Execute script file : %s\n", pkt->buf+2));
+applications\UITD.c(2670): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("Execute script file : %s\n", pkt->buf+2));
+applications\UITD.c(2671): warning:  #223-D: function "script_exec" declared implicitly
+                      res = script_exec((uint8_t *)(pkt->buf+2));
+applications\UITD.c(2817): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("Server pushed a output control CMD %d\n", i));
+applications\UITD.c(2817): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_INFO, ("Server pushed a output control CMD %d\n", i));
+applications\UITD.c(2818): warning:  #223-D: function "log_trace" declared implicitly
+                          SYS_log( SYS_DEBUG_INFO, ("Output ID: %d, action: %d, delay: %d\n", 
+applications\UITD.c(2818): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          SYS_log( SYS_DEBUG_INFO, ("Output ID: %d, action: %d, delay: %d\n", 
+applications\UITD.c(3121): warning:  #223-D: function "log_trace" declared implicitly
+  			
+YS_log( SYS_DEBUG_ERROR, ("Unsupported CMD : %d\n" , pkt->ctrl.cmd));
+applications\UITD.c(3121): warning:  #223-D: function "log_trace_flush" declared implicitly
+  			
+YS_log( SYS_DEBUG_ERROR, ("Unsupported CMD : %d\n" , pkt->ctrl.cmd));
+applications\UITD.c(3124): warning:  #940-D: missing return statement at end of non-void function "UITD_deal"
+  }
+applications\UITD.c(2220): warning:  #177-D: variable "file_data_rec" was declared but never referenced
+  	s_FW_DATA file_data_rec = {0};
+applications\UITD.c(3150): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+  	res = handler->send_data(handler, handler->node[node].socket, handler->send_buf, handler->data_len);
+applications\UITD.c(3153): warning:  #223-D: function "log_trace" declared implicitly
+  		
+YS_log( SYS_DEBUG_ERROR, ("Net send data failed : %d\n", res));
+applications\UITD.c(3153): warning:  #223-D: function "log_trace_flush" declared implicitly
+  		
+YS_log( SYS_DEBUG_ERROR, ("Net send data failed : %d\n", res));
+applications\UITD.c(3186): warning:  #223-D: function "log_trace" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("Send pkg success.\n"));
+applications\UITD.c(3186): warning:  #223-D: function "log_trace_flush" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("Send pkg success.\n"));
+applications\UITD.c(3191): warning:  #223-D: function "log_trace" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("Send pkg failed.\n"));
+applications\UITD.c(3191): warning:  #223-D: function "log_trace_flush" declared implicitly
+  					
+YS_log( SYS_DEBUG_INFO, ("Send pkg failed.\n"));
+applications\UITD.c(3203): warning:  #223-D: function "log_trace" declared implicitly
+  						
+YS_log( SYS_DEBUG_DEBUG, ("Receive affirm packet\n"));
+applications\UITD.c(3203): warning:  #223-D: function "log_trace_flush" declared implicitly
+  						
+YS_log( SYS_DEBUG_DEBUG, ("Receive affirm packet\n"));
+applications\UITD.c(3211): warning:  #223-D: function "log_trace" declared implicitly
+  						
+YS_log( SYS_DEBUG_INFO, ("Receive affirm deny\n"));
+applications\UITD.c(3211): warning:  #223-D: function "log_trace_flush" declared implicitly
+  						
+YS_log( SYS_DEBUG_INFO, ("Receive affirm deny\n"));
+applications\UITD.c(3230): warning:  #223-D: function "log_trace" declared implicitly
+  						
+YS_log( SYS_DEBUG_ERROR, ("Send failed !\n"));
+applications\UITD.c(3230): warning:  #223-D: function "log_trace_flush" declared implicitly
+  						
+YS_log( SYS_DEBUG_ERROR, ("Send failed !\n"));
+applications\UITD.c(3236): warning:  #223-D: function "log_trace" declared implicitly
+  						
+YS_log( SYS_DEBUG_DEBUG, ("UITD pkg sending\n"));
+applications\UITD.c(3236): warning:  #223-D: function "log_trace_flush" declared implicitly
+  						
+YS_log( SYS_DEBUG_DEBUG, ("UITD pkg sending\n"));
+applications\UITD.c(3243): warning:  #223-D: function "log_trace" declared implicitly
+  							
+YS_log( SYS_DEBUG_DEBUG, ("Send pkg success. %d , waiting ack packet\n", handler->node[i].retry));
+applications\UITD.c(3243): warning:  #223-D: function "log_trace_flush" declared implicitly
+  							
+YS_log( SYS_DEBUG_DEBUG, ("Send pkg success. %d , waiting ack packet\n", handler->node[i].retry));
+applications\UITD.c(3260): warning:  #223-D: function "log_trace" declared implicitly
+  									
+YS_log( SYS_DEBUG_ERROR, ("Send failed too many times, exit !\n"));
+applications\UITD.c(3260): warning:  #223-D: function "log_trace_flush" declared implicitly
+  									
+YS_log( SYS_DEBUG_ERROR, ("Send failed too many times, exit !\n"));
+applications\UITD.c(3297): warning:  #223-D: function "log_trace" declared implicitly
+  			
+YS_log( SYS_DEBUG_ERROR, ("UITD pkt send failed\n"));
+applications\UITD.c(3297): warning:  #223-D: function "log_trace_flush" declared implicitly
+  			
+YS_log( SYS_DEBUG_ERROR, ("UITD pkt send failed\n"));
+applications\UITD.c(3312): warning:  #223-D: function "log_trace" declared implicitly
+  			
+YS_log( SYS_DEBUG_INFO, ("UITD pkt send success\n"));
+applications\UITD.c(3312): warning:  #223-D: function "log_trace_flush" declared implicitly
+  			
+YS_log( SYS_DEBUG_INFO, ("UITD pkt send success\n"));
+applications\UITD.c(3322): warning:  #223-D: function "log_trace" declared implicitly
+  			
+YS_log( SYS_DEBUG_DEBUG, ("UITD pkt received ack packet.\n"));
+applications\UITD.c(3322): warning:  #223-D: function "log_trace_flush" declared implicitly
+  			
+YS_log( SYS_DEBUG_DEBUG, ("UITD pkt received ack packet.\n"));
+applications\UITD.c(3332): warning:  #940-D: missing return statement at end of non-void function "UITD_send_handler"
+  }
+applications\UITD.c(3337): warning:  #177-D: variable "p" was declared but never referenced
+      uint8_t *p = NULL;
+applications\UITD.c(3362): warning:  #223-D: function "log_trace" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("File %s download success !\n", fw->fw_path));
+applications\UITD.c(3362): warning:  #223-D: function "log_trace_flush" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("File %s download success !\n", fw->fw_path));
+applications\UITD.c(3371): warning:  #223-D: function "log_trace" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("File %s download failed !!!\n", fw->fw_path));
+applications\UITD.c(3371): warning:  #223-D: function "log_trace_flush" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("File %s download failed !!!\n", fw->fw_path));
+applications\UITD.c(3401): warning:  #223-D: function "log_trace" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade success, ready to upgrade the firmware, waiting reboot.\n"));
+applications\UITD.c(3401): warning:  #223-D: function "log_trace_flush" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade success, ready to upgrade the firmware, waiting reboot.\n"));
+applications\UITD.c(3402): warning:  #223-D: function "touch" declared implicitly
+      touch(FW_UPGRADE_FLAG, 1);
+applications\UITD.c(3378): warning:  #177-D: variable "fw" was declared but never referenced
+      s_FW_update *fw = (s_FW_update *)data;
+applications\UITD.c(3379): warning:  #177-D: variable "res" was declared but never referenced
+      int res = -1;
+applications\UITD.c(3421): warning:  #223-D: function "log_trace" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade retry ! \n"));
+applications\UITD.c(3421): warning:  #223-D: function "log_trace_flush" declared implicitly
+      
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade retry ! \n"));
+applications\UITD.c(3422): warning:  #223-D: function "UITD_download_firmware" declared implicitly
+      UITD_download_firmware(fw, fw->file_down_success, fw->file_down_fail);
+applications\UITD.c(3432): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+      q = strstr(p, "/");
+applications\UITD.c(3432): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+      q = strstr(p, "/");
+applications\UITD.c(3436): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+          q = strstr(p, "/");
+applications\UITD.c(3436): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "uint8_t *"
+          q = strstr(p, "/");
+applications\UITD.c(3439): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(name, p);
+applications\UITD.c(3439): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(name, p);
+applications\UITD.c(3457): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      sprintf(fw->fw_path, "%s/%s", 
+OWN_FILE_DIR, filename);
+applications\UITD.c(3459): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(fw->data_req.name, file_path);
+applications\UITD.c(3459): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(fw->data_req.name, file_path);
+applications\UITD.c(3477): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(fw->fw_path, fw->FW.name);
+applications\UITD.c(3477): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(fw->fw_path, fw->FW.name);
+applications\UITD.c(3482): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(fw->data_req.name, fw->FW.name);
+applications\UITD.c(3482): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(fw->data_req.name, fw->FW.name);
+applications\UITD.c(3502): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(fw->fw_path, 
+W_FILE_PATH);
+applications\UITD.c(3504): warning:  #167-D: argument of type "__packed uint8_t *" is incompatible with parameter of type "char *restrict"
+      strcpy(fw->data_req.name, filename);
+applications\UITD.c(3504): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      strcpy(fw->data_req.name, filename);
+applications\UITD.c(3529): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *restrict"
+      sscanf(fw_name, "%*[^'_']_%*[^'_']_%d_%d_%8X", &ver_main, &ver_sub, &dev);
+applications\UITD.c(3529): warning:  #181-D: argument is incompatible with corresponding format string conversion
+      sscanf(fw_name, "%*[^'_']_%*[^'_']_%d_%d_%8X", &ver_main, &ver_sub, &dev);
+applications\UITD.c(3529): warning:  #181-D: argument is incompatible with corresponding format string conversion
+      sscanf(fw_name, "%*[^'_']_%*[^'_']_%d_%d_%8X", &ver_main, &ver_sub, &dev);
+applications\UITD.c(3566): warning:  #223-D: function "sys_reboot" declared implicitly
+              sys_reboot();
+applications\UITD.c(3613): warning:  #223-D: function "log_trace" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("UITD send alive\n"));
+applications\UITD.c(3613): warning:  #223-D: function "log_trace_flush" declared implicitly
+                      
+YS_log( SYS_DEBUG_INFO, ("UITD send alive\n"));
+applications\UITD.c(3647): warning:  #223-D: function "log_trace" declared implicitly
+                  
+YS_log(SYS_DEBUG_ERROR, ("UITD_server socket %d have been disconnected !\n", handler->socket));
+applications\UITD.c(3647): warning:  #223-D: function "log_trace_flush" declared implicitly
+                  
+YS_log(SYS_DEBUG_ERROR, ("UITD_server socket %d have been disconnected !\n", handler->socket));
+applications\UITD.c(3679): warning:  #223-D: function "log_trace" declared implicitly
+                  
+YS_log( SYS_DEBUG_INFO, ("Firmware file has been created.\n"));
+applications\UITD.c(3679): warning:  #223-D: function "log_trace_flush" declared implicitly
+                  
+YS_log( SYS_DEBUG_INFO, ("Firmware file has been created.\n"));
+applications\UITD.c(3705): warning:  #223-D: function "log_trace" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Fetch file data, index: %d\n", handler->FW.data_req.index));
+applications\UITD.c(3705): warning:  #223-D: function "log_trace_flush" declared implicitly
+                          
+YS_log( SYS_DEBUG_DEBUG, ("Fetch file data, index: %d\n", handler->FW.data_req.index));
+applications\UITD.c(3737): warning:  #223-D: function "rm" declared implicitly
+                  rm(handler->FW.fw_path);
+applications\UITD.c(3741): warning:  #223-D: function "log_trace" declared implicitly
+                  
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade failed !!!!!!!!!\n"));
+applications\UITD.c(3741): warning:  #223-D: function "log_trace_flush" declared implicitly
+                  
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade failed !!!!!!!!!\n"));
+applications\UITD.c(3752): warning:  #223-D: function "log_trace" declared implicitly
+                  
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade stoped !!!!!!!!!\n"));
+applications\UITD.c(3752): warning:  #223-D: function "log_trace_flush" declared implicitly
+                  
+YS_log( SYS_DEBUG_INFO, ("Firmware upgrade stoped !!!!!!!!!\n"));
+applications\UITD.c(3551): warning:  #177-D: variable "temp_pkt" was declared but never referenced
+      t_GB_pkt temp_pkt = {0};
+applications\UITD.c(3975): warning:  #188-D: enumerated type mixed with another type
+          return -1;
+applications\UITD.c(3975): warning:  #68-D: integer conversion resulted in a change of sign
+          return -1;
+applications\UITD.c(4037): warning:  #223-D: function "log_trace" declared implicitly
+                  
+YS_log( SYS_DEBUG_ERROR, ("Error code: %d \n", GB_err));
+applications\UITD.c(4037): warning:  #223-D: function "log_trace_flush" declared implicitly
+                  
+YS_log( SYS_DEBUG_ERROR, ("Error code: %d \n", GB_err));
+applications\UITD.c(4054): warning:  #940-D: missing return statement at end of non-void function "UITD_server"
+  }
+applications\UITD.c(165): warning:  #177-D: variable "FA_elec_fire_temp" was declared but never referenced
+  static s_com_bus_R_alarm FA_elec_fire_temp = {0}; //wzy
+applications\UITD.c(171): warning:  #177-D: variable "file_data_request" was declared but never referenced
+  static s_file_DATA file_data_request = {0};
+applications\UITD.c(175): warning:  #177-D: variable "p_IO_input_cfg" was declared but never referenced
+  static s_IO_input_cfg *p_IO_input_cfg = NULL;
+applications\UITD.c(176): warning:  #177-D: variable "IO_input_cfg_report_temp" was declared but never referenced
+  static s_IO_input_cfg_report IO_input_cfg_report_temp = {0};
+applications\UITD.c: 321 warnings, 0 errors
 linking...
-Program Size: Code=322296 RO-data=42692 RW-data=3388 ZI-data=27612  
+Program Size: Code=322144 RO-data=42692 RW-data=3388 ZI-data=27612  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --bin .\build\rtthread-stm32.axf --output rtthread.bin
-".\build\rtthread-stm32.axf" - 0 Error(s), 0 Warning(s).
+".\build\rtthread-stm32.axf" - 0 Error(s), 321 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -52,7 +890,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.2
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:11
 </pre>
 </body>
 </html>

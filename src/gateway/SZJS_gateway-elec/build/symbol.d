@@ -1,0 +1,13 @@
+.\build\symbol.o: ..\..\RTT_2_1_0\components\finsh\symbol.c
+.\build\symbol.o: ..\..\RTT_2_1_0\components\finsh\finsh.h
+.\build\symbol.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\symbol.o: .\rtconfig.h
+.\build\symbol.o: ..\..\RTT_2_1_0\include\rtdebug.h
+.\build\symbol.o: ..\..\RTT_2_1_0\include\rtdef.h
+.\build\symbol.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\symbol.o: ..\..\RTT_2_1_0\include\rtservice.h
+.\build\symbol.o: ..\..\RTT_2_1_0\include\rtm.h
+.\build\symbol.o: ..\..\RTT_2_1_0\include\rtthread.h
+.\build\symbol.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\build\symbol.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\symbol.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
