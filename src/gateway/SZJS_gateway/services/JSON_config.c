@@ -22,7 +22,7 @@ static elec_buf_t elec_buff;
 static uint8_t elec_frame[10] = {0};
 const static uint8_t elec_sync[10] = {0x66, 0xF0, 0x00, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFD};
 extern elec_buf_t m_elec_buf_t;
-
+uint8_t recv_flag = 0;
 
 
 
@@ -1331,6 +1331,43 @@ FA_cfg_load_start:
     return 0;	
 }
 
+
+
+
+//wzy
+u16 crc16_modbus(u8 *data, u32 len)
+{
+	u16 reg_crc = 0xFFFF;
+
+	u16 crc = 0;
+	u8 res = 0;
+	u8 i = 0;
+	
+	while(len--)
+	{
+	
+		reg_crc ^= *data++;
+		for(i=0; i<8; i++)
+		{
+			if(reg_crc & 0x0001)
+			{
+				reg_crc = reg_crc>>1^0xA001;
+			}
+			else
+			{
+				reg_crc >>= 1;
+			}
+		}
+	}
+	
+//	crc = ((reg_crc&0x00FF)<<8) | ((reg_crc&0xFF00)>>8);
+	
+	return reg_crc;
+}
+
+
+
+
 //wzy
 void json_cfg_load_elec(void *p)
 {
@@ -1343,7 +1380,7 @@ void json_cfg_load_elec(void *p)
     uint8_t json_buf[32] = {0};
 	int d = 0;
 	int times_cnt = 0;
-
+	uint16_t crc = 0;
 	
 ELEC_cfg_load_start:
     
@@ -1372,72 +1409,42 @@ ELEC_cfg_load_start:
 				if (JSON_item != NULL) 
 					d = JSON_item->valueint;
 				
-				i = 0;
-				j = 0;
-				k = 0;
+			
 	
-				elec_frame[0] = 0x66;
-				elec_frame[1] = 0xF0;
-				elec_frame[3] = 0x10;
-				elec_frame[6] = 0x66;
-				elec_frame[7] = 0x00;
-				elec_frame[8] = 0x00;
-				elec_frame[9] = 0xFD;				
+//				elec_frame[0] = 0x01;
+				elec_frame[1] = 0x03;
+				elec_frame[2] = 0x00;
+				elec_frame[3] = 0x00;
+				elec_frame[4] = 0x00;
+				elec_frame[5] = 0x01;
+//				elec_frame[6] = 0x00;
+//				elec_frame[7] = 0x00;
+			
+								
 			}			
 		
-			d--;
+////		d--;
+			if(recv_flag == 1)
+			{
+				
+				
+			}
+			
 			for(n=0; n<d; n++)
 			{
 			
-				sprintf(json_buf, "sys_addr_%d", k);
-				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
-				if (JSON_item != NULL) 
-					sys_addr = JSON_item->valueint;
-										
-				sprintf(json_buf, "addr_area_%d_%d", k, i);
-				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
-				if (JSON_item != NULL) 
-					addr_area = JSON_item->valueint;
+				elec_frame[0] = n;
 				
-				if (addr_area == 255)
-				{
-					k++;
-					i = 0;
-					j = 0;
-				}
+				crc = crc16_modbus(elec_frame, 6);
 				
+				elec_frame[6] = (uint8_t)crc;				
+				elec_frame[7] = (uint8_t)(crc>>8);
 				
-				sprintf(json_buf, "addr_line_%d_%d_%d", k, i, j);
-				JSON_item = cJSON_GetObjectItem(pJSON, json_buf);
-				if (JSON_item != NULL) 
-					addr_line = JSON_item->valueint;						
-				
-				elec_frame[2] = sys_addr;
-				elec_frame[4] = addr_area;
-				elec_frame[5] = addr_line;				
-				
-				j++;
-
-				if (addr_line == 255)
-				{
-					i++;
-					j = 0;
-				}
-		
-								
-				if(addr_line != 255)
-				{	
-					rt_device_write(p_com_bus_cb->dev, 0, elec_frame, 10); 
-					rt_thread_delay(250);	 // 每个节点延时2秒钟
-				}
+				rt_device_write(p_com_bus_cb->dev, 0, elec_frame, 8); 
+				rt_thread_delay(250);	 // 每个节点延时2秒钟
 
 			}
-			
-			rt_thread_delay(300);
-			elec_frame[6] = 0x00;
-			rt_device_write(p_com_bus_cb->dev, 0, elec_frame, 10);
-			
-			rt_thread_delay(times_cnt*100);
+
 			
 		}
 		
@@ -1449,7 +1456,7 @@ ELEC_cfg_load_start:
         // Create a default config file.
         json_cfg_create_elec(ELEC_FIRE_CFG_FILE_PATH);
         
-        res = json_cfg_open( ELEC_FIRE_CFG_FILE_PATH, O_RDONLY);
+        res = json_cfg_open(ELEC_FIRE_CFG_FILE_PATH, O_RDONLY);
         if (res >= 0)
         {
             json_cfg_close(res);
