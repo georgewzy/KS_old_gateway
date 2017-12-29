@@ -82,7 +82,7 @@ int FAC_unusual_rx_handler(s_com_bus_cb * cb);
 int FAC_strcmp(const uint8_t *str1, const uint8_t *str2);
 
 
-
+extern uint8_t recv_flag = 0;
 
 
 
